@@ -20,7 +20,7 @@ export default function FeaturedWork({ projects }: { projects: Project[] }) {
             Selected Work
           </h2>
           <p className="text-lg text-gray-400 max-w-[40ch] mx-auto">
-            End-to-end builds from concept to production.
+            Built and shipped.
           </p>
         </div>
 

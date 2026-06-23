@@ -1,6 +1,6 @@
 ---
 title: "Line-Following Robot"
-description: "PID-controlled autonomous robot built from scratch in C++ with encoder feedback, multi-sensor line detection, and Bluetooth telemetry."
+description: "PID-controlled autonomous robot built in C++ with encoder feedback, multi-sensor line detection, and Bluetooth telemetry."
 tags: ["C++", "Arduino", "Embedded", "PID Control", "Robotics"]
 images: ["/projects/line-robot/robot-photo.png", "/projects/line-robot/robot-pid-diagram.png"]
 layout: "imageLeft"
@@ -12,18 +12,15 @@ priority: 4
 
 # Autonomous Line-Following Robot
 
-## Overview
+Started with a breadboard. Ended with a robot that follows a line at speed.
 
-Full physical build from breadboard to working vehicle. Designed, programmed, and tested an autonomous line-following robot using PID control and encoder-based velocity feedback.
+## What I built
 
-## What I Built
-
-- PID controller in C++ for precise line tracking
-- Encoder-based RPM measurement for closed-loop speed control
-- Multi-sensor array for robust line detection
-- Bluetooth telemetry module for live data streaming during tests
-- Full physical assembly including motor driver circuit
+- PID controller in C++ tuned against encoder feedback
+- Multi-sensor IR array for robust detection across different line widths
+- Bluetooth module streaming live telemetry during test runs
+- Motor driver circuit, wired and soldered by hand
 
 ## Stack
 
-C++, Arduino platform, IR sensors, encoder modules, Bluetooth serial.
+C++, Arduino, IR sensors, encoder modules, Bluetooth serial.

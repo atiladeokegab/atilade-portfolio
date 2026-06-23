@@ -105,3 +105,24 @@
  GET /manifest.webmanifest 200 in 9ms (compile: 4ms, render: 5ms)
  GET / 200 in 29ms (compile: 4ms, render: 25ms)
  GET /manifest.webmanifest 200 in 7ms (compile: 3ms, render: 4ms)
+ GET /projects/sap 200 in 200ms (compile: 123ms, generate-params: 118ms, render: 77ms)
+ GET /manifest.webmanifest 200 in 14ms (compile: 7ms, render: 7ms)
+ GET /manifest.webmanifest 200 in 27ms (compile: 22ms, render: 5ms)
+ GET /projects/sap 200 in 326ms (compile: 18ms, generate-params: 13ms, render: 309ms)
+ GET / 200 in 49ms (compile: 5ms, render: 44ms)
+ GET /manifest.webmanifest 200 in 14ms (compile: 7ms, render: 6ms)
+ GET /projects/sap 200 in 107ms (compile: 24ms, generate-params: 17ms, render: 83ms)
+ GET /manifest.webmanifest 200 in 10ms (compile: 4ms, render: 6ms)
+ GET /manifest.webmanifest 200 in 9ms (compile: 2ms, render: 7ms)
+ GET /projects/ibm-z-society 200 in 104ms (compile: 21ms, generate-params: 16ms, render: 83ms)
+ GET /manifest.webmanifest 200 in 11ms (compile: 5ms, render: 6ms)
+ GET /manifest.webmanifest 200 in 7ms (compile: 2ms, render: 5ms)
+⚠ Found a change in next.config.ts. Restarting the server to apply the changes...
+▲ Next.js 16.1.6 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://100.65.249.155:3000
+- Experiments (use with caution):
+  ✓ turbopackUseSystemTlsCerts
+
+✓ Starting...
+✓ Ready in 989ms

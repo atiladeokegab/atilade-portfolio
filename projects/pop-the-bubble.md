@@ -1,6 +1,6 @@
 ---
 title: "Pop The Bubble Hackathon"
-description: "48-hour hackathon in London. Built and pitched a product competing for £10,000 in prizes."
+description: "48 hours in London. Built and pitched competing for £10,000 in prizes."
 tags: ["Hackathon", "Product", "London"]
 images: ["/events/pop-the-bubble.jpeg"]
 layout: "imageRight"
@@ -17,6 +17,4 @@ awards:
 
 # Pop The Bubble Hackathon
 
-## Overview
-
-48-hour hackathon in London. Built and shipped a product under pressure, competing for £10,000 in prizes.
+48 hours in London. Built, pitched, competing for £10,000.

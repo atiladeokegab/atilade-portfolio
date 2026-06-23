@@ -1,6 +1,6 @@
 ---
 title: "OpenAI Hacker House"
-description: "5 days building at OpenAI's first hacker house with Based Collective during London Tech Week. Shipped live, met builders from across the ecosystem."
+description: "5 days at OpenAI's first hacker house with Based Collective, London Tech Week. Shipped something. Met a lot of good people."
 tags: ["AI", "OpenAI", "London", "Based Collective"]
 images: ["/events/openai-house.jpeg", "/events/london-group.jpeg"]
 layout: "imageRight"
@@ -17,10 +17,8 @@ awards:
 
 # OpenAI Hacker House x Based Collective
 
-## Overview
+5 days at OpenAI's first hacker house during London Tech Week, building with Based Collective.
 
-5 days building with Based Collective at OpenAI's first hacker house during London Tech Week. Shipped a live product, connected with founders and engineers from across the AI ecosystem.
+Shipped something live. Spent most of it talking to people I'd been following online for years.
 
-## Experience
-
-One of those weeks you just can't manufacture. Surrounded by builders, ideas everywhere, no choice but to ship.
+One of those weeks you can't really manufacture. You just had to be there.

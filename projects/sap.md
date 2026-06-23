@@ -1,6 +1,6 @@
 ---
 title: "SAP Infra Monitor"
-description: "Real-time bare-metal telemetry and alerting platform deployed on SAP BTP from the Belfast engineering office."
+description: "Infrastructure monitoring tool built at 19 at SAP Belfast. Real-time telemetry and alerting, shipped to production."
 tags: ["Python", "SAP BTP", "Cloud", "DevOps", "Monitoring"]
 images: ["/events/sap.jpeg", "/events/sap2.jpeg"]
 layout: "imageLeft"
@@ -12,17 +12,16 @@ priority: 2
 
 # SAP Infrastructure Monitoring Tool
 
-## Overview
+19 years old, first proper engineering job, SAP Belfast.
 
-Built as a 19-year-old software engineer at SAP Belfast. Infrastructure visibility at enterprise scale: real-time bare-metal telemetry, alerting pipelines, and dashboards deployed on SAP BTP.
+I built a monitoring tool that pulled live telemetry from bare-metal servers and surfaced alerts when things went wrong. The dashboard shipped to production and got used by the actual engineering team.
 
-## What I Built
+## What I built
 
 - Live telemetry ingestion from bare-metal servers
-- Configurable alerting rules with threshold-based triggers
-- Dashboard deployed on SAP BTP used by the Belfast engineering team
-- End-to-end delivery from design to production
+- Configurable alerting with threshold-based rules
+- Dashboard on SAP BTP, used by the Belfast team
 
 ## Stack
 
-Python, SAP BTP, REST APIs, cloud monitoring tooling.
+Python, SAP BTP, REST APIs.

@@ -21,7 +21,7 @@ const FeaturedHackathons: React.FC<FeaturedHackathonsProps> = ({ hackathons }) =
         <div className="text-center max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 text-sm font-medium border border-neutral-300 bg-white px-3 py-1.5 rounded-full mb-4">
             <SparkleIcon className="size-5"/>
-            <span>48 hours to ideate, build, and ship</span>
+            <span>48 hours to build and ship</span>
           </div>
           <h2 className="text-4xl sm:text-5xl font-semibold tracking-tight text-neutral-900 mb-4">
             Built under pressure. Shipped.

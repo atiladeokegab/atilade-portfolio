@@ -1,6 +1,6 @@
 ---
 title: "Google AI Hackathon"
-description: "Built and pitched an AI product at Google's office in London. Presented a live demo to judges and competed against teams from across the UK."
+description: "Built and pitched an AI product at Google's London office. Live demo to judges, same day."
 tags: ["Hackathon", "AI", "Google", "London"]
 images: ["/events/google-ai-hack-pitch.jpeg", "/events/google-ai-hack-team.jpeg"]
 layout: "imageRight"
@@ -17,6 +17,4 @@ awards:
 
 # Google AI Hackathon
 
-## Overview
-
-Competed at a Google AI hackathon in London. Built and pitched a product live to judges, presenting a working demo under time pressure.
+Google's London office. Built an AI product in a day and demoed it live to the judges.
