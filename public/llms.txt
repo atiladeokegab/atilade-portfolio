@@ -1,0 +1,43 @@
+# Tran Khoi Nguyen Pham (Noah Pham)
+
+## Summary
+Tran Khoi Nguyen Pham, also known as Noah Pham, or Pham Tran Khoi Nguyen, is a Computer Science student at the University of Manchester, founder, and software developer based in Manchester, UK. He builds products that solve real problems, focusing on AI-powered applications, voice technology, and developer tools.
+
+## Contact & Links
+- Website: https://noahpham.me
+- Location: Manchester, United Kingdom
+
+## Current Focus
+- Studying Computer Science at University of Manchester
+- Building intelligent applications with AI/ML integration
+- Hackathon competitor and winner
+
+## Notable Achievements
+- 9 times hackathon winner.
+- 1st Place, Snap Inc. Challenge at Junction 2025 (Europe's largest hackathon, 1,500+ participants, Helsinki)
+- 1st place Reply Challenge, Hackathons UK Challenge Winner, 3rd Place overall at GreatUniHack 2025.
+- Multiple hackathon awards and recognitions
+
+## Projects
+
+### SpeakWisely
+AI-powered IELTS Speaking preparation platform with instant personalized feedback on pronunciation, fluency, vocabulary, and grammar.
+- Live: https://speakwisely.vercel.app
+- Tech: Next.js, React, TypeScript, Supabase, PostgreSQL, OpenAI, Whisper
+
+### YourWalk (HackJunction 1st Place)
+AR safety navigation with Snap Spectacles that visualizes safe zones and provides an agentic AI companion for nighttime walks. Calculates risk scores using crime statistics, lighting levels, and pedestrian activity.
+- Tech: Snap Spectacles, Lens Studio, AR, AI Agents, TypeScript
+
+### LeetCoach (StudentHack 2nd Place)
+Agentic conversational coding companion for interview preparation. Features voice-enabled AI support, real-time feedback, and secure code execution.
+- Tech: Next.js, TypeScript, Python, Gemini, Neuphonic, CodeMirror
+
+## Skills
+- Frontend: React, Next.js, TypeScript, Tailwind CSS
+- Backend: Python, Node.js, Supabase, PostgreSQL
+- AI/ML: OpenAI, Gemini, Whisper, Voice AI, AI Agents
+- Other: AR Development, Docker, Cloudflare, Vercel
+
+## Philosophy
+"I build products that solve real problems for real people. The best products feel intuitive, remove friction, and genuinely improve someone's productivity."
