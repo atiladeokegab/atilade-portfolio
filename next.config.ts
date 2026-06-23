@@ -14,13 +14,6 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  // Empty turbopack config to acknowledge Turbopack is being used
-  // The '@' alias is already configured in tsconfig.json
-  turbopack: {
-    experimental: {
-      useSystemTlsCerts: true,
-    },
-  },
   experimental: {
     turbopackUseSystemTlsCerts: true,
   },
