@@ -66,8 +66,9 @@ const experiences: ExperienceItem[] = [
   {
     role: "Winter Fellow",
     company: "Palantir",
-    type: "Fellowship",
+    type: "Fellowship, remote internship",
     duration: "Dec 2024 - Aug 2025",
+    description: "Palantir Technologies Winter Fellowship, nine months.",
   },
   {
     role: "Student Fellow",

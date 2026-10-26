@@ -46,7 +46,8 @@ I changed the pitch. Every failed one taught us something, and we got 0.1% bette
 - **#1 IBM Z Student Ambassador worldwide, 2025-26.** Superstar tier, the highest level, with 224 out of 100 points
 - **Won the Winter Challenge**
 - **Speaker at IBM Z Day 2025**, alongside two other ambassadors
-- **WAVEZ Grant**, and a funded place at the GSE UK Conference
+- **WAVEZ Grant**, and a fully funded scholarship to attend the GSE UK Conference
+- **Represented the University of Manchester globally** in the IBM Z community
 - Conversations with executives from top companies about what we built
 
 ## Badges
