@@ -30,6 +30,8 @@ const aboutExperiences = [
   { role: "Software Engineer, DevOps", company: "SAP", type: "Industrial placement", duration: "Jul 2024 - Aug 2025", description: "Bare-metal monitoring for SAP Cloud and developer APIs, Belfast.", link: "https://sap.com" },
   { role: "Founder & President", company: "IBM Z Society, UoM", type: "Society", duration: "Jun 2025 - Mar 2026", description: "0 to 50 members in a year. #1 IBM Z Ambassador 2025-26.", link: "https://atilade.uk/projects/ibm-z-society" },
   { role: "Winter Fellow", company: "Palantir", type: "Fellowship", duration: "Dec 2024 - Aug 2025", description: "Palantir Winter Fellowship.", link: "https://palantir.com" },
+  { role: "Student Fellow", company: "Thinking About Thinking", type: "Fellowship", duration: "Apr 2026 - Jul 2026", description: "AI alignment, and making information more accessible.", link: "https://atilade.uk/about" },
+  { role: "Founder's Associate", company: "BeGenio", type: "Internship", duration: "Aug 2023 - Oct 2023", description: "Edtech startup making maths stick through games. Ran pilot sessions and pitched a maths game to schools in Africa and Europe.", link: "https://atilade.uk/about" },
 ];
 
 const aboutSkills: Record<string, string[]> = {
