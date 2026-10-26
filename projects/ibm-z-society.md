@@ -1,8 +1,8 @@
 ---
 title: "IBM Z Society"
-description: "Started it with two friends in June 2025. Grew it to 50 members, 15+ workshops and 5 events, co-organised IBM's only UK Datathon with 400+ registrations, and left Manchester with four more IBM Z Student Ambassadors."
+description: "Started it with two friends in June 2025. Grew it to 50 members, 15+ workshops and 5 events, and left Manchester with four more IBM Z Student Ambassadors."
 tags: ["IBM Z", "Community", "Leadership", "Mainframe", "Manchester"]
-images: ["/events/ibm-presenting.jpeg", "/events/datathon-card.jpg", "/events/ibm-large-group.jpeg", "/events/ibm-z-freshers-fair.jpeg", "/events/ibm-mainframe-security-group.jpeg", "/events/ibmz-day.jpeg", "/events/ibm-quantum-talk.jpeg", "/events/geniez-ai-group.jpg", "/events/ibm-atilade-niall-thumbs.jpeg"]
+images: ["/events/ibm-presenting.jpeg", "/events/ibm-large-group.jpeg", "/events/ibm-z-freshers-fair.jpeg", "/events/ibm-mainframe-security-group.jpeg", "/events/ibmz-day.jpeg", "/events/ibm-quantum-talk.jpeg", "/events/geniez-ai-group.jpg", "/events/ibm-atilade-niall-thumbs.jpeg"]
 layout: "imageRight"
 date: "2025-06-01"
 brandIcon:
@@ -20,7 +20,6 @@ Day 1 was me and two friends.
 
 - **0 to 50 members** in one year
 - **15+ workshops and 5 events** on AI, quantum and security
-- **IBM Z Datathon 2026:** Manchester was IBM's only UK host for its global Datathon (20,000+ registrations from 60+ countries). We drew **400+ registrations**, three times our goal, and the feedback called it one of the biggest events the Student Ambassador Program has run
 - **Four new IBM Z Student Ambassadors** from Manchester, so the society carries on after me
 
 ## Events we ran

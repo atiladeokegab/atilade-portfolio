@@ -61,7 +61,7 @@ const experiences: ExperienceItem[] = [
     type: "Society",
     duration: "Jun 2025 - Mar 2026",
     description:
-      "Started with two friends, grew it to 50 members, 15+ workshops and 5 events. Co-organised IBM's only UK Datathon (400+ registrations) and left four new ambassadors behind. #1 IBM Z Ambassador 2025-26, Winter Challenge winner, IBM Z Day speaker.",
+      "Started with two friends, grew it to 50 members, 15+ workshops and 5 events. Left four new ambassadors behind. #1 IBM Z Ambassador 2025-26, Winter Challenge winner, IBM Z Day speaker.",
   },
   {
     role: "Winter Fellow",

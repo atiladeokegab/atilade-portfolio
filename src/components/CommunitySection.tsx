@@ -5,7 +5,7 @@ import Reveal from "@/components/Reveal"
 const stats = [
   { value: "0 → 50", label: "members in the IBM Z Society's first year" },
   { value: "15+", label: "workshops, plus 5 events on AI, quantum and security" },
-  { value: "400+", label: "registrations for IBM's only UK Datathon, 3× the goal" },
+  { value: "#1", label: "IBM Z Student Ambassador worldwide, 2025-26" },
   { value: "4", label: "new IBM Z Student Ambassadors to carry it on" },
 ]
 
@@ -37,7 +37,7 @@ export default function CommunitySection() {
 
         <Reveal className="mt-10 text-center">
           <Link href="/projects/ibm-z-society" className="inline-flex items-center gap-2 text-sm font-medium text-gray-500 transition-colors hover:text-gray-900">
-            The IBM Z story, from #1 ambassador to the Datathon
+            The IBM Z story, from two friends to 50 members
             <span aria-hidden>→</span>
           </Link>
         </Reveal>
