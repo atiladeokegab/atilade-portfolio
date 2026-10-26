@@ -37,40 +37,28 @@ const images = [
     alt: "DiSH Accelerator cohort 7, Manchester",
   },
   {
+    src: "/events/bgn-google.jpeg",
+    alt: "Atilade at Google, BGN Hackathon",
+  },
+  {
+    src: "/events/ibm-z-conference.jpeg",
+    alt: "With the IBM Z community at a conference",
+  },
+  {
+    src: "/events/pop-the-bubble.jpeg",
+    alt: "Pop The Bubble Hackathon",
+  },
+  {
+    src: "/events/ibm-z-launch.jpg",
+    alt: "IBM Z Society UoM launch",
+  },
+  {
     src: "/events/witness-world.jpg",
     alt: "Witness, winner at Worlds London",
   },
   {
-    src: "/events/touchline-phone.png",
-    alt: "Touchline at Night Shift",
-  },
-  {
-    src: "/events/bgn-google.jpeg",
-    alt: "Atilade at Google HQ, BGN Hackathon",
-  },
-  {
-    src: "/events/openai-house.jpeg",
-    alt: "OpenAI Hacker House with Based Collective",
-  },
-  {
-    src: "/carousel/uav.png",
-    alt: "UAV LoRaWAN DQN path planning",
-  },
-  {
-    src: "/events/ibm-presenting.jpeg",
-    alt: "Running IBM Z Society talk",
-  },
-  {
-    src: "/events/ibm-mainframe-security-group.jpeg",
-    alt: "IBM Z Society Mainframe Security event",
-  },
-  {
     src: "/events/ibm-atilade-niall-thumbs.jpeg",
     alt: "With Niall Ashley after Mainframe Security",
-  },
-  {
-    src: "/carousel/robot-photo.png",
-    alt: "Autonomous line-following robot",
   },
   {
     src: "/events/bgn-team.jpeg",

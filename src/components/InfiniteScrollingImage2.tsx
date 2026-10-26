@@ -17,35 +17,35 @@ export function InfiniteMovingImages2() {
 
 const images = [
   {
-    src: "/events/axon-flexed.jpeg",
-    alt: "Axon at the Juno x Anthropic hackathon",
-  },
-  {
-    src: "/events/hyperdrop-store.jpg",
-    alt: "HyperDrop at Grok Bot Commerce",
-  },
-  {
-    src: "/events/scale-agent.jpg",
-    alt: "Scale at the Real-World Agents hackathon",
-  },
-  {
-    src: "/events/pop-the-bubble.jpeg",
-    alt: "Pop The Bubble Hackathon",
-  },
-  {
-    src: "/carousel/uav.png",
-    alt: "UAV LoRaWAN DQN path planning",
-  },
-  {
     src: "/events/ibm-large-group.jpeg",
-    alt: "IBM Z Society full group",
+    alt: "IBM Z Society members",
   },
   {
     src: "/events/google-ai-hack-team.jpeg",
     alt: "Google AI Hackathon team",
   },
   {
+    src: "/events/london-group.jpeg",
+    alt: "With the mainframe community in London",
+  },
+  {
+    src: "/events/ibm-freshers-booth.jpeg",
+    alt: "IBM Z Society stand at the Freshers Fair",
+  },
+  {
     src: "/events/thinking-ambassador.jpeg",
-    alt: "Thinking About Thinking Ambassador",
+    alt: "Atilade Gabriel Oke",
+  },
+  {
+    src: "/events/ibm-z-banner-group.jpeg",
+    alt: "IBM Z Society UoM Chapter",
+  },
+  {
+    src: "/events/sap.jpeg",
+    alt: "SAP Belfast",
+  },
+  {
+    src: "/events/ibm-mainframe-security-group.jpeg",
+    alt: "IBM Z Society Mainframe Security event",
   },
 ];

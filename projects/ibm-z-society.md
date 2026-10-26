@@ -2,7 +2,7 @@
 title: "IBM Z Society"
 description: "Started it with two friends in June 2025. Grew it to 50 members, 15+ workshops and 5 events, co-organised IBM's only UK Datathon with 400+ registrations, and left Manchester with four more IBM Z Student Ambassadors."
 tags: ["IBM Z", "Community", "Leadership", "Mainframe", "Manchester"]
-images: ["/events/ibm-presenting.jpeg", "/events/datathon.jpg", "/events/ibm-large-group.jpeg", "/events/ibm-z-freshers-fair.jpeg", "/events/ibm-mainframe-security-group.jpeg", "/events/ibmz-day.jpeg", "/events/ibm-quantum-talk.jpeg", "/events/geniez-ai-group.jpg", "/events/ibm-atilade-niall-thumbs.jpeg"]
+images: ["/events/ibm-presenting.jpeg", "/events/datathon-card.jpg", "/events/ibm-large-group.jpeg", "/events/ibm-z-freshers-fair.jpeg", "/events/ibm-mainframe-security-group.jpeg", "/events/ibmz-day.jpeg", "/events/ibm-quantum-talk.jpeg", "/events/geniez-ai-group.jpg", "/events/ibm-atilade-niall-thumbs.jpeg"]
 layout: "imageRight"
 date: "2025-06-01"
 brandIcon:

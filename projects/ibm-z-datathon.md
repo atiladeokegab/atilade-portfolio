@@ -2,7 +2,7 @@
 title: "IBM Z Datathon 2026"
 description: "Co-organised IBM's only UK host event for its global Datathon. 400+ registrations in Manchester, three times our goal, out of 20,000+ worldwide."
 tags: ["IBM Z", "Community", "Organiser", "Data", "Manchester"]
-images: ["/events/datathon.jpg", "/events/ibm-z-banner-group.jpeg"]
+images: ["/events/datathon-card.jpg", "/events/ibm-z-banner-group.jpeg"]
 layout: "imageRight"
 brandIcon:
 category: "hackathon"
