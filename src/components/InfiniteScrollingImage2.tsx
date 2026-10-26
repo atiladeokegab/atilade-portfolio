@@ -17,6 +17,18 @@ export function InfiniteMovingImages2() {
 
 const images = [
   {
+    src: "/events/axon-flexed.jpeg",
+    alt: "Axon at the Juno x Anthropic hackathon",
+  },
+  {
+    src: "/events/hyperdrop-store.jpg",
+    alt: "HyperDrop at Grok Bot Commerce",
+  },
+  {
+    src: "/events/scale-agent.jpg",
+    alt: "Scale at the Real-World Agents hackathon",
+  },
+  {
     src: "/events/pop-the-bubble.jpeg",
     alt: "Pop The Bubble Hackathon",
   },

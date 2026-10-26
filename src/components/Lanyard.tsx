@@ -24,6 +24,7 @@ extend({ MeshLineGeometry, MeshLineMaterial });
 // Preload assets to prevent loading lag on first render
 useGLTF.preload("/about/Lanyard/card.glb");
 useTexture.preload("/about/Lanyard/lanyards.png");
+useTexture.preload("/about/Lanyard/card-front.png");
 
 interface LanyardProps {
   position?: [number, number, number];
@@ -136,6 +137,10 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false }: BandProps) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const { nodes, materials } = useGLTF("/about/Lanyard/card.glb") as any;
   const texture = useTexture("/about/Lanyard/lanyards.png");
+  // The model's own texture is the template author's card; ours shares its UV layout.
+  const cardFront = useTexture("/about/Lanyard/card-front.png");
+  cardFront.flipY = false;
+  cardFront.colorSpace = materials.base.map.colorSpace;
   const [curve] = useState(
     () =>
       new THREE.CatmullRomCurve3([
@@ -271,7 +276,7 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false }: BandProps) {
           >
             <mesh geometry={nodes.card.geometry}>
               <meshPhysicalMaterial
-                map={materials.base.map}
+                map={cardFront}
                 map-anisotropy={16}
                 clearcoat={isMobile ? 0 : 1}
                 clearcoatRoughness={0.15}

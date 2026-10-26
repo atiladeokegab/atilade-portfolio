@@ -8,6 +8,7 @@ date: "2024-10-18"
 brandIcon:
 category: "project"
 priority: 4
+githubUrl: "https://github.com/atiladeokegab/Autonomous-Line-following-robot"
 ---
 
 # Autonomous Line-Following Robot

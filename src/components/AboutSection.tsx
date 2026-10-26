@@ -29,78 +29,100 @@ type ExperienceItem = {
 
 const experiences: ExperienceItem[] = [
   {
-    role: "Software Developer",
-    company: "Ping Proxies",
-    companyLogo: "/svg/ping-logo.svg",
-    type: "Internship",
-    duration: "Oct 2025 - Present",
+    role: "Analyst, Data & AI",
+    company: "ION",
+    type: "Full-time",
+    duration: "Sep 2026 - Present",
     description:
-      "Building scalable infrastructure for data-driven companies and AI-focused startups to access publicly available web data at scale.",
-    link: "https://pingproxies.com",
-  },
-  {
-    role: "Digital Design Web Developer",
-    company: "University of Manchester Students' Union",
-    companyLogo: "/svg/student-union-icon.svg",
-    type: "Part-time",
-    duration: "Aug 2025 - Present",
-    description:
-      "Designing and developing web experiences for the Students' Union, serving over 100,000 students.",
-    link: "https://manchesterstudentsunion.com",
+      "Technical product work on European high-yield bond coverage: design papers, data sourcing and validation, weekly reporting to leadership.",
+    link: "https://iongroup.com",
   },
   {
     role: "Founder",
-    company: "SpeakWisely",
-    companyLogo: "/svg/speakwiselylogo.svg",
+    company: "Refinery",
+    companyLogo: "/landing/refinery-mark.jpg",
     type: "Startup",
-    duration: "Oct 2024 - Present",
+    duration: "Sep 2025 - Present",
     description:
-      "Building an AI-powered platform to help 300+ students excel at IELTS Speaking.",
-    link: "https://speakwisely.vercel.app",
+      "Proving AI changes to enterprise COBOL are safe to deploy. DiSH Accelerator at Number 10 North, IBM Z ScaleUp, Claude Founder House builder cohort.",
+    link: "https://refinery.guru",
+  },
+  {
+    role: "Software Engineer, DevOps",
+    company: "SAP",
+    type: "Industrial placement",
+    duration: "Jul 2024 - Aug 2025",
+    description:
+      "Built at 19: a bare-metal monitoring tool for SAP Cloud, a performance testing API in Django and Paramiko, and Redis and Celery task processing for the SAP HANA test infrastructure.",
+  },
+  {
+    role: "Founder & President",
+    company: "IBM Z Society, UoM",
+    type: "Society",
+    duration: "Jun 2025 - Mar 2026",
+    description:
+      "Grew it from 0 to 50 members in a year. 15+ workshops and 5 events on AI, quantum and security. #1 IBM Z Ambassador 2025-26, Superstar tier, invited to speak at IBM Z Day.",
+  },
+  {
+    role: "Winter Fellow",
+    company: "Palantir",
+    type: "Fellowship",
+    duration: "Dec 2024 - Aug 2025",
+  },
+  {
+    role: "Student Fellow",
+    company: "Thinking About Thinking",
+    type: "Fellowship",
+    duration: "Apr 2026 - Jul 2026",
+    description: "AI alignment, and making information more accessible.",
+  },
+  {
+    role: "Founder's Associate",
+    company: "BeGenio",
+    type: "Internship",
+    duration: "Aug 2023 - Oct 2023",
+    description: "Edtech startup making maths stick through games. Ran pilot sessions and pitched a maths game to schools in Africa and Europe.",
   },
 ];
 
 const skills: { [key: string]: Skill[] } = {
   "Languages": [
     { name: "Python", iconName: "Python" },
-    { name: "TypeScript", iconName: "TypeScript" },
-    { name: "JavaScript", iconName: "JavaScript" },
-    { name: "Java", iconName: "Java" },
     { name: "C++", iconName: "C++" },
-    { name: "SQL", iconName: "SQL" },
-    { name: "HTML/CSS", iconName: "HTML/CSS" },
     { name: "C", iconName: "C" },
+    { name: "TypeScript", iconName: "TypeScript" },
+    { name: "SQL", iconName: "SQL" },
+    { name: "Bash" },
+    { name: "COBOL" },
   ],
   "Frameworks & Libraries": [
+    { name: "FastAPI" },
+    { name: "Django" },
+    { name: "React", iconName: "React" },
     { name: "Next.js", iconName: "Next.js" },
-    { name: "React.js", iconName: "React" },
-    { name: "Node.js", iconName: "Node.js" },
-    { name: "Tailwind CSS", iconName: "Tailwind CSS" },
-    { name: "Framer Motion", iconName: "Framer Motion" },
-    { name: "Qt", iconName: "Qt" },
-    { name: "PartyKit", iconName: "PartyKit" },
+    { name: "PyTorch" },
+    { name: "Stable-Baselines3" },
+    { name: "Gymnasium" },
+    { name: "Pydantic" },
+    { name: "Z3" },
   ],
   "Developer Tools & Platforms": [
     { name: "Docker", iconName: "Docker" },
+    { name: "Kubernetes" },
     { name: "Git", iconName: "Git" },
     { name: "GitHub", iconName: "GitHub" },
-    { name: "GitLab", iconName: "GitLab" },
-    { name: "Vercel", iconName: "Vercel" },
     { name: "Linux", iconName: "Linux" },
-    { name: "Windows", iconName: "Windows" },
-    { name: "LaTeX", iconName: "LaTeX" },
-    { name: "AWS", iconName: "Amazon EC2" },
-    { name: "Google Analytics", iconName: "Google Analytics" },
-    { name: "Mapbox", iconName: "Mapbox GL" },
-    { name: "Clerk", iconName: "Clerk" },
+    { name: "Google Cloud" },
+    { name: "Vercel", iconName: "Vercel" },
+    { name: "IBM Z" },
+    { name: "Claude Code" },
   ],
-  "Database & BaaS": [
+  "Data & Infrastructure": [
     { name: "PostgreSQL", iconName: "PostgreSQL" },
-    { name: "Supabase", iconName: "Supabase" },
-    { name: "MongoDB", iconName: "MongoDB" },
-    { name: "MySQL", iconName: "MySQL" },
     { name: "SQLite", iconName: "SQLite" },
-    { name: "Firebase", iconName: "Firebase" },
+    { name: "Redis", iconName: "Redis" },
+    { name: "Celery" },
+    { name: "SurrealDB" },
   ],
 };
 
@@ -123,18 +145,17 @@ export default function AboutSection() {
                   University of Manchester
                 </h3>
                 <p className="mb-4 text-xl text-gray-500 md:text-2xl">
-                  BSc. (Hons) Computer Science — Manchester, United Kingdom
+                  BEng (Hons) Electrical & Electronic Engineering with Industrial Experience
                 </p>
                 <p className="mb-6 text-lg text-gray-400">
-                  Sep 2023 – August 2027
+                  Graduated June 2026, 2:1
                 </p>
                 <div className="space-y-4 text-gray-500">
                   <p>
-                    Coursework: Data Science, Operating Systems, Computer
-                    Engineering & Architecture, Discrete Mathematics.
+                    Final year project on deep RL for UAV path planning: 86. AI: 86. Concurrent Systems: 88.
                   </p>
                   <p>
-                    Activities: Student Representative, Google Developer Student Club, Hyperloop Manchester, Manchester Robotics Society, Hackchester - Cyber Security, Manchester Trading Society, MUDSS.
+                    Activities: Founder of the IBM Z Society, Student Representative, PASS Leader, Student Ambassador.
                   </p>
                 </div>
               </div>
@@ -229,8 +250,8 @@ export default function AboutSection() {
               <div className="col-span-4 relative overflow-hidden rounded-lg rounded-tl-2xl shadow-sm">
                 <div className="aspect-[16/10]">
                   <Image
-                    src="/dnsdirectory/DNS Thumbnail 1.svg"
-                    alt="DNS Directory"
+                    src="/events/touchline-phone.png"
+                    alt="Touchline, Night Shift"
                     fill
                     className="object-cover"
                   />
@@ -239,8 +260,8 @@ export default function AboutSection() {
               {/* Top right - smaller */}
               <div className="col-span-2 relative overflow-hidden rounded-lg rounded-tr-2xl shadow-sm">
                 <Image
-                  src="/umsu/su-thumbnail.png"
-                  alt="Students' Union Website"
+                  src="/events/ibm-presenting.jpeg"
+                  alt="Presenting at the IBM Z Society"
                   fill
                   className="object-cover"
                 />
@@ -248,8 +269,8 @@ export default function AboutSection() {
               {/* Bottom left - smaller */}
               <div className="col-span-2 relative overflow-hidden rounded-lg rounded-bl-2xl shadow-sm">
                 <Image
-                  src="/about/byteful43.jpeg"
-                  alt="Ping Proxies Dashboard"
+                  src="/events/sap.jpeg"
+                  alt="SAP Belfast"
                   fill
                   className="object-cover"
                 />
@@ -258,8 +279,8 @@ export default function AboutSection() {
               <div className="col-span-4 relative overflow-hidden rounded-lg rounded-br-2xl shadow-sm">
                 <div className="aspect-[16/10]">
                   <Image
-                    src="/carousel/speakwisely.jpeg"
-                    alt="Development Workspace"
+                    src="/events/hyperdrop-store.jpg"
+                    alt="HyperDrop"
                     fill
                     className="object-cover"
                   />

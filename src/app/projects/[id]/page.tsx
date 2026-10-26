@@ -8,7 +8,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, Calendar, Clock, ExternalLink, Github } from 'lucide-react';
+import { ArrowLeft, Calendar, Clock, ExternalLink, Github, Linkedin } from 'lucide-react';
+import DemoMedia from '@/components/DemoMedia';
+import Reveal from '@/components/Reveal';
 import { TableOfContents } from '@/components/TableOfContents';
 import { BlogCard } from '@/components/BlogCard';
 import { getIcon } from '@/lib/getIcon';
@@ -46,6 +48,8 @@ async function getProjectData(id: string) {
         date: data.date,
         liveUrl: data.liveUrl,
         githubUrl: data.githubUrl,
+        postUrl: data.postUrl,
+        youtube: data.youtube,
         readingTime: `${readingTime} min read`
       },
       content,
@@ -197,7 +201,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
               )}
 
               {/* Action buttons */}
-              {(projectData.data.liveUrl || projectData.data.githubUrl) && (
+              {(projectData.data.liveUrl || projectData.data.githubUrl || projectData.data.postUrl) && (
                 <div className="flex flex-col sm:flex-row gap-3 mb-6 md:mb-8">
                   {projectData.data.liveUrl && (
                     <Button asChild variant="tactile-black" className="justify-center sm:justify-start">
@@ -215,21 +219,59 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
                       </a>
                     </Button>
                   )}
+                  {projectData.data.postUrl && (
+                    <Button asChild variant="tactile-secondary" className="justify-center sm:justify-start">
+                      <a href={projectData.data.postUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                        <Linkedin className="w-4 h-4" />
+                        View Post
+                      </a>
+                    </Button>
+                  )}
                 </div>
               )}
             </header>
 
             {/* Hero image */}
             {projectData.data.images && projectData.data.images[0] && (
-              <div className="relative aspect-[4/3] rounded-lg sm:rounded-xl overflow-hidden mb-8 md:mb-12 bg-gray-100">
-                <Image
+              <Reveal className="relative aspect-video rounded-lg sm:rounded-xl overflow-hidden mb-6 bg-gray-100 shadow-sm">
+                <DemoMedia
                   src={projectData.data.images[0]}
-                  alt={projectData.data.title || 'Project image'}
-                  fill
+                  alt={`${projectData.data.title} demo`}
                   className="object-cover"
                   priority
+                  controls
                   sizes="(max-width: 768px) 100vw, 80vw"
                 />
+              </Reveal>
+            )}
+
+            {/* Video walkthrough */}
+            {projectData.data.youtube && (
+              <Reveal className="relative aspect-video rounded-lg sm:rounded-xl overflow-hidden mb-6 bg-black shadow-sm">
+                <iframe
+                  src={`https://www.youtube-nocookie.com/embed/${projectData.data.youtube}`}
+                  title={`${projectData.data.title} video`}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  loading="lazy"
+                  className="absolute inset-0 h-full w-full"
+                />
+              </Reveal>
+            )}
+
+            {/* Gallery */}
+            {projectData.data.images && projectData.data.images.length > 1 && (
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 md:mb-12">
+                {projectData.data.images.slice(1).map((src: string, index: number) => (
+                  <Reveal key={src} delay={(index % 2) * 0.08} className="group relative aspect-[4/3] rounded-lg sm:rounded-xl overflow-hidden bg-gray-100 shadow-sm">
+                    <DemoMedia
+                      src={src}
+                      alt={`${projectData.data.title} ${index + 2}`}
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                      sizes="(max-width: 640px) 100vw, 40vw"
+                    />
+                  </Reveal>
+                ))}
               </div>
             )}
 

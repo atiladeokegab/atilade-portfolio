@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import fs from 'fs';
 import path from 'path';
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://noahpham.me';
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://atilade.uk';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const projectsDirectory = path.join(process.cwd(), 'projects');
@@ -32,12 +32,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${BASE_URL}/about`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/resume`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,

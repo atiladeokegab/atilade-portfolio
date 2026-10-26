@@ -53,27 +53,26 @@ const About = () => {
                     Introduction
                   </h2>
                   <h1 className="mb-6 text-3xl font-semibold tracking-tight text-gray-900 md:text-4xl lg:text-4xl">
-                    <span className="text-gray-300">I&apos;m a</span>
-                    <span className="text-gray-300"> CompSci</span>
-                    <span className="text-gray-900"> Student,</span>
+                    <span className="text-gray-300">I&apos;m an</span>
+                    <span className="text-gray-900"> Engineer,</span>
                     <span className="text-gray-900"> Founder,</span>
                     <span className="text-gray-300"> and</span>
-                    <span className="text-gray-900"> Developer</span>
+                    <span className="text-gray-900"> Hackathon Winner</span>
                     <br />
                     <span className="text-gray-300"> based in</span>
-                    <span className="text-gray-900"> Manchester.</span>
+                    <span className="text-gray-900"> London.</span>
                   </h1>
                 </div>
 
                 <div className="space-y-6 text-lg text-gray-500">
                   <p>
-                    I build products that solve real problems for real people. Whether it&apos;s an english speaking platform or a voice-powered coding assistant, I focus on creating tools that make complex tasks accessible and enjoyable.
+                    I want to build cool stuff for people and agents. Right now that means Refinery, which proves AI changes to mainframe COBOL are safe to deploy, and a team of AI agents I build almost everything with.
                   </p>
                   <p>
-                    My work centers on understanding how people interact with technology. I believe the best products feel intuitive, remove friction, and genuinely improve someone&apos;s productivity.
+                    By day I&apos;m an Analyst in Data &amp; AI at ION. Before that I was a software engineer at SAP at 19, a Palantir Winter Fellow, and the #1 IBM Z Student Ambassador worldwide.
                   </p>
                   <p>
-                    Currently studying at Manchester while building the next generation of intelligent applications. Always excited to collaborate on projects that push boundaries.
+                    I studied Electrical &amp; Electronic Engineering at Manchester, and I spend most weekends at hackathons. Eight wins so far. Always happy to build something together.
                   </p>
                 </div>
               </div>

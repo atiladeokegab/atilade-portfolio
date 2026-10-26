@@ -44,6 +44,9 @@ export function getProjectsData(): Project[] {
       hackathonName: matterResult.data.hackathonName || undefined,
       displayDate: matterResult.data.displayDate || undefined,
       priority: matterResult.data.priority ?? undefined,
+      githubUrl: matterResult.data.githubUrl || undefined,
+      liveUrl: matterResult.data.liveUrl || undefined,
+      postUrl: matterResult.data.postUrl || undefined,
     };
     return project;
   });

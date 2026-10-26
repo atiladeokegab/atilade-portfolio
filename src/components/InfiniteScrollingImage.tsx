@@ -33,6 +33,18 @@ export function InfiniteMovingImages() {
 
 const images = [
   {
+    src: "/events/dish.jpg",
+    alt: "DiSH Accelerator cohort 7, Manchester",
+  },
+  {
+    src: "/events/witness-world.jpg",
+    alt: "Witness, winner at Worlds London",
+  },
+  {
+    src: "/events/touchline-phone.png",
+    alt: "Touchline at Night Shift",
+  },
+  {
     src: "/events/bgn-google.jpeg",
     alt: "Atilade at Google HQ, BGN Hackathon",
   },

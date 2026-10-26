@@ -4,7 +4,7 @@ import matter from "gray-matter";
 
 import { estimateMarkdownTokens } from "@/lib/markdown-negotiation";
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://noahpham.me";
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://atilade.uk";
 const PROJECTS_DIRECTORY = path.join(process.cwd(), "projects");
 
 type ProjectRecord = {
@@ -25,61 +25,18 @@ type ProjectRecord = {
 };
 
 const aboutExperiences = [
-  {
-    role: "Software Developer",
-    company: "Ping Proxies",
-    type: "Internship",
-    duration: "Oct 2025 - Present",
-    description:
-      "Building scalable infrastructure for data-driven companies and AI-focused startups to access publicly available web data at scale.",
-    link: "https://pingproxies.com",
-  },
-  {
-    role: "Digital Design Web Developer",
-    company: "University of Manchester Students' Union",
-    type: "Part-time",
-    duration: "Aug 2025 - Present",
-    description:
-      "Designing and developing web experiences for the Students' Union, serving over 100,000 students.",
-    link: "https://manchesterstudentsunion.com",
-  },
-  {
-    role: "Founder",
-    company: "SpeakWisely",
-    type: "Startup",
-    duration: "Oct 2024 - Present",
-    description:
-      "Building an AI-powered platform to help 300+ students excel at IELTS Speaking.",
-    link: "https://speakwisely.vercel.app",
-  },
+  { role: "Analyst, Data & AI", company: "ION", type: "Full-time", duration: "Sep 2026 - Present", description: "Technical product work on European high-yield bond coverage.", link: "https://iongroup.com" },
+  { role: "Founder", company: "Refinery", type: "Startup", duration: "Sep 2025 - Present", description: "Proving AI changes to enterprise COBOL are safe to deploy. DiSH Accelerator at Number 10 North, IBM Z ScaleUp, Claude Founder House builder cohort.", link: "https://refinery.guru" },
+  { role: "Software Engineer, DevOps", company: "SAP", type: "Industrial placement", duration: "Jul 2024 - Aug 2025", description: "Bare-metal monitoring for SAP Cloud and developer APIs, Belfast.", link: "https://sap.com" },
+  { role: "Founder & President", company: "IBM Z Society, UoM", type: "Society", duration: "Jun 2025 - Mar 2026", description: "0 to 50 members in a year. #1 IBM Z Ambassador 2025-26.", link: "https://atilade.uk/projects/ibm-z-society" },
+  { role: "Winter Fellow", company: "Palantir", type: "Fellowship", duration: "Dec 2024 - Aug 2025", description: "Palantir Winter Fellowship.", link: "https://palantir.com" },
 ];
 
 const aboutSkills: Record<string, string[]> = {
-  Languages: ["Python", "TypeScript", "JavaScript", "Java", "C++", "SQL", "HTML/CSS", "C"],
-  "Frameworks & Libraries": [
-    "Next.js",
-    "React.js",
-    "Node.js",
-    "Tailwind CSS",
-    "Framer Motion",
-    "Qt",
-    "PartyKit",
-  ],
-  "Developer Tools & Platforms": [
-    "Docker",
-    "Git",
-    "GitHub",
-    "GitLab",
-    "Vercel",
-    "Linux",
-    "Windows",
-    "LaTeX",
-    "AWS",
-    "Google Analytics",
-    "Mapbox",
-    "Clerk",
-  ],
-  "Database & BaaS": ["PostgreSQL", "Supabase", "MongoDB", "MySQL", "SQLite", "Firebase"],
+  Languages: ["Python", "C++", "C", "TypeScript", "SQL", "Bash", "COBOL"],
+  "Frameworks & Libraries": ["FastAPI", "Django", "React", "Next.js", "PyTorch", "Stable-Baselines3", "Gymnasium", "Pydantic", "Z3"],
+  "Developer Tools & Platforms": ["Docker", "Kubernetes", "Git", "GitHub", "Linux", "Google Cloud", "Vercel", "IBM Z", "Claude Code"],
+  "Data & Infrastructure": ["PostgreSQL", "SQLite", "Redis", "Celery", "SurrealDB"],
 };
 
 function compareProjects(a: ProjectRecord, b: ProjectRecord) {
@@ -181,12 +138,12 @@ function buildHomeMarkdown() {
     buildFrontmatter(
       "Atilade Oke's Portfolio",
       "/",
-      "Portfolio homepage for Atilade Oke (Nguyen Pham).",
+      "Portfolio homepage for Atilade Gabriel Oke.",
     ) +
     [
       "# Atilade Oke",
       "",
-      "Computer Science at the University of Manchester, Software Developer at Byteful, incoming at Cloudflare.",
+      "Analyst, Data & AI at ION. Founder of Refinery. Electrical Engineering graduate, University of Manchester. 8x hackathon winner. #1 IBM Z Student Ambassador 2025-26.",
       "",
       "## Quick Links",
       "",
@@ -199,9 +156,9 @@ function buildHomeMarkdown() {
       "",
       "## Current Focus",
       "",
-      "- Building products that solve real problems for real people.",
-      "- Exploring AI agents, voice interfaces, and developer tooling.",
-      "- Competing in hackathons and shipping fast prototypes to production quality.",
+      "- Refinery: proving AI changes to enterprise COBOL are safe to deploy.",
+      "- Building with teams of AI agents, and winning hackathons with them.",
+      "- Data and AI at ION.",
       "",
       "## Featured Projects",
       "",
@@ -236,19 +193,19 @@ function buildAboutMarkdown() {
     [
       "# About Atilade Oke",
       "",
-      "I am a Computer Science student, founder, and developer based in Manchester. I build products that solve real problems for real people, with a focus on intuitive experiences, AI-powered workflows, and accessible tooling.",
+      "I want to build cool stuff for people and agents. Analyst at ION, founder of Refinery, based in London.",
       "",
       "## Education",
       "",
       "### University of Manchester",
       "",
-      "BSc. (Hons) Computer Science — Manchester, United Kingdom",
+      "BEng (Hons) Electrical & Electronic Engineering with Industrial Experience, 2:1",
       "",
-      "Sep 2023 - August 2027",
+      "Graduated June 2026",
       "",
-      "Coursework: Data Science, Operating Systems, Computer Engineering & Architecture, Discrete Mathematics.",
+      "Final year project on deep RL for UAV path planning: 86. AI: 86. Concurrent Systems: 88.",
       "",
-      "Activities: Student Representative, Google Developer Student Club, Hyperloop Manchester, Manchester Robotics Society, Hackchester - Cyber Security, Manchester Trading Society, MUDSS.",
+      "Activities: Founder of the IBM Z Society, Student Representative, PASS Leader, Student Ambassador.",
       "",
       "## Experience",
       "",
@@ -285,22 +242,20 @@ function buildProjectsMarkdown() {
 }
 
 function buildResumeMarkdown() {
-  const resumePath = "/Tran_Khoi_Nguyen_Pham_s_Resume_Summer_Feb_2026.pdf";
+  const resumePath = "https://linkedin.com/in/atiladeoke";
 
   return (
     buildFrontmatter("Resume | Atilade Oke", "/resume", "Latest resume and download link for Atilade Oke.") +
     [
       "# Resume",
       "",
-      "Latest resume for Atilade Oke (Nguyen Pham).",
+      "Atilade's full experience lives on LinkedIn.",
       "",
-      `- PDF: ${toAbsoluteUrl(resumePath)}`,
-      "- Last updated: Feb 2026",
-      "- Role summary: Computer Science Student & Developer",
+      `- LinkedIn: ${resumePath}`,
       "",
       "## Notes",
       "",
-      "The HTML page provides an embedded PDF viewer and download actions. Agents can fetch the PDF directly from the URL above if they need the canonical document.",
+      "The /resume page redirects to LinkedIn.",
     ].join("\n")
   );
 }

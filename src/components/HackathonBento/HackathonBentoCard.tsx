@@ -1,5 +1,6 @@
 import React from 'react';
-import Image from 'next/image';
+import DemoMedia from '@/components/DemoMedia';
+import ProjectLinks from '@/components/ProjectLinks';
 import Link from 'next/link';
 import { Button } from "@/components/ui/button";
 import { IconPointerFilled, IconTrophy, IconMedal, IconMedal2, IconAward } from "@tabler/icons-react";
@@ -38,7 +39,7 @@ export const HackathonBentoCard: React.FC<HackathonBentoCardProps> = ({ hackatho
 
   if (variant === 'large') {
     return (
-      <div className="bg-[#F6F5F4] rounded-xl overflow-hidden relative flex flex-col justify-between lg:row-span-2">
+      <div className="group bg-[#F6F5F4] rounded-xl overflow-hidden relative flex flex-col justify-between lg:row-span-2 transition-shadow duration-300 hover:shadow-lg">
         <div className="p-8 flex flex-col gap-4">
           {/* Awards */}
           {awards && awards.length > 0 && (
@@ -66,6 +67,7 @@ export const HackathonBentoCard: React.FC<HackathonBentoCardProps> = ({ hackatho
               Click to View More
             </Link>
           </Button>
+          <ProjectLinks project={hackathon} />
         </div>
         {/* Image */}
         <div className="w-full relative p-3 flex-1">
@@ -75,11 +77,11 @@ export const HackathonBentoCard: React.FC<HackathonBentoCardProps> = ({ hackatho
                 {displayDate}
               </span>
             )}
-            <Image
+            <DemoMedia
               src={imageUrl}
-              alt={`${name} image`}
-              fill
-              className="object-cover"
+              alt={`${name} demo`}
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
             />
           </div>
         </div>
@@ -89,7 +91,7 @@ export const HackathonBentoCard: React.FC<HackathonBentoCardProps> = ({ hackatho
 
   // Horizontal variant
   return (
-    <div className="bg-[#F6F5F4] rounded-xl overflow-hidden relative flex flex-col lg:flex-row min-h-[250px]">
+    <div className="group bg-[#F6F5F4] rounded-xl overflow-hidden relative flex flex-col lg:flex-row min-h-[250px] transition-shadow duration-300 hover:shadow-lg">
       <div className="p-6 flex flex-col gap-3 justify-center z-10 w-full lg:w-[40%] lg:flex-shrink-0">
         {/* Awards - Mobile: show all, Desktop: compact */}
         {awards && awards.length > 0 && (
@@ -143,6 +145,7 @@ export const HackathonBentoCard: React.FC<HackathonBentoCardProps> = ({ hackatho
             Click to View More
           </Link>
         </Button>
+        <ProjectLinks project={hackathon} />
       </div>
       {/* Image */}
       <div className="relative w-full lg:flex-1 h-[300px] sm:h-[350px] lg:h-auto z-0 p-3">
@@ -152,11 +155,11 @@ export const HackathonBentoCard: React.FC<HackathonBentoCardProps> = ({ hackatho
               {displayDate}
             </span>
           )}
-          <Image
+          <DemoMedia
             src={imageUrl}
-            alt={`${name} image`}
-            fill
-            className="object-cover"
+            alt={`${name} demo`}
+            sizes="(max-width: 1024px) 100vw, 30vw"
+            className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
           />
         </div>
       </div>

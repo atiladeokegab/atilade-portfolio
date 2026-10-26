@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import type { Project } from "./types"
 import { ProjectCard } from "./ProjectCard"
+import Reveal from "@/components/Reveal"
 import { ExploreProjectsCallToAction } from "./ExploreProjectsCallToAction";
 import { SparkleIcon } from "../icons/SparkleIcon"
 import { IconPackage } from "@tabler/icons-react";
@@ -20,13 +21,15 @@ export default function FeaturedWork({ projects }: { projects: Project[] }) {
             Selected Work
           </h2>
           <p className="text-lg text-gray-400 max-w-[40ch] mx-auto">
-            Built and shipped.
+            Things I've built, from a startup to my final year project.
           </p>
         </div>
 
         <div className="mt-16 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
-          {projects.map((project: Project) => (
-            <ProjectCard key={project.id} project={project} />
+          {projects.map((project: Project, index) => (
+            <Reveal key={project.id} delay={(index % 2) * 0.08} className="h-full">
+              <ProjectCard project={project} />
+            </Reveal>
           ))}
           <div className="md:col-span-2">
             <ExploreProjectsCallToAction />

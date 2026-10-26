@@ -1,3 +1,5 @@
+import Link from 'next/link';
+import Reveal from '@/components/Reveal';
 import React from 'react';
 import { SparkleIcon } from '../icons/SparkleIcon';
 import { HackathonBentoGroup } from '@/components/HackathonBento';
@@ -8,8 +10,9 @@ interface FeaturedHackathonsProps {
 }
 
 const FeaturedHackathons: React.FC<FeaturedHackathonsProps> = ({ hackathons }) => {
-  // Take first 3 hackathons for the featured section
-  const featuredHackathons = hackathons.slice(0, 3);
+  // Two bento groups of three, the second mirrored
+  const featuredHackathons = hackathons.slice(0, 6);
+  const groups = [featuredHackathons.slice(0, 3), featuredHackathons.slice(3, 6)].filter((g) => g.length > 0);
 
   if (featuredHackathons.length === 0) {
     return null;
@@ -24,13 +27,23 @@ const FeaturedHackathons: React.FC<FeaturedHackathonsProps> = ({ hackathons }) =
             <span>48 hours to build and ship</span>
           </div>
           <h2 className="text-4xl sm:text-5xl font-semibold tracking-tight text-neutral-900 mb-4">
-            Built under pressure. Shipped.
+            8× hackathon winner.
           </h2>
         </div>
 
-        <div className="mt-16">
-          <HackathonBentoGroup hackathons={featuredHackathons} />
+        <div className="mt-16 flex flex-col gap-6">
+          {groups.map((group, index) => (
+            <Reveal key={index}>
+              <HackathonBentoGroup hackathons={group} layout={index % 2 ? 'largeRight' : 'largeLeft'} />
+            </Reveal>
+          ))}
         </div>
+        <Reveal className="mt-10 text-center">
+          <Link href="/projects" className="inline-flex items-center gap-2 text-sm font-medium text-gray-500 transition-colors hover:text-gray-900">
+            Every hackathon, project and demo
+            <span aria-hidden>→</span>
+          </Link>
+        </Reveal>
       </div>
     </section>
   );

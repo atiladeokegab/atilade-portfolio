@@ -4,6 +4,7 @@ import { SparkleIcon } from "@/components/icons/SparkleIcon"
 import { getProjectsData } from "@/lib/projects";
 import type { Project } from "@/components/FeaturedWork/types"
 import { HackathonBentoGroup } from "@/components/HackathonBento"
+import Reveal from "@/components/Reveal"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -39,8 +40,10 @@ export default function ProjectsPage() {
         </div>
 
         <div className="mt-12 sm:mt-16 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
-          {regularProjects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+          {regularProjects.map((project, index) => (
+            <Reveal key={project.id} delay={(index % 2) * 0.08} className="h-full">
+              <ProjectCard project={project} />
+            </Reveal>
           ))}
         </div>
 
@@ -54,28 +57,23 @@ export default function ProjectsPage() {
                 <span>48 hours to ideate, build, and ship</span>
               </div>
               <h2 className="text-4xl sm:text-5xl md:text-5xl font-semibold tracking-tight text-neutral-900 mb-4">
-                10x hackathon winner, consecutively.
+                8× hackathon winner.
               </h2>
             </div>
 
             <div className="mt-12 sm:mt-16 flex flex-col gap-12">
               {chunkArray(hackathonProjects, 3).map((group, index) => (
-                <HackathonBentoGroup
-                  key={index}
-                  hackathons={group}
-                  layout={index % 2 === 0 ? 'largeLeft' : 'largeRight'}
-                />
+                <Reveal key={index}>
+                  <HackathonBentoGroup
+                    hackathons={group}
+                    layout={index % 2 === 0 ? 'largeLeft' : 'largeRight'}
+                  />
+                </Reveal>
               ))}
             </div>
           </div>
         )}
 
-        {/* More Projects Coming Soon */}
-        <div className="mt-10 sm:mt-12 text-center">
-          <p className="text-base sm:text-lg text-gray-500 font-medium">
-            More projects will be added soon...
-          </p>
-        </div>
       </div>
     </div>
   )

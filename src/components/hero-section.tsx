@@ -18,6 +18,9 @@ const mobileSegments = [
     { text: "Electrical Engineering" },
     { text: "@", className: "text-gray-400 text-[0.7em] align-[0.15em]" },
     { text: "Manchester", icon: icons.manchester, lineBreak: true },
+    { text: "Analyst" },
+    { text: "@", className: "text-gray-400 text-[0.7em] align-[0.15em]" },
+    { text: "ION", lineBreak: true },
     { text: "Founder" },
     { text: "@", className: "text-gray-400 text-[0.7em] align-[0.15em]" },
     { text: "Refinery", icon: icons.refinery, lineBreak: true },
@@ -27,11 +30,14 @@ const mobileSegments = [
 ]
 
 const desktopSegments = [
-    { text: "Atilade studies", className: "text-gray-400" },
+    { text: "Atilade studied", className: "text-gray-400" },
     { text: "Electrical Engineering" },
     { text: "@", className: "text-gray-400 text-[0.7em] align-[0.15em]" },
     { text: "Manchester", icon: icons.manchester, lineBreak: true },
     { text: "Currently", className: "text-gray-400" },
+    { text: "Analyst" },
+    { text: "@", className: "text-gray-400 text-[0.7em] align-[0.15em]" },
+    { text: "ION," },
     { text: "Founder" },
     { text: "@", className: "text-gray-400 text-[0.7em] align-[0.15em]" },
     { text: "Refinery", className: "font-[family-name:var(--font-space-grotesk)] tracking-normal", icon: icons.refinery, lineBreak: true },

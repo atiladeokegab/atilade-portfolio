@@ -23,6 +23,9 @@ export interface Project {
   awards?: Award[]
   hackathonName?: string
   displayDate?: string
+  githubUrl?: string
+  liveUrl?: string
+  postUrl?: string
   // Manual ordering (lower = higher priority)
   priority?: number
 }

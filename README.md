@@ -1,10 +1,10 @@
 ![Portfolio Preview](/public/opengraph.png)
 
-# Noah Pham | Portfolio
+# Atilade Gabriel Oke | Portfolio
 
 Personal portfolio website showcasing my projects, hackathon wins, and technical experiences.
 
-**Live:** [noahpham.me](https://noahpham.me)
+**Live:** [atilade.uk](https://atilade.uk)
 
 ## Tech Stack
 
@@ -28,4 +28,4 @@ Open [http://localhost:3000](http://localhost:3000) to view.
 ### Connection not private (Public WiFi)
 If you see a `net::ERR_CERT_AUTHORITY_INVALID` error while connecting from public WiFi (libraries, cafes, airports):
 - **Cause:** The network has a login screen ("Captive Portal") that is trying to intercept the connection. Because this site uses HSTS (security feature), your browser blocks the interception to protect you.
-- **Fix:** Visit a non-secure site like [http://neverssl.com](http://neverssl.com) first. This will trigger the WiFi login screen. Once you log in, `noahpham.me` will load correctly.
+- **Fix:** Visit a non-secure site like [http://neverssl.com](http://neverssl.com) first. This will trigger the WiFi login screen. Once you log in, `atilade.uk` will load correctly.

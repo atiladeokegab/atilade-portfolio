@@ -1,4 +1,4 @@
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://noahpham.me';
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://atilade.uk';
 
 export function GET() {
   const robotsTxt = [

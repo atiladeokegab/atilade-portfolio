@@ -7,6 +7,8 @@ import { useState } from "react"
 import { ArrowUpRight } from "lucide-react"
 import { useWebHaptics } from "web-haptics/react"
 import type { Project } from "./types"
+import DemoMedia from "@/components/DemoMedia"
+import ProjectLinks from "@/components/ProjectLinks"
 import type { JSX } from "react/jsx-runtime" 
 
 interface ProjectCardProps {
@@ -75,12 +77,11 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           }}
         >
           <div className={`absolute inset-0 bg-gray-200 animate-pulse ${imageLoaded[index] ? "hidden" : "block"}`} />
-          <Image
-            src={src || "/placeholder.svg"}
-            alt={`${project.name} screenshot ${index + 1}`}
-            fill
+          <DemoMedia
+            src={src}
+            alt={`${project.name} ${index === 0 ? "demo" : `screenshot ${index + 1}`}`}
             sizes="(max-width: 768px) 100vw, 50vw"
-            className="object-cover"
+            className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
             priority={index === 0}
             onLoad={() => handleImageLoad(index)}
           />
@@ -139,11 +140,12 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   )
 
   return (
-    <div className="group rounded-2xl border border-gray-100 bg-[#FAFAFA] shadow-sm transition-all duration-300 hover:shadow-lg hover:border-gray-100 p-3">
-      <Link href={project.href} className="flex flex-col h-full">
+    <div className="group flex h-full flex-col rounded-2xl border border-gray-100 bg-[#FAFAFA] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-gray-100 p-3">
+      <Link href={project.href} className="flex flex-col flex-1">
         <div>{imageGallery}</div>
         <div>{content}</div>
       </Link>
+      <ProjectLinks project={project} className="px-6 pb-4 lg:px-8 lg:pb-6 -mt-2" />
     </div>
   )
 }
