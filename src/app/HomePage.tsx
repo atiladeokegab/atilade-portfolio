@@ -3,6 +3,7 @@
 import HeroSection from "@/components/hero-section";
 import FeaturedWork from "@/components/FeaturedWork";
 import FeaturedHackathons from "@/components/FeaturedHackathons/FeaturedHackathons";
+import CommunitySection from "@/components/CommunitySection";
 import { InfiniteMovingImages } from "@/components/InfiniteScrollingImage";
 import { InfiniteMovingImages2 } from "@/components/InfiniteScrollingImage2";
 import ClickSpark from "@/components/ui/ClickSpark";
@@ -49,6 +50,7 @@ export default function HomePage({ projects }: { projects: Project[] }) {
             </span>
           </div>
           <FeaturedWork projects={featuredProjects} />
+          <CommunitySection />
           <FeaturedHackathons hackathons={hackathonProjects} />
         </ClickSpark>
       </div>
