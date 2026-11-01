@@ -11,7 +11,6 @@ import { Button } from '@/components/ui/button';
 import { ArrowLeft, Calendar, Clock, ExternalLink, Github, Linkedin } from 'lucide-react';
 import DemoMedia from '@/components/DemoMedia';
 import LiveEmbed from '@/components/LiveEmbed';
-import BuildFlow from '@/components/BuildFlow';
 import Reveal from '@/components/Reveal';
 import { TableOfContents } from '@/components/TableOfContents';
 import { BlogCard } from '@/components/BlogCard';
@@ -54,8 +53,6 @@ async function getProjectData(id: string) {
         youtube: data.youtube,
         embedUrl: data.embedUrl,
         film: data.film,
-        workflow: data.workflow,
-        workflowTeam: data.workflowTeam,
         readingTime: `${readingTime} min read`
       },
       content,
@@ -369,9 +366,10 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
                       {children}
                     </a>
                   ),
-                  img: ({ src, alt }) => (
+                  img: ({ src, alt, title }) => (
                     <div className="my-6 sm:my-8">
-                      <img src={src} alt={alt} className="rounded-lg shadow-md w-full border border-gray-200" />
+                      {/* title "diagram": a tall self-contained SVG, kept at reading size instead of full width */}
+                      <img src={src} alt={alt} className={title === 'diagram' ? 'mx-auto w-full max-w-md' : 'rounded-lg shadow-md w-full border border-gray-200'} />
                     </div>
                   ),
                   hr: () => <hr className="my-8 sm:my-12 border-gray-200" />,
@@ -382,10 +380,6 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
                 {projectData.content}
               </ReactMarkdown>
             </div>
-
-            {projectData.data.workflow && (
-              <BuildFlow steps={projectData.data.workflow} team={projectData.data.workflowTeam} />
-            )}
 
             {/* Related projects */}
             {relatedProjects.length > 0 && (
