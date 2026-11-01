@@ -8,7 +8,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, Calendar, Clock, ExternalLink, Github, Linkedin } from 'lucide-react';
+import { ArrowLeft, Calendar, Clock, ExternalLink, Github, Linkedin, Play } from 'lucide-react';
 import DemoMedia from '@/components/DemoMedia';
 import LiveEmbed from '@/components/LiveEmbed';
 import Reveal from '@/components/Reveal';
@@ -53,6 +53,8 @@ async function getProjectData(id: string) {
         youtube: data.youtube,
         embedUrl: data.embedUrl,
         film: data.film,
+        filmPoster: data.filmPoster,
+        filmLabel: data.filmLabel,
         readingTime: `${readingTime} min read`
       },
       content,
@@ -255,15 +257,22 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
               </Reveal>
             )}
 
-            {/* Film: "TODO" holds the slot until the file lands */}
+            {/* Film: a local clip plays inline; a hosted one (Drive) is a poster linking out */}
             {projectData.data.film && (
               <Reveal className="relative aspect-video rounded-lg sm:rounded-xl overflow-hidden mb-6 bg-gray-900 shadow-sm">
-                {projectData.data.film === 'TODO' ? (
-                  <div className="absolute inset-0 flex items-center justify-center p-6 text-center text-sm sm:text-base text-white/70">
-                    TODO: the film of the final build goes here.
-                  </div>
-                ) : (
+                {/\.(mp4|webm)$/i.test(projectData.data.film) ? (
                   <DemoMedia src={projectData.data.film} alt={`${projectData.data.title} film`} className="object-cover" controls sizes="(max-width: 768px) 100vw, 80vw" />
+                ) : (
+                  <a href={projectData.data.film} target="_blank" rel="noopener noreferrer" className="group absolute inset-0">
+                    {projectData.data.filmPoster && (
+                      <Image src={projectData.data.filmPoster} alt={`${projectData.data.title} film poster`} fill sizes="(max-width: 768px) 100vw, 80vw" className="object-cover" />
+                    )}
+                    <span className="absolute inset-0 bg-black/30 transition-colors duration-300 group-hover:bg-black/40" />
+                    <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-white px-5 py-3 text-sm sm:text-base font-semibold text-gray-900 shadow-lg transition-transform duration-300 group-hover:scale-105">
+                      <Play className="h-5 w-5 fill-current" />
+                      {projectData.data.filmLabel || 'Watch the film'}
+                    </span>
+                  </a>
                 )}
               </Reveal>
             )}

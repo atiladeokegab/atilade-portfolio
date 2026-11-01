@@ -13,18 +13,21 @@ priority: 1
 liveUrl: "https://strata-901257379404.europe-west2.run.app"
 githubUrl: "https://github.com/atiladeokegab/strata"
 embedUrl: "https://strata-901257379404.europe-west2.run.app/?embed=1"
-film: "TODO" # TODO: build-gpu's film of the final build, e.g. /demos/strata-film.mp4 with a strata-film.jpg poster
+# The submitted demo film; build-gpu's film of the final build replaces it (a local .mp4 plays inline)
+film: "https://drive.google.com/file/d/1uNi3PW-jJgSrKpRLj1RA3SoMRMLxtWnQ/view?usp=sharing"
+filmPoster: "/events/strata-film-poster.webp"
+filmLabel: "Watch the 90 s demo film"
 ---
 
 # Strata, DevDay Community Hackathon London
 
-**[Try it live →](https://strata-901257379404.europe-west2.run.app)**
-
 History is text and flat photos. You can't watch a landmark being built. Strata lets you.
 
-One of the DevDay London judges picked Strata out as one of the top projects.
-
 It rebuilds Tower Bridge from real UK Environment Agency LiDAR and Google's photoreal 3D tiles, then lets you move through time.
+
+## Try it
+
+**[Try it live →](https://strata-901257379404.europe-west2.run.app)**
 
 - A year slider from 1886 to today: the construction stages, an 1890s Ordnance Survey map, 1940, and the bridge now
 - An exploded view that pulls the bridge apart
@@ -33,7 +36,11 @@ It rebuilds Tower Bridge from real UK Environment Agency LiDAR and Google's phot
 - A docent that only answers with cited sources, through OpenAI
 - A 60 second guided story, search, a phone layout and a lite tier for slow devices
 
-[Watch the demo film](https://drive.google.com/file/d/1uNi3PW-jJgSrKpRLj1RA3SoMRMLxtWnQ/view?usp=sharing)
+## What the judges saw
+
+One of the DevDay London judges picked Strata out as one of the top projects.
+
+The judges saw the 90 second demo film I submitted. [Watch the demo film](https://drive.google.com/file/d/1uNi3PW-jJgSrKpRLj1RA3SoMRMLxtWnQ/view?usp=sharing)
 
 ## How it was built
 
