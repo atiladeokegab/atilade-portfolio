@@ -12,7 +12,8 @@ displayDate: "November 2026"
 priority: 1
 liveUrl: "https://strata-901257379404.europe-west2.run.app"
 githubUrl: "https://github.com/atiladeokegab/strata"
-embedUrl: "https://strata-901257379404.europe-west2.run.app/?embed=1"
+# shortcut: tagged build until the promote, then switch back to the live URL
+embedUrl: "https://next18---strata-5zvig7nbvq-nw.a.run.app/?embed=1"
 # The submitted demo film; build-gpu's film of the final build replaces it (a local .mp4 plays inline)
 film: "https://drive.google.com/file/d/1uNi3PW-jJgSrKpRLj1RA3SoMRMLxtWnQ/view?usp=sharing"
 filmPoster: "/events/strata-film-poster.webp"
