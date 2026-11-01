@@ -10,6 +10,8 @@ import { Metadata } from 'next';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, Calendar, Clock, ExternalLink, Github, Linkedin } from 'lucide-react';
 import DemoMedia from '@/components/DemoMedia';
+import LiveEmbed from '@/components/LiveEmbed';
+import BuildFlow from '@/components/BuildFlow';
 import Reveal from '@/components/Reveal';
 import { TableOfContents } from '@/components/TableOfContents';
 import { BlogCard } from '@/components/BlogCard';
@@ -50,6 +52,10 @@ async function getProjectData(id: string) {
         githubUrl: data.githubUrl,
         postUrl: data.postUrl,
         youtube: data.youtube,
+        embedUrl: data.embedUrl,
+        film: data.film,
+        workflow: data.workflow,
+        workflowTeam: data.workflowTeam,
         readingTime: `${readingTime} min read`
       },
       content,
@@ -231,8 +237,15 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
               )}
             </header>
 
+            {/* Live app: poster until clicked */}
+            {projectData.data.embedUrl && projectData.data.images?.[0] && (
+              <Reveal className="relative aspect-video rounded-lg sm:rounded-xl overflow-hidden mb-6 bg-gray-900 shadow-sm">
+                <LiveEmbed src={projectData.data.embedUrl} poster={projectData.data.images[0]} title={projectData.data.title} />
+              </Reveal>
+            )}
+
             {/* Hero image */}
-            {projectData.data.images && projectData.data.images[0] && (
+            {!projectData.data.embedUrl && projectData.data.images && projectData.data.images[0] && (
               <Reveal className="relative aspect-video rounded-lg sm:rounded-xl overflow-hidden mb-6 bg-gray-100 shadow-sm">
                 <DemoMedia
                   src={projectData.data.images[0]}
@@ -242,6 +255,19 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
                   controls
                   sizes="(max-width: 768px) 100vw, 80vw"
                 />
+              </Reveal>
+            )}
+
+            {/* Film: "TODO" holds the slot until the file lands */}
+            {projectData.data.film && (
+              <Reveal className="relative aspect-video rounded-lg sm:rounded-xl overflow-hidden mb-6 bg-gray-900 shadow-sm">
+                {projectData.data.film === 'TODO' ? (
+                  <div className="absolute inset-0 flex items-center justify-center p-6 text-center text-sm sm:text-base text-white/70">
+                    TODO: the film of the final build goes here.
+                  </div>
+                ) : (
+                  <DemoMedia src={projectData.data.film} alt={`${projectData.data.title} film`} className="object-cover" controls sizes="(max-width: 768px) 100vw, 80vw" />
+                )}
               </Reveal>
             )}
 
@@ -356,6 +382,10 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
                 {projectData.content}
               </ReactMarkdown>
             </div>
+
+            {projectData.data.workflow && (
+              <BuildFlow steps={projectData.data.workflow} team={projectData.data.workflowTeam} />
+            )}
 
             {/* Related projects */}
             {relatedProjects.length > 0 && (
