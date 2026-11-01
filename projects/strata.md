@@ -2,7 +2,7 @@
 title: "Strata"
 description: "Tower Bridge rebuilt from real Environment Agency LiDAR and Google's photoreal 3D tiles. Drag a year slider from 1886 to today, raise the bascules, tap any part for its sources. Built in one day with AI agents, and picked out by a DevDay London judge as one of the top projects."
 tags: ["Hackathon", "AI", "OpenAI", "Codex", "3D", "LiDAR", "SurrealDB", "London"]
-images: ["/events/strata-2026.webp", "/demos/strata.mp4", "/events/strata-1890.webp", "/events/strata-construction.webp", "/events/strata-part.webp", "/events/strata-phone.webp"]
+images: ["/events/strata-2026.webp", "/demos/strata.mp4", "/events/strata-construction.webp", "/events/strata-part.webp", "/events/strata-phone.webp"]
 layout: "imageRight"
 date: "2026-11-01"
 brandIcon:

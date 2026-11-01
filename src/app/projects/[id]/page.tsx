@@ -124,6 +124,9 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
       date: p!.data.date
     }));
 
+  // A local clip plays inline; anything else (a Drive link) is a poster that links out
+  const filmIsClip = /\.(mp4|webm)$/i.test(projectData.data.film || '');
+
   const displayDate = projectData.data.date 
     ? new Date(projectData.data.date).toLocaleDateString('en-US', {
         year: 'numeric',
@@ -259,8 +262,8 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
 
             {/* Film: a local clip plays inline; a hosted one (Drive) is a poster linking out */}
             {projectData.data.film && (
-              <Reveal className="relative aspect-video rounded-lg sm:rounded-xl overflow-hidden mb-6 bg-gray-900 shadow-sm">
-                {/\.(mp4|webm)$/i.test(projectData.data.film) ? (
+              <Reveal className={`relative ${filmIsClip ? 'aspect-video' : 'aspect-[2/1] sm:aspect-[3/1]'} rounded-lg sm:rounded-xl overflow-hidden mb-6 bg-gray-900 shadow-sm`}>
+                {filmIsClip ? (
                   <DemoMedia src={projectData.data.film} alt={`${projectData.data.title} film`} className="object-cover" controls sizes="(max-width: 768px) 100vw, 80vw" />
                 ) : (
                   <a href={projectData.data.film} target="_blank" rel="noopener noreferrer" className="group absolute inset-0">
