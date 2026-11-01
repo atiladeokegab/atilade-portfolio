@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 964" width="420" height="964" role="img" aria-labelledby="t">
+<title id="t">How Strata was built: the data contract, LiDAR to bare earth, a procedural bridge, the hydraulic sim, the eras, Google tiles with the bridge cut out, the cited docent, and tag, GPU stills, promote.</title>
+<style>
+  .bg{fill:#fff}.box{fill:#fafafa;stroke:#e5e7eb}.ti{fill:#111827}.de{fill:#4b5563}.ar{stroke:#9ca3af;fill:#9ca3af}
+  .nu{fill:#111827}.nt{fill:#fff}.ft{fill:#111827}.fx{fill:#fff}.fy{fill:#d1d5db}
+  @media (prefers-color-scheme: dark){
+    .bg{fill:#0a0a0a}.box{fill:#18181b;stroke:#27272a}.ti{fill:#f4f4f5}.de{fill:#a1a1aa}.ar{stroke:#52525b;fill:#52525b}
+    .nu{fill:#f4f4f5}.nt{fill:#18181b}.ft{fill:#f4f4f5}.fx{fill:#18181b}.fy{fill:#3f3f46}
+  }
+  text{font-family:Inter,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif}
+</style>
+<rect class="bg" width="420" height="964" rx="12"/>
+<rect class="box" x="16" y="16" width="388" height="86" rx="10" stroke-width="1"/>
+<circle class="nu" cx="38" cy="40" r="11"/>
+<text class="nt" x="38" y="44.5" font-size="12" font-weight="600" text-anchor="middle">1</text>
+<text class="ti" x="60" y="45" font-size="16" font-weight="600">The data contract</text>
+<text class="de" x="60" y="68" font-size="13.5">One scene frame. Every mesh is named by its</text>
+<text class="de" x="60" y="87" font-size="13.5">part id; every number carries a source.</text>
+<line class="ar" x1="210.0" y1="105" x2="210.0" y2="115" stroke-width="1.5"/>
+<path class="ar" d="M206.0 114 L214.0 114 L210.0 119 Z"/>
+<rect class="box" x="16" y="122" width="388" height="86" rx="10" stroke-width="1"/>
+<circle class="nu" cx="38" cy="146" r="11"/>
+<text class="nt" x="38" y="150.5" font-size="12" font-weight="600" text-anchor="middle">2</text>
+<text class="ti" x="60" y="151" font-size="16" font-weight="600">LiDAR to bare earth</text>
+<text class="de" x="60" y="174" font-size="13.5">Environment Agency 1 m LiDAR is the ground.</text>
+<text class="de" x="60" y="193" font-size="13.5">Before 1950 the modern buildings come out.</text>
+<line class="ar" x1="210.0" y1="211" x2="210.0" y2="221" stroke-width="1.5"/>
+<path class="ar" d="M206.0 220 L214.0 220 L210.0 225 Z"/>
+<rect class="box" x="16" y="228" width="388" height="86" rx="10" stroke-width="1"/>
+<circle class="nu" cx="38" cy="252" r="11"/>
+<text class="nt" x="38" y="256.5" font-size="12" font-weight="600" text-anchor="middle">3</text>
+<text class="ti" x="60" y="257" font-size="16" font-weight="600">A procedural bridge</text>
+<text class="de" x="60" y="280" font-size="13.5">Built from 25 sourced parts: it explodes,</text>
+<text class="de" x="60" y="299" font-size="13.5">x-rays and answers a tap with its sources.</text>
+<line class="ar" x1="210.0" y1="317" x2="210.0" y2="327" stroke-width="1.5"/>
+<path class="ar" d="M206.0 326 L214.0 326 L210.0 331 Z"/>
+<rect class="box" x="16" y="334" width="388" height="86" rx="10" stroke-width="1"/>
+<circle class="nu" cx="38" cy="358" r="11"/>
+<text class="nt" x="38" y="362.5" font-size="12" font-weight="600" text-anchor="middle">4</text>
+<text class="ti" x="60" y="363" font-size="16" font-weight="600">The hydraulic sim</text>
+<text class="de" x="60" y="386" font-size="13.5">A weighted accumulator lifts the bascules,</text>
+<text class="de" x="60" y="405" font-size="13.5">with a live readout and traffic held back.</text>
+<line class="ar" x1="210.0" y1="423" x2="210.0" y2="433" stroke-width="1.5"/>
+<path class="ar" d="M206.0 432 L214.0 432 L210.0 437 Z"/>
+<rect class="box" x="16" y="440" width="388" height="86" rx="10" stroke-width="1"/>
+<circle class="nu" cx="38" cy="464" r="11"/>
+<text class="nt" x="38" y="468.5" font-size="12" font-weight="600" text-anchor="middle">5</text>
+<text class="ti" x="60" y="469" font-size="16" font-weight="600">The eras, 1886 to today</text>
+<text class="de" x="60" y="492" font-size="13.5">The 1890s OS map drapes the bare earth</text>
+<text class="de" x="60" y="511" font-size="13.5">while the bridge rises stage by stage.</text>
+<line class="ar" x1="210.0" y1="529" x2="210.0" y2="539" stroke-width="1.5"/>
+<path class="ar" d="M206.0 538 L214.0 538 L210.0 543 Z"/>
+<rect class="box" x="16" y="546" width="388" height="86" rx="10" stroke-width="1"/>
+<circle class="nu" cx="38" cy="570" r="11"/>
+<text class="nt" x="38" y="574.5" font-size="12" font-weight="600" text-anchor="middle">6</text>
+<text class="ti" x="60" y="575" font-size="16" font-weight="600">Google tiles, bridge cut out</text>
+<text class="de" x="60" y="598" font-size="13.5">Photoreal London all around, its own bridge</text>
+<text class="de" x="60" y="617" font-size="13.5">removed so ours stands in its place.</text>
+<line class="ar" x1="210.0" y1="635" x2="210.0" y2="645" stroke-width="1.5"/>
+<path class="ar" d="M206.0 644 L214.0 644 L210.0 649 Z"/>
+<rect class="box" x="16" y="652" width="388" height="86" rx="10" stroke-width="1"/>
+<circle class="nu" cx="38" cy="676" r="11"/>
+<text class="nt" x="38" y="680.5" font-size="12" font-weight="600" text-anchor="middle">7</text>
+<text class="ti" x="60" y="681" font-size="16" font-weight="600">The cited docent (Codex)</text>
+<text class="de" x="60" y="704" font-size="13.5">Answers from the history graph, cites every</text>
+<text class="de" x="60" y="723" font-size="13.5">fact and refuses what it can&#x27;t source.</text>
+<line class="ar" x1="210.0" y1="741" x2="210.0" y2="751" stroke-width="1.5"/>
+<path class="ar" d="M206.0 750 L214.0 750 L210.0 755 Z"/>
+<rect class="box" x="16" y="758" width="388" height="86" rx="10" stroke-width="1"/>
+<circle class="nu" cx="38" cy="782" r="11"/>
+<text class="nt" x="38" y="786.5" font-size="12" font-weight="600" text-anchor="middle">8</text>
+<text class="ti" x="60" y="787" font-size="16" font-weight="600">Tag → GPU stills → promote</text>
+<text class="de" x="60" y="810" font-size="13.5">Each batch is tagged, rendered on a cloud</text>
+<text class="de" x="60" y="829" font-size="13.5">GPU and checked before it goes live.</text>
+<line class="ar" x1="210.0" y1="847" x2="210.0" y2="857" stroke-width="1.5"/>
+<path class="ar" d="M206.0 856 L214.0 856 L210.0 861 Z"/>
+<rect class="ft" x="16" y="864" width="388" height="84" rx="10"/>
+<text class="fx" x="36" y="892" font-size="15" font-weight="600">Built in one day by a team of AI agents.</text>
+<text class="fx" x="36" y="914" font-size="13.5">Codex agents built the history graph,</text>
+<text class="fx" x="36" y="933" font-size="13.5">its validator and the docent.</text>
+</svg>

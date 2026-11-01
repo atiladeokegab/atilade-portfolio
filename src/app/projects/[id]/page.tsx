@@ -8,8 +8,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, Calendar, Clock, ExternalLink, Github, Linkedin } from 'lucide-react';
+import { ArrowLeft, Calendar, Clock, ExternalLink, Github, Linkedin, Play } from 'lucide-react';
 import DemoMedia from '@/components/DemoMedia';
+import LiveEmbed from '@/components/LiveEmbed';
 import Reveal from '@/components/Reveal';
 import { TableOfContents } from '@/components/TableOfContents';
 import { BlogCard } from '@/components/BlogCard';
@@ -50,6 +51,10 @@ async function getProjectData(id: string) {
         githubUrl: data.githubUrl,
         postUrl: data.postUrl,
         youtube: data.youtube,
+        embedUrl: data.embedUrl,
+        film: data.film,
+        filmPoster: data.filmPoster,
+        filmLabel: data.filmLabel,
         readingTime: `${readingTime} min read`
       },
       content,
@@ -118,6 +123,9 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
       readingTime: p!.data.readingTime,
       date: p!.data.date
     }));
+
+  // A local clip plays inline; anything else (a Drive link) is a poster that links out
+  const filmIsClip = /\.(mp4|webm)$/i.test(projectData.data.film || '');
 
   const displayDate = projectData.data.date 
     ? new Date(projectData.data.date).toLocaleDateString('en-US', {
@@ -231,8 +239,15 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
               )}
             </header>
 
+            {/* Live app: poster until clicked */}
+            {projectData.data.embedUrl && projectData.data.images?.[0] && (
+              <Reveal className="relative aspect-video rounded-lg sm:rounded-xl overflow-hidden mb-6 bg-gray-900 shadow-sm">
+                <LiveEmbed src={projectData.data.embedUrl} poster={projectData.data.images[0]} title={projectData.data.title} />
+              </Reveal>
+            )}
+
             {/* Hero image */}
-            {projectData.data.images && projectData.data.images[0] && (
+            {!projectData.data.embedUrl && projectData.data.images && projectData.data.images[0] && (
               <Reveal className="relative aspect-video rounded-lg sm:rounded-xl overflow-hidden mb-6 bg-gray-100 shadow-sm">
                 <DemoMedia
                   src={projectData.data.images[0]}
@@ -242,6 +257,26 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
                   controls
                   sizes="(max-width: 768px) 100vw, 80vw"
                 />
+              </Reveal>
+            )}
+
+            {/* Film: a local clip plays inline; a hosted one (Drive) is a poster linking out */}
+            {projectData.data.film && (
+              <Reveal className={`relative ${filmIsClip ? 'aspect-video' : 'aspect-[2/1] sm:aspect-[3/1]'} rounded-lg sm:rounded-xl overflow-hidden mb-6 bg-gray-900 shadow-sm`}>
+                {filmIsClip ? (
+                  <DemoMedia src={projectData.data.film} alt={`${projectData.data.title} film`} className="object-cover" controls sizes="(max-width: 768px) 100vw, 80vw" />
+                ) : (
+                  <a href={projectData.data.film} target="_blank" rel="noopener noreferrer" className="group absolute inset-0">
+                    {projectData.data.filmPoster && (
+                      <Image src={projectData.data.filmPoster} alt={`${projectData.data.title} film poster`} fill sizes="(max-width: 768px) 100vw, 80vw" className="object-cover" />
+                    )}
+                    <span className="absolute inset-0 bg-black/30 transition-colors duration-300 group-hover:bg-black/40" />
+                    <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-white px-5 py-3 text-sm sm:text-base font-semibold text-gray-900 shadow-lg transition-transform duration-300 group-hover:scale-105">
+                      <Play className="h-5 w-5 fill-current" />
+                      {projectData.data.filmLabel || 'Watch the film'}
+                    </span>
+                  </a>
+                )}
               </Reveal>
             )}
 
@@ -343,9 +378,10 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
                       {children}
                     </a>
                   ),
-                  img: ({ src, alt }) => (
+                  img: ({ src, alt, title }) => (
                     <div className="my-6 sm:my-8">
-                      <img src={src} alt={alt} className="rounded-lg shadow-md w-full border border-gray-200" />
+                      {/* title "diagram": a tall self-contained SVG, kept at reading size instead of full width */}
+                      <img src={src} alt={alt} className={title === 'diagram' ? 'mx-auto w-full max-w-md' : 'rounded-lg shadow-md w-full border border-gray-200'} />
                     </div>
                   ),
                   hr: () => <hr className="my-8 sm:my-12 border-gray-200" />,
