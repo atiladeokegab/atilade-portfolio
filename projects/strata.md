@@ -10,11 +10,9 @@ category: "hackathon"
 hackathonName: "DevDay Community Hackathon London"
 displayDate: "November 2026"
 priority: 1
-# shortcut: tagged build until the promote, then switch back to the live URL (https://strata-901257379404.europe-west2.run.app)
-liveUrl: "https://next18---strata-5zvig7nbvq-nw.a.run.app"
+liveUrl: "https://strata-901257379404.europe-west2.run.app"
 githubUrl: "https://github.com/atiladeokegab/strata"
-# shortcut: tagged build until the promote, then switch back to the live URL
-embedUrl: "https://next18---strata-5zvig7nbvq-nw.a.run.app/?embed=1"
+embedUrl: "https://strata-901257379404.europe-west2.run.app/?embed=1"
 # The submitted demo film; build-gpu's film of the final build replaces it (a local .mp4 plays inline)
 film: "https://drive.google.com/file/d/1uNi3PW-jJgSrKpRLj1RA3SoMRMLxtWnQ/view?usp=sharing"
 filmPoster: "/events/strata-film-poster.webp"
@@ -29,7 +27,7 @@ It rebuilds Tower Bridge from real UK Environment Agency LiDAR and Google's phot
 
 ## Try it
 
-**[Try it live →](https://next18---strata-5zvig7nbvq-nw.a.run.app)**
+**[Try it live →](https://strata-901257379404.europe-west2.run.app)**
 
 - A year slider from 1886 to today: the construction stages, an 1890s Ordnance Survey map, 1940, and the bridge now
 - An exploded view that pulls the bridge apart
