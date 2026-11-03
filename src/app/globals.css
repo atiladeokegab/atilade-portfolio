@@ -144,7 +144,7 @@ html, body {
 
 /* 3D Tactile Button Variants */
 .btn-tactile-primary {
-  height: 2.25rem; /* h-9 */
+  height: 2.75rem; /* 44px: the smallest tap target */
   border-radius: 0.375rem; /* rounded-md, matches default Button */
   font-size: 0.875rem; /* text-sm */
   font-weight: 500; /* font-medium */
@@ -192,7 +192,7 @@ html, body {
 }
 
 .btn-tactile-secondary {
-  height: 2.25rem; /* h-9 */
+  height: 2.75rem; /* 44px: the smallest tap target */
   border-radius: 0.375rem; /* rounded-md, matches default Button */
   font-size: 0.875rem; /* text-sm */
   font-weight: 500; /* font-medium */
@@ -240,7 +240,7 @@ html, body {
 }
 
 .btn-tactile-black {
-  height: 2.25rem; /* h-9 */
+  height: 2.75rem; /* 44px: the smallest tap target */
   border-radius: 0.375rem; /* rounded-md, matches default Button */
   font-size: 0.875rem; /* text-sm */
   font-weight: 500; /* font-medium */
@@ -319,7 +319,13 @@ html, body {
   font-weight: 400;
   font-style: italic;
 }
-/* Browser surfaces in the site's ink and greys. */
+/* Browser surfaces in the site's ink and greys. Unlayered, so it beats utility outline-none. */
+:focus-visible {
+  outline: 3px solid #111827;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
 html {
   caret-color: #111827;
   scrollbar-color: #9ca3af transparent;
@@ -327,9 +333,8 @@ html {
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+    animation: none !important;
+    transition: none !important;
     scroll-behavior: auto !important;
   }
 }

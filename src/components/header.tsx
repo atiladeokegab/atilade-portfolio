@@ -2,9 +2,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
-import { Button } from '@/components/ui/button'
 import React from 'react'
-import { cn } from '@/lib/utils'
 import {
     NavigationMenu,
     NavigationMenuItem,
@@ -27,37 +25,28 @@ const profileImage = '/profile-icons/profile-icon.jpeg';
 
 export const Header = () => {
     const [menuState, setMenuState] = React.useState(false)
-    const [isScrolled, setIsScrolled] = React.useState(false)
-
-    React.useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50)
-        }
-        window.addEventListener('scroll', handleScroll)
-        return () => window.removeEventListener('scroll', handleScroll)
-    }, [])
 
     return (
         <header>
             <nav
                 data-state={menuState && 'active'}
-                className="fixed z-50 w-full px-4 sm:px-6 lg:px-8">
-                <div className={cn('mx-auto mt-2 max-w-7xl px-0 transition-all duration-300', isScrolled && 'bg-background/50 max-w-4xl rounded-2xl border backdrop-blur-lg px-5')}>
-                    <div className="relative flex flex-wrap items-center justify-between gap-6 py-3 lg:gap-0 lg:py-4">
+                className="fixed z-50 w-full border-b border-gray-200 bg-white px-4 sm:px-6 lg:px-8">
+                <div className="mx-auto max-w-7xl">
+                    <div className="relative flex flex-wrap items-center justify-between gap-6 py-2 lg:gap-0">
                         <div className="flex w-full justify-between items-center lg:w-auto">
-                            <div className="flex items-center space-x-2 text-3xl font-semibold tracking-tight text-accent-foreground">
+                            <div className="flex items-center space-x-2 text-base font-semibold tracking-tight text-gray-900">
                                 <Link href="/" aria-label="home">
-                                    <div className="h-10 w-10 flex-shrink-0 overflow-hidden rounded-md">
+                                    <div className="h-11 w-11 flex-shrink-0 overflow-hidden rounded-md">
                                         <Image
                                             src={profileImage}
                                             alt="Atilade Gabriel Oke"
-                                            width={40}
-                                            height={40}
+                                            width={44}
+                                            height={44}
                                             className="h-full w-full object-cover object-top"
                                         />
                                     </div>
                                 </Link>
-                                <Link href="/" className="active:scale-[0.97] transition-transform duration-[160ms] ease-[cubic-bezier(0.23,1,0.32,1)]">
+                                <Link href="/" className="inline-flex min-h-11 items-center active:scale-[0.97] transition-transform duration-[160ms] ease-[cubic-bezier(0.23,1,0.32,1)]">
                                     Atilade Oke
                                 </Link>
                             </div>
@@ -81,7 +70,7 @@ export const Header = () => {
                                             <NavigationMenuLink asChild>
                                                 <Link
                                                     href={item.href}
-                                                    className="text-muted-foreground hover:text-accent-foreground group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium transition-colors"
+                                                    className="text-muted-foreground hover:text-accent-foreground group inline-flex h-11 w-max items-center justify-center rounded-md bg-transparent px-4 text-base! font-medium transition-colors"
                                                 >
                                                     {item.name}
                                                 </Link>
@@ -99,7 +88,7 @@ export const Header = () => {
                                         <li key={index}>
                                             <Link
                                                 href={item.href}
-                                                className="text-muted-foreground hover:text-accent-foreground block duration-150"
+                                                className="text-muted-foreground hover:text-accent-foreground flex min-h-11 items-center duration-150"
                                                 onClick={() => setMenuState(false)}
                                             >
                                                 <span>{item.name}</span>
@@ -109,15 +98,12 @@ export const Header = () => {
                                 </ul>
                             </div>
                             <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit items-center flex-nowrap">
-                                <Button
-                                    size="sm"
-                                    variant="tactile-black"
-                                    asChild
+                                <a
+                                    href="mailto:okeatilade@gmail.com"
+                                    className="inline-flex h-11 items-center rounded-md bg-gray-900 px-4 text-base font-medium text-white transition-colors hover:bg-gray-700"
                                 >
-                                    <a href="mailto:okeatilade@gmail.com">
-                                        <span>Get in Touch</span>
-                                    </a>
-                                </Button>
+                                    Email me
+                                </a>
                             </div>
                         </div>
                     </div>

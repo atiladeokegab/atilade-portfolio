@@ -1,4 +1,4 @@
-import { motion, Transition } from "framer-motion";
+import { motion, Transition, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useRef, useState, useMemo } from "react";
 
@@ -53,6 +53,7 @@ const StyledBlurText: React.FC<StyledBlurTextProps> = ({
   initialDelay = 0,
 }) => {
   const [inView, setInView] = useState(false);
+  const reduce = useReducedMotion();
   const ref = useRef<HTMLElement>(null);
 
   // Flatten segments into animatable units while preserving styling
@@ -161,8 +162,8 @@ const StyledBlurText: React.FC<StyledBlurTextProps> = ({
         return (
           <span key={`${unit.segmentIndex}-${unit.unitIndex}-${index}`} style={{ display: "inline" }}>
             <motion.span
-              initial={defaultFrom}
-              animate={inView ? animateKeyframes : defaultFrom}
+              initial={reduce ? false : defaultFrom}
+              animate={reduce ? defaultTo[defaultTo.length - 1] : inView ? animateKeyframes : defaultFrom}
               transition={spanTransition}
               onAnimationComplete={
                 index === animationUnits.length - 1 ? onAnimationComplete : undefined

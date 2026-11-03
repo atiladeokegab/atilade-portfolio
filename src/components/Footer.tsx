@@ -1,3 +1,5 @@
+'use client';
+import { usePathname } from 'next/navigation';
 import React from 'react';
 import { GithubIcon, LinkedInIcon } from './FontAwesomeIcons';
 
@@ -26,12 +28,14 @@ const socialLinks = [
 ];
 
 const Footer = () => {
+  // /about ends in its own contact block, so the card would repeat it.
+  if (usePathname() === '/about') return null;
   return (
     <footer className="w-full p-4 pb-14 mb-10">
       <div className="mx-auto flex max-w-6xl flex-col items-center rounded-2xl bg-gray-100 p-5 sm:p-5 md:flex-row md:justify-between md:gap-4">
         <a
           href="mailto:okeatilade@gmail.com"
-          className="group flex items-center gap-2 transition-colors hover:text-blue-600"
+          className="group flex min-h-11 items-center gap-2 transition-colors hover:text-blue-600"
         >
           <NotionMailIcon className="h-6 w-6 text-gray-700 transition-transform group-hover:-rotate-12" />
           <span className="text-xl font-medium text-gray-800 inline">
@@ -49,7 +53,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`Link to ${link.name} profile`}
-              className="transition-transform hover:scale-110 hover:z-10 text-5xl sm:text-6xl"
+              className="inline-flex min-h-11 min-w-11 items-center justify-center transition-transform hover:scale-110 hover:z-10 text-5xl sm:text-6xl"
               style={{ color: link.color }}
             >
               {link.icon}

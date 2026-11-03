@@ -90,7 +90,7 @@ const Cta: React.FC<{ hackathon: Project }> = ({ hackathon }) => (
     <Button variant="tactile-black" size="default" asChild className="w-fit">
       <Link href={hackathon.href} className="inline-flex items-center gap-2">
         <IconPointerFilled className="w-6 h-6 fill-current" />
-        Click to View More
+        See {hackathon.name}
       </Link>
     </Button>
     <ProjectLinks project={hackathon} />

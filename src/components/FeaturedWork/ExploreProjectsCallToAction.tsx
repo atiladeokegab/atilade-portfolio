@@ -19,14 +19,14 @@ export const ExploreProjectsCallToAction: React.FC = () => {
         <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-white">
           Explore all projects
         </h2>
-        <p className="mt-6 text-lg leading-relaxed text-white/70 max-w-2xl mx-auto">
-          Discover my diverse range of projects and case studies.
+        <p className="mt-6 text-lg leading-relaxed text-white max-w-2xl mx-auto">
+          Every build, with demos and write-ups.
         </p>
         <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
           <Button variant="tactile-secondary" size="default" asChild>
             <Link href="/projects" className="inline-flex items-center gap-2">
                 <IconPointerFilled className="w-6 h-6 fill-current" />
-                Click to View More
+                See all projects
             </Link>
           </Button>
         </div>
