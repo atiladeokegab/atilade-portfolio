@@ -9,18 +9,10 @@ import { useWebHaptics } from "web-haptics/react"
 import type { Project } from "./types"
 import DemoMedia from "@/components/DemoMedia"
 import ProjectLinks from "@/components/ProjectLinks"
-import type { JSX } from "react/jsx-runtime" 
 
 interface ProjectCardProps {
   project: Project
 }
-
-const Tag: React.FC<{ name: string; icon?: JSX.Element }> = ({ name, icon }) => (
-  <div className="flex items-center gap-1.5 whitespace-nowrap rounded-lg bg-gray-100 px-2.5 py-1 text-xs font-medium text-gray-700">
-    {icon}
-    <span>{name}</span>
-  </div>
-)
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   const haptic = useWebHaptics()

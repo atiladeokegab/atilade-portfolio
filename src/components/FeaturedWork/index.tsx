@@ -3,7 +3,6 @@ import type { Project } from "./types"
 import { ProjectCard } from "./ProjectCard"
 import Reveal from "@/components/Reveal"
 import { ExploreProjectsCallToAction } from "./ExploreProjectsCallToAction";
-import { SparkleIcon } from "../icons/SparkleIcon"
 import { IconPackage } from "@tabler/icons-react";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -21,7 +20,7 @@ export default function FeaturedWork({ projects }: { projects: Project[] }) {
             Selected Work
           </h2>
           <p className="text-lg text-gray-400 max-w-[40ch] mx-auto">
-            Things I've built, from a startup to my final year project.
+            Things I&apos;ve built, from a startup to my final year project.
           </p>
         </div>
 

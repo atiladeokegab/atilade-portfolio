@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# impeccable (pinned 4.8.0; no hooks)
+.impeccable/review/
+.impeccable/hook.cache.json
+.impeccable/*.png
+.impeccable/live/
+.impeccable/detect-*.json
