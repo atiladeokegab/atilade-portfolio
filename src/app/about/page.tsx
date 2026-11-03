@@ -123,7 +123,7 @@ export default function About() {
       {/* First screen */}
       <section className={`${section} grid items-center gap-6 pt-4 lg:pt-6 lg:min-h-[calc(100svh-5rem)] lg:grid-cols-[1.15fr_0.85fr] lg:gap-16`}>
         <div>
-          <h1 className="text-6xl font-semibold tracking-tight lg:text-7xl">I&apos;m Atilade.</h1>
+          <h1 className={`${serif} text-6xl leading-none tracking-tight lg:text-7xl`}>I&apos;m Atilade.</h1>
           <p className={`mt-4 max-w-[24ch] lg:mt-6 ${display}`}>
             <span className="text-gray-500">I build</span> Refinery<span className="text-gray-500">, which proves</span> AI
             changes to enterprise COBOL <span className="text-gray-500">are</span> safe to deploy.
