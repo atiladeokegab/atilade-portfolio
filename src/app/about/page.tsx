@@ -6,7 +6,7 @@ import { ArrowUpRight } from "lucide-react";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Atilade Oke: founder of Refinery, Analyst in Data & AI at ION, Manchester engineer and hackathon winner.",
+    "Atilade Oke: founder of Refinery; Analyst, Data & AI at ION; Manchester engineer and hackathon winner.",
   alternates: { canonical: "/about" },
 };
 
@@ -108,28 +108,33 @@ const elsewhere = [
   { name: "GitHub", href: "https://github.com/atiladeokegab" },
 ];
 
+// One display step: the hero sub-line, every section heading and the contact heading.
+const display = "text-balance text-4xl font-semibold leading-tight tracking-tight lg:text-5xl";
+// One section-spacing step for every section.
+const section = "mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16";
+
 function Heading({ children }: { children: React.ReactNode }) {
-  return <h2 className="max-w-[20ch] text-balance text-4xl font-semibold tracking-tight text-gray-900 lg:text-5xl">{children}</h2>;
+  return <h2 className={`max-w-[22ch] text-gray-900 ${display}`}>{children}</h2>;
 }
 
 export default function About() {
   return (
     <div className="bg-white text-pretty text-gray-900 selection:bg-gray-900 selection:text-white">
       {/* First screen */}
-      <section className="mx-auto grid max-w-6xl items-center gap-10 px-4 pb-24 pt-6 sm:px-6 lg:min-h-[calc(100svh-5rem)] lg:grid-cols-[1.15fr_0.85fr] lg:gap-16 lg:px-8 lg:pb-16">
+      <section className={`${section} grid items-center gap-6 pt-4 lg:pt-6 lg:min-h-[calc(100svh-5rem)] lg:grid-cols-[1.15fr_0.85fr] lg:gap-16`}>
         <div>
           <h1 className="text-6xl font-semibold tracking-tight lg:text-7xl">I&apos;m Atilade.</h1>
-          <p className="mt-6 max-w-[24ch] text-balance text-4xl font-semibold leading-tight tracking-tight lg:text-5xl">
+          <p className={`mt-4 max-w-[24ch] lg:mt-6 ${display}`}>
             <span className="text-gray-500">I build</span> Refinery<span className="text-gray-500">, which proves</span> AI
             changes to enterprise COBOL <span className="text-gray-500">are</span> safe to deploy.
           </p>
           <a
             href={email}
-            className="mt-8 inline-flex h-12 items-center rounded-md bg-gray-900 px-6 text-base font-medium text-white transition-colors hover:bg-gray-700"
+            className="mt-6 inline-flex h-12 items-center rounded-md bg-gray-900 px-6 text-base font-medium text-white transition-colors hover:bg-gray-700 lg:hidden"
           >
             Email me
           </a>
-          <dl className="mt-10 grid max-w-md grid-cols-[auto_1fr] gap-x-6 gap-y-2 text-base">
+          <dl className="mt-8 grid max-w-md grid-cols-[auto_1fr] gap-x-6 gap-y-2 text-base">
             <dt className="text-gray-500">Day job</dt>
             <dd>Analyst, Data &amp; AI at ION</dd>
             <dt className="text-gray-500">Studied</dt>
@@ -138,27 +143,24 @@ export default function About() {
             <dd>London</dd>
           </dl>
         </div>
-        <figure className="relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-3xl bg-gray-100 lg:max-w-none">
+        <figure className="relative order-first aspect-[2/1] w-full overflow-hidden rounded-3xl bg-gray-100 lg:order-none lg:aspect-[4/5]">
           <Image
             src="/me.jpg"
             alt="Atilade Oke in front of an IBM sign"
             fill
             priority
-            sizes="(min-width: 1024px) 40vw, 384px"
-            className="object-cover object-top"
+            sizes="(min-width: 1024px) 40vw, 100vw"
+            className="object-cover object-[center_24%] lg:object-top"
           />
         </figure>
       </section>
 
       {/* Now */}
-      <section className="mx-auto max-w-6xl px-4 py-24 sm:px-6 lg:px-8">
-        <Heading>What I&apos;m building now</Heading>
-        <div className="mt-12 grid gap-10 md:grid-cols-3 md:gap-8">
+      <section className={section}>
+        <Heading>Refinery, built with a team of AI agents</Heading>
+        <div className="mt-10 grid gap-10 md:grid-cols-2 md:gap-8">
           <div className="border-t border-gray-200 pt-6">
             <h3 className="text-2xl font-semibold tracking-tight">Refinery</h3>
-            <p className="mt-3 text-lg leading-relaxed text-gray-600">
-              Refinery proves AI changes to enterprise COBOL are safe to deploy.
-            </p>
             <p className="mt-3 text-lg leading-relaxed text-gray-600">Programmes that back it:</p>
             <ul className="mt-2 space-y-1 text-base text-gray-600">
               <li>IBM Z ScaleUp</li>
@@ -172,13 +174,10 @@ export default function About() {
             </a>
           </div>
           <div className="border-t border-gray-200 pt-6">
-            <h3 className="text-2xl font-semibold tracking-tight">ION</h3>
-            <p className="mt-3 text-lg leading-relaxed text-gray-600">By day I&apos;m an Analyst in Data &amp; AI at ION.</p>
-          </div>
-          <div className="border-t border-gray-200 pt-6">
             <h3 className="text-2xl font-semibold tracking-tight">A team of AI agents</h3>
-            <p className="mt-3 text-lg leading-relaxed text-gray-600">I build with a team of AI agents.</p>
-            <p className="mt-3 text-lg leading-relaxed text-gray-600">They share a task board, message each other and review each other&apos;s work.</p>
+            <p className="mt-3 text-lg leading-relaxed text-gray-600">
+              They share a task board, message each other and review each other&apos;s work.
+            </p>
             <Link href="/projects/agent-hub" className={`mt-2 ${link}`}>
               How the agent hub works
             </Link>
@@ -187,13 +186,14 @@ export default function About() {
       </section>
 
       {/* The story, one sticky year at a time */}
-      <section className="mx-auto max-w-6xl px-4 py-24 sm:px-6 lg:px-8">
-        <Heading>How I got here</Heading>
-        <ol className="mt-12">
+      <section className={section}>
+        <Heading>BeGenio, SAP and Palantir, then ION</Heading>
+        <ol className="mt-10">
           {story.map(({ year, chapters }) => (
-            <li key={year} className="grid border-t border-gray-200 py-10 lg:grid-cols-[18rem_1fr] lg:gap-12 lg:py-16">
-              <div>
-                <p className={`${serif} text-6xl leading-none tracking-tight tabular-nums lg:sticky lg:top-28 lg:text-9xl`}>{year}</p>
+            <li key={year} className="grid border-t border-gray-200 pb-10 last:pb-0 lg:grid-cols-[18rem_1fr] lg:gap-12 lg:pt-16 lg:pb-16 lg:last:pb-0">
+              {/* At phone width the year rides in a small band under the header. */}
+              <div className="sticky top-[61px] z-10 -mx-4 border-b border-gray-200 bg-white px-4 py-2 sm:-mx-6 sm:px-6 lg:static lg:mx-0 lg:border-0 lg:bg-transparent lg:p-0">
+                <p className={`${serif} text-4xl leading-none tracking-tight tabular-nums lg:sticky lg:top-28 lg:text-9xl`}>{year}</p>
               </div>
               <div className="mt-6 space-y-10 lg:mt-4">
                 {chapters.map((c) => (
@@ -215,9 +215,9 @@ export default function About() {
       </section>
 
       {/* Wins */}
-      <section className="mx-auto max-w-6xl px-4 py-24 sm:px-6 lg:px-8">
-        <Heading>What I&apos;ve won</Heading>
-        <ul className="mt-12">
+      <section className={section}>
+        <Heading>1st at Worlds London, #1 IBM Z Student Ambassador</Heading>
+        <ul className="mt-10">
           {wins.map((w) => (
             <li key={w.event} className="grid gap-1 border-t border-gray-200 py-6 md:grid-cols-[10rem_1fr_1fr] md:items-baseline md:gap-8">
               <p className="text-base text-gray-500 tabular-nums">{w.when}</p>
@@ -231,9 +231,9 @@ export default function About() {
       </section>
 
       {/* Community */}
-      <section className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-24 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8">
+      <section className={`${section} grid items-center gap-10 lg:grid-cols-2 lg:gap-16`}>
         <div>
-          <Heading>I build communities</Heading>
+          <Heading>IBM Z Society: from 2 friends to 50 members</Heading>
           <p className="mt-6 max-w-[52ch] text-lg leading-relaxed text-gray-600">
             I founded the IBM Z Society at the University of Manchester with 2 friends. It grew to 50 members. We ran
             15+ workshops and 5 events on AI, quantum and security. 4 new IBM Z Student Ambassadors now carry it on.
@@ -254,11 +254,11 @@ export default function About() {
       </section>
 
       {/* Reach me */}
-      <section className="mx-auto max-w-6xl px-4 py-24 sm:px-6 lg:px-8">
+      <section className={section}>
         <Heading>Email is the fastest way to reach me</Heading>
         <a
           href={email}
-          className="mt-8 inline-flex min-h-11 items-center break-all text-2xl font-semibold tracking-tight underline decoration-gray-300 underline-offset-8 hover:decoration-gray-900"
+          className="mt-6 inline-flex min-h-11 items-center break-all text-2xl font-semibold tracking-tight underline decoration-gray-300 underline-offset-8 hover:decoration-gray-900"
         >
           okeatilade@gmail.com
         </a>
