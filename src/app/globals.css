@@ -319,3 +319,17 @@ html, body {
   font-weight: 400;
   font-style: italic;
 }
+/* Browser surfaces in the site's ink and greys. */
+html {
+  caret-color: #111827;
+  scrollbar-color: #9ca3af transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

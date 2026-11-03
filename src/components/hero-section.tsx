@@ -1,5 +1,5 @@
 import StyledBlurText from './ui/StyledBlurText'
-import Image from 'next/image'
+import Link from 'next/link'
 
 const icons = {
     manchester: {
@@ -66,6 +66,12 @@ export default function HeroSection() {
                         direction="bottom"
                         className="hidden sm:block mx-auto mt-2 sm:text-xl md:text-3xl lg:text-5xl font-semibold tracking-tight sm:leading-[1.3] md:leading-[1.35] lg:leading-[1.4] text-gray-900 whitespace-nowrap"
                     />
+                    <Link
+                        href="/about"
+                        className="mt-4 inline-flex min-h-11 items-center rounded-sm text-base font-medium text-gray-500 underline decoration-gray-300 underline-offset-4 transition-colors hover:text-gray-900 hover:decoration-gray-900 focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-4 focus-visible:outline-gray-900"
+                    >
+                        More about me
+                    </Link>
                 </div>
             </div>
         </section>

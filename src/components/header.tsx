@@ -1,7 +1,6 @@
 'use client'
 import Link from 'next/link'
 import Image from 'next/image'
-import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import React from 'react'
@@ -19,8 +18,8 @@ interface MenuItem {
 }
 
 const menuItems: MenuItem[] = [
-    { name: 'About', href: '#about' },
-    { name: 'Projects', href: '#projects' },
+    { name: 'About', href: '/about' },
+    { name: 'Projects', href: '/projects' },
     { name: 'Resume', href: 'https://linkedin.com/in/atiladeoke' },
 ]
 
