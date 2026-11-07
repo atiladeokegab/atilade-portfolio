@@ -65,7 +65,7 @@ const CardShell: React.FC<{ className: string; children: React.ReactNode }> = ({
 // The build's own name sits on the picture; the event name is the card title.
 const Media: React.FC<{ hackathon: Project; sizes: string }> = ({ hackathon, sizes }) => (
   <>
-    <DemoMedia
+    <DemoMedia fit="contain"
       src={hackathon.images?.[0] || '/placeholder.png'}
       alt={`${hackathon.name} demo`}
       sizes={sizes}

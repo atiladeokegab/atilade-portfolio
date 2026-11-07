@@ -13,11 +13,15 @@ interface DemoMediaProps {
   className?: string
   controls?: boolean
   onLoad?: () => void
+  fit?: "cover" | "contain"
 }
 
 // Images render through next/image. Clips loop muted, and only play while on screen;
 // `controls` lets the viewer unmute or scrub.
-export default function DemoMedia({ src, alt, sizes, priority, className = "object-cover", controls, onLoad }: DemoMediaProps) {
+// fit="contain" shows the whole picture whatever its shape, over a blurred copy that fills the frame.
+export default function DemoMedia({ src, alt, sizes, priority, className = "object-cover", controls, onLoad, fit = "cover" }: DemoMediaProps) {
+  const contain = fit === "contain"
+  const cls = contain ? className.replace("object-cover", "object-contain") : className
   const ref = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
@@ -33,7 +37,13 @@ export default function DemoMedia({ src, alt, sizes, priority, className = "obje
   }, [])
 
   if (!isVideo(src)) {
-    return <Image src={src} alt={alt} fill sizes={sizes} priority={priority} className={className} onLoad={onLoad} />
+    if (!contain) return <Image src={src} alt={alt} fill sizes={sizes} priority={priority} className={className} onLoad={onLoad} />
+    return (
+      <>
+        <Image src={src} alt="" aria-hidden fill sizes={sizes} className="object-cover scale-110 blur-2xl opacity-70" />
+        <Image src={src} alt={alt} fill sizes={sizes} priority={priority} className={cls} onLoad={onLoad} />
+      </>
+    )
   }
 
   return (
@@ -48,7 +58,7 @@ export default function DemoMedia({ src, alt, sizes, priority, className = "obje
       playsInline
       preload="metadata"
       onLoadedData={onLoad}
-      className={`absolute inset-0 h-full w-full ${className}`}
+      className={`absolute inset-0 h-full w-full ${cls}`}
     />
   )
 }

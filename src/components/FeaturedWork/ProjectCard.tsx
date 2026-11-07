@@ -77,7 +77,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           }}
         >
           <div className={`absolute inset-0 bg-gray-200 animate-pulse ${imageLoaded[index] ? "hidden" : "block"}`} />
-          <DemoMedia
+          <DemoMedia fit="contain"
             src={src}
             alt={`${project.name} ${index === 0 ? "demo" : `screenshot ${index + 1}`}`}
             sizes="(max-width: 768px) 100vw, 50vw"

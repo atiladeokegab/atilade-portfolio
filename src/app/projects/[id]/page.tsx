@@ -250,6 +250,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
             {!projectData.data.embedUrl && projectData.data.images && projectData.data.images[0] && (
               <Reveal className="relative aspect-video rounded-lg sm:rounded-xl overflow-hidden mb-6 bg-gray-100 shadow-sm">
                 <DemoMedia
+                  fit="contain"
                   src={projectData.data.images[0]}
                   alt={`${projectData.data.title} demo`}
                   className="object-cover"
@@ -262,9 +263,9 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
 
             {/* Film: a local clip plays inline; a hosted one (Drive) is a poster linking out */}
             {projectData.data.film && (
-              <Reveal className={`relative ${filmIsClip ? 'aspect-video' : 'aspect-[2/1] sm:aspect-[3/1]'} rounded-lg sm:rounded-xl overflow-hidden mb-6 bg-gray-900 shadow-sm`}>
+              <Reveal className={`relative bg-black ${filmIsClip ? 'aspect-video' : 'aspect-[2/1] sm:aspect-[3/1]'} rounded-lg sm:rounded-xl overflow-hidden mb-6 bg-gray-900 shadow-sm`}>
                 {filmIsClip ? (
-                  <DemoMedia src={projectData.data.film} alt={`${projectData.data.title} film`} className="object-cover" controls sizes="(max-width: 768px) 100vw, 80vw" />
+                  <DemoMedia fit="contain" src={projectData.data.film} alt={`${projectData.data.title} film`} className="object-cover" controls sizes="(max-width: 768px) 100vw, 80vw" />
                 ) : (
                   <a href={projectData.data.film} target="_blank" rel="noopener noreferrer" className="group absolute inset-0">
                     {projectData.data.filmPoster && (
@@ -300,6 +301,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
                 {projectData.data.images.slice(1).map((src: string, index: number) => (
                   <Reveal key={src} delay={(index % 2) * 0.08} className="group relative aspect-[4/3] rounded-lg sm:rounded-xl overflow-hidden bg-gray-100 shadow-sm">
                     <DemoMedia
+                  fit="contain"
                       src={src}
                       alt={`${projectData.data.title} ${index + 2}`}
                       className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
