@@ -1,6 +1,6 @@
 ---
 title: "Rescue Listener: Biocomputing Hack"
-description: "2nd place, and offered a Venture Scout role with Project A. Rescue Listener asks whether a simulated spiking network can tell a trapped survivor's answering knock from the noise of rubble."
+description: "2nd place. Rescue Listener asks whether a simulated spiking network can tell a trapped survivor's answering knock from the noise of rubble."
 tags: ["Hackathon", "Biocomputing", "Neuroscience", "Python", "three.js", "London"]
 images: ["/events/rescue-listener-hero-v2.jpg", "/events/rescue-listener-experiment-v2.jpg", "/events/rescue-listener-results-v2.jpg", "/events/rescue-listener-knock-v2.jpg", "/events/biocomputing-hack.jpg"]
 layout: "imageRight"
@@ -14,13 +14,11 @@ githubUrl: "https://github.com/atiladeokegab/rescue-listener"
 awards:
   - label: "2nd Place"
     variant: "silver"
-  - label: "Venture Scout, Project A"
-    variant: "special"
 ---
 
 # Rescue Listener
 
-Biocomputing Hack by Outlier Labs, London, 3 November 2026. 2nd place, and an offer to join Project A as a Venture Scout.
+Biocomputing Hack by Outlier Labs, London, 3 November 2026. 2nd place.
 
 A survivor under rubble is asked to tap five times. Rescue Listener plays those knocks into a simulated spiking network in a closed loop and asks whether the network can tell an answering knock from the rumble around it. On the night it ran live, in real time, on the organisers' simulator: 64 spiking model neurons, not living cells.
 
