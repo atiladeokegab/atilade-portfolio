@@ -1,6 +1,6 @@
 ---
 title: "Murmur: AI Agents for Accessibility"
-description: "A voice-first phone for people with little or no sight, built in a day with two co-designers. Say what you want and Murmur runs the phone's apps for you, then asks before anything is sent or paid."
+description: "1st place. A voice-first phone for people with little or no sight, built in a day with two co-designers. Say what you want and Murmur runs the phone's apps for you, then asks before anything is sent or paid."
 tags: ["Hackathon", "Accessibility", "AI Agents", "OpenAI Realtime", "JavaScript", "London"]
 images: ["/demos/murmur-final.mp4", "/events/murmur-pay.jpg", "/events/murmur-mum.jpg", "/events/murmur-notify.jpg"]
 layout: "imageRight"
@@ -12,11 +12,14 @@ displayDate: "November 2026"
 priority: 1
 liveUrl: "https://murmur-901257379404.europe-west1.run.app"
 githubUrl: "https://github.com/atiladeokegab/murmur"
+awards:
+  - label: "1st Place"
+    variant: "gold"
 ---
 
 # Murmur
 
-AI Agents for Accessibility, UCL East, London, 7 November 2026.
+AI Agents for Accessibility, UCL East, London, 7 November 2026. **1st place.**
 
 Phones are built for eyes. Our two co-designers, one partly sighted and one blind, described zooming to 400%, missing buttons and apps that ignore screen readers. Murmur is one button: tap anywhere and talk.
 
