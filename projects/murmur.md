@@ -10,7 +10,6 @@ category: "hackathon"
 hackathonName: "AI for Accessibility Collective: AI Agents for Accessibility"
 displayDate: "November 2026"
 priority: 1
-liveUrl: "https://murmur-901257379404.europe-west1.run.app"
 githubUrl: "https://github.com/atiladeokegab/murmur"
 awards:
   - label: "1st Place"
