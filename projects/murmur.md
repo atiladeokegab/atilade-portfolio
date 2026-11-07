@@ -2,7 +2,7 @@
 title: "Murmur: AI Agents for Accessibility"
 description: "A voice-first phone for people with little or no sight, built in a day with two co-designers. Say what you want and Murmur runs the phone's apps for you, then asks before anything is sent or paid."
 tags: ["Hackathon", "Accessibility", "AI Agents", "OpenAI Realtime", "JavaScript", "London"]
-images: ["/demos/murmur.mp4", "/demos/murmur.jpg"]
+images: ["/demos/murmur.mp4", "/events/murmur-pay.jpg", "/events/murmur-mum.jpg", "/events/murmur-notify.jpg"]
 layout: "imageRight"
 date: "2026-11-07"
 brandIcon:
