@@ -1,6 +1,6 @@
 ---
 title: "Red String: Agentic Web Hackathon"
-description: "Won (~50K credits). 5 block detectives read the web live in a 3D block town; a red string means the sources disagree. Stacks checkable claims into rising towers and catches live contradictions with side-by-side literal quotes."
+description: "Won · £250,000 in credits. 5 block detectives read the web live in a 3D block town; a red string means the sources disagree. Stacks checkable claims into rising towers and catches live contradictions with side-by-side literal quotes."
 tags: ["Hackathon", "AI Agents", "Parallel", "Three.js", "Web Speech API", "London"]
 images: ["/events/red-string-world.webp", "/events/red-string-verdict.webp", "/events/red-string-evidence.webp"]
 layout: "imageRight"
@@ -12,13 +12,13 @@ displayDate: "November 2026"
 priority: 1
 githubUrl: "https://github.com/atiladeokegab/red-string"
 awards:
-  - label: "Won (~50K credits)"
+  - label: "Won · £250,000 in credits"
     variant: "gold"
 ---
 
 # Red String
 
-The Agentic Web Hackathon (Parallel), London, 11 November 2026. **Won (~50K credits).**
+The Agentic Web Hackathon (Parallel), London, 11 November 2026. **Won · £250,000 in credits.**
 
 5 block detectives read the web; a red string means the sources disagree. While other AI tools assume consensus, Red String reads conflicting sources live, stacks checkable facts into rising toy towers on a studded baseplate, and snaps a glowing red thread between contradictory claims.
 
