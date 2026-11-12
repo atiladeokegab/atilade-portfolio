@@ -145,7 +145,7 @@ function buildHomeMarkdown() {
     [
       "# Atilade Oke",
       "",
-      "Analyst, Data & AI at ION. Founder of Refinery. Electrical Engineering graduate, University of Manchester. 8x hackathon winner. #1 IBM Z Student Ambassador 2025-26.",
+      "Analyst, Data & AI at ION. Founder of Refinery. Electrical Engineering graduate, University of Manchester. 11x hackathon winner. #1 IBM Z Student Ambassador 2025-26.",
       "",
       "## Quick Links",
       "",

@@ -57,7 +57,7 @@ export default function ProjectsPage() {
                 <span>48 hours to ideate, build, and ship</span>
               </div>
               <h2 className="text-4xl sm:text-5xl md:text-5xl font-semibold tracking-tight text-neutral-900 mb-4">
-                8× hackathon winner.
+                11× hackathon winner.
               </h2>
             </div>
 
