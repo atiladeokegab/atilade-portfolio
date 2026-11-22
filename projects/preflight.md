@@ -2,7 +2,7 @@
 title: "Preflight: SoTA Scientific Parallelism Hackathon"
 description: "3rd place, £1,000. Simulates a cancer biomarker trial cell by cell on real patient tissue before a lab stains a slide: 10,800× faster than off-the-shelf squidpy + lifelines on one H100, and it shows textbook trial maths promising 80% power where real tissue gives 27%."
 tags: ["Hackathon", "GPU", "CUDA", "Spatial Biology", "Survival Analysis", "London"]
-images: ["/events/preflight-speedup.webp", "/events/preflight-power.webp"]
+images: ["/demos/preflight-race.mp4", "/events/preflight-race.webp", "/events/preflight-ihc.webp"]
 layout: "imageRight"
 date: "2026-11-22"
 brandIcon:
@@ -10,8 +10,6 @@ category: "hackathon"
 hackathonName: "SoTA Scientific Parallelism Hackathon"
 displayDate: "November 2026"
 priority: 1
-githubUrl: "https://github.com/atiladeokegab/sota-parallelism-nov21"
-liveUrl: "https://preflight-demo-5zvig7nbvq-nw.a.run.app/app/"
 awards:
   - label: "3rd Place, £1,000"
     variant: "bronze"
