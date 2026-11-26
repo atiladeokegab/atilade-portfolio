@@ -29,6 +29,3 @@ export interface Project {
   // Manual ordering (lower = higher priority)
   priority?: number
 }
-
-// gold/silver/bronze are placings; "special" badges only name a track.
-export const isWin = (p: Project) => (p.awards ?? []).some((a) => a.variant !== "special")
