@@ -2,20 +2,11 @@ import { Inter } from "next/font/google";
 import { ProjectCard } from "@/components/FeaturedWork/ProjectCard"
 import { SparkleIcon } from "@/components/icons/SparkleIcon"
 import { getProjectsData } from "@/lib/projects";
-import type { Project } from "@/components/FeaturedWork/types"
-import { HackathonBentoGroup } from "@/components/HackathonBento"
+import { isWin, type Project } from "@/components/FeaturedWork/types"
+import HackathonIndex from "@/components/HackathonIndex"
 import Reveal from "@/components/Reveal"
 
 const inter = Inter({ subsets: ["latin"] });
-
-// Utility to chunk array into groups of n
-function chunkArray<T>(array: T[], size: number): T[][] {
-  const chunks: T[][] = [];
-  for (let i = 0; i < array.length; i += size) {
-    chunks.push(array.slice(i, i + size));
-  }
-  return chunks;
-}
 
 export default function ProjectsPage() {
   const allProjects = getProjectsData();
@@ -61,16 +52,15 @@ export default function ProjectsPage() {
               </h2>
             </div>
 
-            <div className="mt-12 sm:mt-16 flex flex-col gap-12">
-              {chunkArray(hackathonProjects, 3).map((group, index) => (
-                <Reveal key={index}>
-                  <HackathonBentoGroup
-                    hackathons={group}
-                    layout={index % 2 === 0 ? 'largeLeft' : 'largeRight'}
-                  />
-                </Reveal>
-              ))}
-            </div>
+            <Reveal className="mt-12 sm:mt-16 max-w-5xl mx-auto">
+              <HackathonIndex hackathons={hackathonProjects.filter(isWin)} />
+            </Reveal>
+
+            <Reveal className="mt-20 max-w-5xl mx-auto">
+              <h3 className="text-2xl font-semibold tracking-tight text-neutral-900">More builds</h3>
+              <p className="mt-1 mb-6 text-neutral-500">Hackathons, hacker houses and tracks, each shipped in a day or a weekend.</p>
+              <HackathonIndex hackathons={hackathonProjects.filter((p) => !isWin(p))} />
+            </Reveal>
           </div>
         )}
 
