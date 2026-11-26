@@ -6,9 +6,43 @@ const Tag: React.FC<{ name: string; icon?: React.ReactNode }> = ({
   name,
   icon,
 }) => (
-  <div className="flex items-center gap-2 rounded-full bg-gray-100 px-3 py-1 text-sm font-medium text-gray-800">
+  <div className="flex items-center gap-1.5 rounded-full bg-surface px-3 py-1 text-sm text-ink">
     {icon}
     <span>{name}</span>
+  </div>
+);
+
+// Section title in the left column, content in the right.
+const Section: React.FC<{ title: string; children: React.ReactNode }> = ({ title, children }) => (
+  <section className="grid grid-cols-1 gap-6 pt-24 sm:pt-32 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] lg:gap-12">
+    <h2 className="text-2xl sm:text-[28px] font-semibold tracking-[-0.02em] text-ink">{title}</h2>
+    <div>{children}</div>
+  </section>
+);
+
+const LogoTile: React.FC<{ src?: string; label: string }> = ({ src, label }) => (
+  <div className="flex size-11 shrink-0 items-center justify-center overflow-hidden rounded-[12px] bg-white ring-1 ring-black/[0.08]">
+    {src ? (
+      <Image src={src} alt={`${label} logo`} width={44} height={44} className="size-full object-contain" />
+    ) : (
+      <span className="text-base font-semibold text-ink-2">{label.charAt(0)}</span>
+    )}
+  </div>
+);
+
+const Row: React.FC<{ logo?: string; title: string; subtitle: string; dates: string; href?: string; children?: React.ReactNode }> = ({ logo, title, subtitle, dates, href, children }) => (
+  <div className="flex gap-4">
+    <LogoTile src={logo} label={title} />
+    <div className="min-w-0 flex-1">
+      <div className="flex items-baseline justify-between gap-4">
+        <h3 className="font-semibold text-ink">
+          {href ? <a href={href} target="_blank" rel="noopener noreferrer" className="hover:text-link">{title}</a> : title}
+        </h3>
+        <span className="shrink-0 text-sm text-ink-2 tabular-nums">{dates}</span>
+      </div>
+      <p className="text-sm text-ink-2">{subtitle}</p>
+      {children}
+    </div>
   </div>
 );
 
@@ -25,6 +59,8 @@ type ExperienceItem = {
   duration: string;
   description?: string;
   link?: string;
+  // Shown on About: the IBM Z Society numbers live here now the home page has no community section.
+  showDescription?: boolean;
 };
 
 const experiences: ExperienceItem[] = [
@@ -70,6 +106,7 @@ const experiences: ExperienceItem[] = [
     duration: "Jun 2025 - Mar 2026",
     description:
       "Started with two friends, grew it to 50 members, 15+ workshops and 5 events. Left four new ambassadors behind. #1 IBM Z Ambassador 2025-26, Winter Challenge winner, IBM Z Day speaker.",
+    showDescription: true,
   },
   {
     role: "Winter Fellow",
@@ -137,181 +174,46 @@ const skills: { [key: string]: Skill[] } = {
 
 export default function AboutSection() {
   return (
-    <div className="min-h-screen bg-white py-8">
-      <div className="container mx-auto max-w-6xl px-8 pb-8">
-        <hr className="mx-auto my-16 w-full border-t border-gray-200" />
-        {/* Education Section */}
-        <div className="mb-16">
-          <h2 className="mb-12 text-sm font-medium uppercase tracking-wider text-gray-400">
-            Education
-          </h2>
+    <div className="bg-white pb-24 sm:pb-32">
+      <div className="container mx-auto max-w-6xl px-4 sm:px-8">
+        <Section title="Education">
+          <Row
+            logo="/landing/uom-transparent-icon.png"
+            title="University of Manchester"
+            subtitle="BEng (Hons) Electrical & Electronic Engineering with Industrial Experience · 2:1"
+            dates="June 2026"
+          >
+            <p className="mt-2 text-sm leading-relaxed text-ink-2">
+              Final year project on deep RL for UAV path planning: 86. AI: 86. Concurrent Systems: 88.
+              Activities: Founder of the IBM Z Society, Student Representative, PASS Leader, Student Ambassador.
+            </p>
+          </Row>
+        </Section>
 
-          <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2">
-            {/* Education Details */}
-            <div className="space-y-6">
-              <div>
-                <h3 className="mb-2 text-3xl font-semibold tracking-tight text-gray-900 md:text-4xl">
-                  University of Manchester
-                </h3>
-                <p className="mb-4 text-xl text-gray-500 md:text-2xl">
-                  BEng (Hons) Electrical & Electronic Engineering with Industrial Experience
-                </p>
-                <p className="mb-6 text-lg text-gray-400">
-                  Graduated June 2026, 2:1
-                </p>
-                <div className="space-y-4 text-gray-500">
-                  <p>
-                    Final year project on deep RL for UAV path planning: 86. AI: 86. Concurrent Systems: 88.
-                  </p>
-                  <p>
-                    Activities: Founder of the IBM Z Society, Student Representative, PASS Leader, Student Ambassador.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Campus Image */}
-            <div className="relative">
-              <div className="relative w-full aspect-video overflow-hidden rounded-lg shadow-lg">
-                <Image
-                  src="/about/Lanyard/uom.jpg"
-                  alt="Manchester Campus in Summer"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <p className="mt-3 text-sm italic text-gray-500">
-                Manchester Campus in Summer
-              </p>
-            </div>
+        <Section title="Experience">
+          <div className="space-y-6">
+            {experiences.map((exp) => (
+              <Row
+                key={exp.role + exp.company}
+                logo={exp.companyLogo}
+                title={exp.company}
+                subtitle={`${exp.role} · ${exp.type}`}
+                dates={exp.duration}
+                href={exp.link}
+              >
+                {exp.showDescription && (
+                  <p className="mt-1 text-sm leading-relaxed text-ink-2">{exp.description}</p>
+                )}
+              </Row>
+            ))}
           </div>
-        </div>
+        </Section>
 
-        <hr className="mx-auto my-16 w-full border-t border-gray-200" />
-
-        {/* Experience Section */}
-        <div className="mb-16">
-          <h2 className="mb-12 text-sm font-medium uppercase tracking-wider text-gray-400">
-            Experience
-          </h2>
-
-          <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-[2fr_3fr]">
-            {/* Experience List */}
-            <div className="space-y-6">
-              {experiences.map((exp, index) => (
-                <div key={index} className="flex gap-4">
-                  {/* Logo */}
-                  <div className="shrink-0">
-                    <div className="h-11 w-11 overflow-hidden rounded-lg border border-gray-200 bg-white">
-                      {exp.companyLogo ? (
-                        <Image
-                          src={exp.companyLogo}
-                          alt={`${exp.company} logo`}
-                          width={44}
-                          height={44}
-                          className="h-full w-full object-cover"
-                        />
-                      ) : (
-                        <div className="flex h-full w-full items-center justify-center bg-gray-100 text-base font-semibold text-gray-400">
-                          {exp.company.charAt(0)}
-                        </div>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Content */}
-                  <div className="flex-1">
-                    <h3 className="text-lg font-semibold tracking-tight text-gray-900">
-                      {exp.role}
-                    </h3>
-                    <p className="text-sm text-gray-500">
-                      {exp.company}
-                      <span className="text-gray-300"> · </span>
-                      {exp.type}
-                    </p>
-                    <p className="mt-0.5 text-sm text-gray-400">{exp.duration}</p>
-                    {exp.description && (
-                      <p className="mt-2 text-sm text-gray-500 leading-relaxed">
-                        {exp.description}
-                      </p>
-                    )}
-                    {exp.link && (
-                      <a
-                        href={exp.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-1.5 inline-flex items-center gap-1 text-xs text-gray-400 hover:text-gray-600 transition-colors"
-                      >
-                        Visit
-                        <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                        </svg>
-                      </a>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Work Screenshots - Bento Grid */}
-            <div className="grid grid-cols-6 auto-rows-fr gap-2">
-              {/* Top left - larger */}
-              <div className="col-span-4 relative overflow-hidden rounded-lg rounded-tl-2xl shadow-sm">
-                <div className="aspect-[16/10]">
-                  <Image
-                    src="/events/touchline-phone.png"
-                    alt="Touchline, Night Shift"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              </div>
-              {/* Top right - smaller */}
-              <div className="col-span-2 relative overflow-hidden rounded-lg rounded-tr-2xl shadow-sm">
-                <Image
-                  src="/events/ibm-presenting.jpeg"
-                  alt="Presenting at the IBM Z Society"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              {/* Bottom left - smaller */}
-              <div className="col-span-2 relative overflow-hidden rounded-lg rounded-bl-2xl shadow-sm">
-                <Image
-                  src="/events/sap.jpeg"
-                  alt="SAP Belfast"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              {/* Bottom right - larger */}
-              <div className="col-span-4 relative overflow-hidden rounded-lg rounded-br-2xl shadow-sm">
-                <div className="aspect-[16/10]">
-                  <Image
-                    src="/events/hyperdrop-store.jpg"
-                    alt="HyperDrop"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <hr className="mx-auto my-16 w-full border-t border-gray-200" />
-
-        {/* Technologies & Skills Section */}
-        <div className="mb-16">
-          <h2 className="mb-12 text-sm font-medium uppercase tracking-wider text-gray-400">
-            Technologies & Skills
-          </h2>
-          <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
+        <Section title="Technologies & Skills">
+          <div className="grid grid-cols-1 gap-x-10 gap-y-8 md:grid-cols-2">
             {Object.entries(skills).map(([category, tech]) => (
-              <div key={category} className="rounded-xl bg-gray-50 p-6">
-                <h3 className="mb-4 text-lg font-semibold text-gray-900">
-                  {category}
-                </h3>
+              <div key={category}>
+                <h3 className="mb-3 text-sm font-semibold text-ink">{category}</h3>
                 <div className="flex flex-wrap gap-2">
                   {tech.map((item) => (
                     <Tag
@@ -324,7 +226,7 @@ export default function AboutSection() {
               </div>
             ))}
           </div>
-        </div>
+        </Section>
       </div>
     </div>
   );

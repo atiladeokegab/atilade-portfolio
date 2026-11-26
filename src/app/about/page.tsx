@@ -30,7 +30,7 @@ const About = () => {
               duration={400}
             >
         
-        <div className="min-h-screen bg-white py-2">
+        <div className="bg-white py-2">
           <div className="container mx-auto max-w-6xl px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               {/* Lanyard Component Section */}
@@ -72,7 +72,7 @@ const About = () => {
                     By day I&apos;m an Analyst in Data &amp; AI at ION. Before that I was a software engineer at SAP at 19, a Palantir Winter Fellow, and the #1 IBM Z Student Ambassador worldwide.
                   </p>
                   <p>
-                    I studied Electrical &amp; Electronic Engineering at Manchester, and I spend most weekends at hackathons. Nine wins so far. Always happy to build something together.
+                    I studied Electrical &amp; Electronic Engineering at Manchester, and I spend most weekends at hackathons. Twelve wins so far. Always happy to build something together.
                   </p>
                 </div>
               </div>

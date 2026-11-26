@@ -57,14 +57,14 @@ export default function HeroSection() {
                         delay={100}
                         animateBy="words"
                         direction="bottom"
-                        className="block sm:hidden mx-auto text-[clamp(1.125rem,5.5vw,1.75rem)] font-semibold tracking-tight leading-[1.4] text-gray-900 whitespace-nowrap"
+                        className="block sm:hidden mx-auto text-[clamp(0.875rem,4.6vw,1.75rem)] font-semibold tracking-tight leading-[1.4] text-gray-900 whitespace-nowrap"
                     />
                     <StyledBlurText
                         segments={desktopSegments}
                         delay={100}
                         animateBy="words"
                         direction="bottom"
-                        className="hidden sm:block mx-auto mt-2 sm:text-xl md:text-3xl lg:text-5xl font-semibold tracking-tight sm:leading-[1.3] md:leading-[1.35] lg:leading-[1.4] text-gray-900 whitespace-nowrap"
+                        className="hidden sm:block mx-auto mt-2 sm:text-[clamp(1.25rem,3.4vw,2.65rem)] font-semibold tracking-tight sm:leading-[1.3] md:leading-[1.35] lg:leading-[1.4] text-gray-900 whitespace-nowrap"
                     />
                 </div>
             </div>
