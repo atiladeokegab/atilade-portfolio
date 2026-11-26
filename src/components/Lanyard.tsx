@@ -52,7 +52,7 @@ export default function Lanyard({
   return (
     <div className="relative z-0 w-full h-full flex justify-center items-center transform scale-100 origin-center">
       <Canvas
-        camera={{ position, fov }}
+        camera={{ position, fov, rotation: [0, 0, 0] }}
         dpr={[1, isMobile ? 1.5 : 2]}
         gl={{ alpha: transparent }}
         onCreated={({ gl }) =>
@@ -194,7 +194,8 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false }: BandProps) {
         );
         ref.current.lerped.lerp(
           ref.current.translation(),
-          delta * (minSpeed + clampedDistance * (maxSpeed - minSpeed))
+          // Capped at 1: on a slow frame (delta over 40ms) the lerp overshot, diverged and the strap vanished.
+          Math.min(1, delta * (minSpeed + clampedDistance * (maxSpeed - minSpeed)))
         );
       });
       curve.points[0].copy(j3.current.translation());
