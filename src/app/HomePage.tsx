@@ -3,7 +3,6 @@
 import HeroSection from "@/components/hero-section";
 import FeaturedWork from "@/components/FeaturedWork";
 import FeaturedHackathons from "@/components/FeaturedHackathons/FeaturedHackathons";
-import CommunitySection from "@/components/CommunitySection";
 import { InfiniteMovingImages } from "@/components/InfiniteScrollingImage";
 import { InfiniteMovingImages2 } from "@/components/InfiniteScrollingImage2";
 import ClickSpark from "@/components/ui/ClickSpark";
@@ -11,7 +10,7 @@ import GradualBlur from "@/components/GradualBlur";
 import type { Project } from "@/components/FeaturedWork/types";
 
 export default function HomePage({ projects }: { projects: Project[] }) {
-  const featuredProjects = projects.filter((project) => project.category === "project" || !project.category).slice(0, 6);
+  const featuredProjects = projects.filter((project) => project.category === "project" || !project.category).slice(0, 4);
   const hackathonProjects = projects.filter((project) => project.category === "hackathon");
   return (
     <section style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden' }}>
@@ -50,7 +49,6 @@ export default function HomePage({ projects }: { projects: Project[] }) {
             </span>
           </div>
           <FeaturedWork projects={featuredProjects} />
-          <CommunitySection />
           <FeaturedHackathons hackathons={hackathonProjects} />
         </ClickSpark>
       </div>

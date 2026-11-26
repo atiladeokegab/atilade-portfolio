@@ -5,7 +5,7 @@ import "./globals.css";
 import Footer from "@/components/Footer";
 import { Header } from "@/components/header";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
   weight: ["400"],
@@ -94,7 +94,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} ${instrumentSerif.variable} ${spaceGrotesk.variable} ${caveat.variable}`} suppressHydrationWarning>
+      <body className={`${inter.variable} ${instrumentSerif.variable} ${spaceGrotesk.variable} ${caveat.variable}`} suppressHydrationWarning>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

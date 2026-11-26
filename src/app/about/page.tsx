@@ -30,7 +30,7 @@ const About = () => {
               duration={400}
             >
         
-        <div className="min-h-screen bg-white py-2">
+        <div className="bg-white py-2">
           <div className="container mx-auto max-w-6xl px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               {/* Lanyard Component Section */}
