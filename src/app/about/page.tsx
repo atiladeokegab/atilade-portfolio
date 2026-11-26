@@ -3,11 +3,27 @@
 import React, { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import AboutSection from "@/components/AboutSection";
-import { plexMono } from "./mono";
 
-// The badge as a still: what loads first, what reduced motion and a browser without WebGL keep.
-// The live badge at rest, captured from the 3D scene at 2x for each layout: what shows while it loads,
-// under reduced motion and without WebGL, so the still and the live badge are the same object.
+// The back of the badge: real text, laid out at the card's 320x450 px so it maps onto the 3D card.
+const BadgeBack = ({ live }: { live: boolean }) => (
+  <div className="flex h-[450px] w-[320px] flex-col rounded-[22px] bg-white px-7 pb-6 pt-9 text-ink shadow-[inset_0_0_0_1px_rgba(0,0,0,0.06)]">
+    <p className="text-[28px] font-semibold leading-[1.1] tracking-[-0.02em]">Atilade Oke</p>
+    <ul className="mt-6 divide-y divide-black/10 border-y border-black/10 text-[17px] leading-snug">
+      <li className="py-3">Founder, Refinery</li>
+      <li className="py-3">Analyst, Data and AI, ION</li>
+      <li className="py-3">12× hackathon winner</li>
+      <li className="py-3">#1 IBM Z Ambassador 2025–26</li>
+    </ul>
+    <a
+      href="/Atilade_Oke_CV.pdf"
+      tabIndex={live ? -1 : 0}
+      className="pointer-events-auto mt-auto inline-flex min-h-11 items-center self-start text-[17px] font-medium text-link underline decoration-link/30 underline-offset-4 hover:decoration-link"
+    >
+      Download CV
+    </a>
+  </div>
+);
+
 const StillBadge = () => (
   <picture className="absolute inset-0" aria-hidden="true">
     <source media="(min-width: 1024px)" srcSet="/about/badge-rest-desktop.webp" />
@@ -60,47 +76,77 @@ html{caret-color:#0071e3;scrollbar-color:#c7c7cc transparent}
 
 export default function About() {
   const { mode, mobile } = useBadgeMode();
+  const [flipped, setFlipped] = useState(false);
+  const flip = () => setFlipped((f) => !f);
   return (
-    <div className={`${plexMono.variable} bg-white text-ink`}>
+    <div className="bg-white text-ink">
       <style>{frame}</style>
       <div className="container mx-auto max-w-6xl px-4 sm:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-[420px_minmax(0,1fr)] lg:gap-24">
-          <div
-            role="img"
-            aria-label="Lanyard badge: Atilade Oke, Electrical Engineering at the University of Manchester. Drag it to swing it."
-            className="relative -mx-4 -mt-2 h-[430px] sm:mx-0 lg:mt-0 lg:h-[537px]"
-          >
-            {mode === "live" ? (
-              <Lanyard position={mobile ? [0, -0.398, 8.12] : [0, -0.384, 8.95]} gravity={[0, -40, 0]} />
-            ) : (
-              <StillBadge />
-            )}
+        <section className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_480px_minmax(0,1fr)] lg:grid-rows-[1fr_auto] lg:gap-x-8">
+          {/* The badge: the page's figure, centred. A tap, or the button under it, turns it over. */}
+          <div className="relative -mx-4 -mt-2 sm:mx-0 lg:col-start-2 lg:row-span-2 lg:-mt-6">
+            <div
+              role="img"
+              aria-label="Atilade Oke's lanyard badge: Electrical Engineering, University of Manchester. Drag it to swing it."
+              className="relative h-[430px] lg:h-[499px]"
+            >
+              {mode === "live" ? (
+                <Lanyard
+                  position={mobile ? [0, -0.459, 7.5] : [0, -0.366, 7.58]}
+                  gravity={[0, -40, 0]}
+                  flipped={flipped}
+                  onFlip={flip}
+                  back={<BadgeBack live />}
+                />
+              ) : (
+                <>
+                  <StillBadge />
+                  {/* Reduced motion and no WebGL: the back swaps in at once, over the card's footprint. */}
+                  {flipped && (
+                    <div className="absolute left-1/2 top-[60px] w-[260px] -translate-x-1/2 lg:top-[66px] lg:ml-[-3px] lg:w-[299px]">
+                      <div className="origin-top-left scale-[0.8125] lg:scale-[0.934]">
+                        <BadgeBack live={false} />
+                      </div>
+                    </div>
+                  )}
+                </>
+              )}
+            </div>
+            <div className="flex justify-center">
+              <button
+                type="button"
+                onClick={flip}
+                aria-pressed={flipped}
+                className="inline-flex min-h-11 items-center px-3 text-[15px] text-ink-2 underline decoration-black/20 underline-offset-4 hover:text-ink"
+              >
+                {flipped ? "Tap the badge to flip it back" : "Tap the badge to flip it"}
+              </button>
+            </div>
+            <p className="sr-only" aria-live="polite">
+              {flipped ? "Back of the badge: Founder, Refinery. Analyst, Data and AI, ION. 12× hackathon winner. #1 IBM Z Ambassador 2025–26." : ""}
+            </p>
           </div>
 
-          <div className="pt-4 lg:self-center lg:pt-0">
-            <h1 className="max-w-[18ch] text-[28px] font-semibold leading-[1.08] tracking-[-0.025em] sm:text-[44px]">
-              Engineer, founder and hackathon winner in London.
-            </h1>
-            <p className="mt-3 max-w-[58ch] sm:mt-4 text-[17px] leading-relaxed text-ink-2 sm:text-[20px]">
-              I&apos;m building{" "}
-              <a href="/projects/refinery" className="font-medium text-ink underline decoration-black/20 underline-offset-4 hover:decoration-ink">Refinery</a>.
-              It proves AI changes to mainframe COBOL are safe to deploy.
-            </p>
-            <div className="mt-5 flex flex-wrap sm:mt-6 items-center gap-x-6 gap-y-3">
-              <a
-                href="/Atilade_Oke_CV.pdf"
-                className="inline-flex min-h-11 items-center rounded-full bg-link px-5 text-[17px] font-medium text-white transition-colors hover:bg-[#0077ed]"
-              >
-                Download CV (PDF)
-              </a>
-              <a href="mailto:okeatilade@gmail.com" className="inline-flex min-h-11 items-center text-[17px] text-ink underline decoration-black/25 underline-offset-4 hover:decoration-ink">
-                Email me
-              </a>
-            </div>
-            {/* Space kept when the still shows, so the column never jumps. */}
-            <p className={`mt-3 text-[13px] text-ink-2 lg:mt-10 ${mode === "live" ? "" : "invisible"}`}>Drag the badge to swing it.</p>
+          <h1 className="mt-3 max-w-[16ch] text-[28px] font-semibold leading-[1.1] tracking-[-0.025em] sm:text-[32px] lg:col-start-1 lg:row-start-1 lg:mt-0 lg:self-end">
+            Engineer, founder and hackathon winner in London.
+          </h1>
+          <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-3 lg:col-start-3 lg:row-start-1 lg:mt-0 lg:self-end">
+            <a
+              href="/Atilade_Oke_CV.pdf"
+              className="inline-flex min-h-11 items-center rounded-full bg-link px-5 text-[17px] font-medium text-white transition-colors hover:bg-[#0077ed]"
+            >
+              Download CV (PDF)
+            </a>
+            <a href="mailto:okeatilade@gmail.com" className="inline-flex min-h-11 items-center text-[17px] text-ink underline decoration-black/25 underline-offset-4 hover:decoration-ink">
+              Email me
+            </a>
           </div>
-        </div>
+          <p className="mt-4 max-w-[40ch] text-[17px] leading-relaxed text-ink-2 lg:col-start-1 lg:row-start-2 lg:mt-4 lg:self-start">
+            I&apos;m building{" "}
+            <a href="/projects/refinery" className="font-medium text-ink underline decoration-black/20 underline-offset-4 hover:decoration-ink">Refinery</a>.
+            It proves AI changes to mainframe COBOL are safe to deploy.
+          </p>
+        </section>
         <AboutSection />
       </div>
     </div>

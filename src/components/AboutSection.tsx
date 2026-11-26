@@ -1,7 +1,7 @@
-import React from "react";
+"use client";
 
-// The About page reads as a mainframe batch job: each part of the career is a JCL step (names of at
-// most eight characters, as JCL allows), finished steps return RC=0000 and current ones are RUNNING.
+import React from "react";
+import { motion, useReducedMotion } from "framer-motion";
 
 type Step = {
   step: string;
@@ -108,24 +108,32 @@ const skills: [string, string[]][] = [
   ["Data and infrastructure", ["PostgreSQL", "SQLite", "Redis", "Celery", "SurrealDB"]],
 ];
 
-const mono = "font-[family-name:var(--font-plex-mono)]";
-
 const Section: React.FC<{ title: string; caption?: string; id?: string; children: React.ReactNode }> = ({ title, caption, id, children }) => (
   <section id={id} className="pt-24 sm:pt-32">
-    <h2 className="text-[24px] font-semibold leading-tight tracking-[-0.02em] sm:text-[32px]">{title}</h2>
+    <h2 className="text-[28px] font-semibold leading-tight tracking-[-0.02em] sm:text-[32px]">{title}</h2>
     {caption && <p className="mt-2 max-w-[60ch] text-[17px] text-ink-2">{caption}</p>}
     <div className="mt-8">{children}</div>
   </section>
 );
 
 export default function AboutSection() {
+  // Rows rise in turn as they scroll in; with reduced motion they are simply there.
+  const still = useReducedMotion();
+  const reveal = (i: number) =>
+    still
+      ? {}
+      : {
+          initial: { opacity: 0, y: 16 },
+          whileInView: { opacity: 1, y: 0 },
+          viewport: { once: true, amount: 0.4 },
+          transition: { duration: 0.45, delay: (i % 3) * 0.06, ease: "easeOut" as const },
+        };
   return (
     <div className="pb-24 sm:pb-32">
       <Section id="steps" title="SAP at 19, ION and Refinery now" caption="Newest first.">
         <div role="list" className="divide-y divide-black/[0.08] overflow-hidden rounded-[22px] border border-black/[0.08]">
-          {steps.map((s) => (
-            <div role="listitem" key={s.step} className="grid grid-cols-1 gap-x-6 gap-y-1 p-4 sm:p-6 lg:grid-cols-[130px_minmax(0,1fr)_190px]">
-              <span aria-hidden="true" className={`${mono} hidden pt-1 text-[13px] font-medium lg:block`}>//{s.step}</span>
+          {steps.map((s, i) => (
+            <motion.div role="listitem" key={s.step} {...reveal(i)} className="grid grid-cols-1 gap-x-6 gap-y-1 p-4 sm:p-6 lg:grid-cols-[minmax(0,1fr)_190px]">
               <div>
                 <h3 className="text-[17px] font-semibold leading-snug">
                   {s.href ? (
@@ -136,7 +144,7 @@ export default function AboutSection() {
                 {s.detail && <p className="mt-1.5 max-w-[68ch] text-[15px] leading-relaxed text-ink-2">{s.detail}</p>}
               </div>
               <span className="text-[15px] tabular-nums text-ink-2 lg:pt-0.5 lg:text-right">{s.dates}</span>
-            </div>
+            </motion.div>
           ))}
         </div>
       </Section>
@@ -177,7 +185,7 @@ export default function AboutSection() {
 
       <section className="pt-24 sm:pt-32">
         <div className="rounded-[22px] bg-surface px-6 py-10 sm:px-12 sm:py-14">
-          <h2 className="text-[24px] font-semibold leading-tight tracking-[-0.02em] sm:text-[32px]">Always happy to build something together.</h2>
+          <h2 className="text-[28px] font-semibold leading-tight tracking-[-0.02em] sm:text-[32px]">Always happy to build something together.</h2>
           <p className="mt-2 text-[17px] text-ink-2">okeatilade@gmail.com</p>
           <a href="mailto:okeatilade@gmail.com" className="mt-6 inline-flex min-h-11 items-center rounded-full bg-ink px-5 text-[17px] font-medium text-white transition-colors hover:bg-black">
             Email me

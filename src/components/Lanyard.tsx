@@ -1,11 +1,12 @@
 "use client";
-import { Suspense, useEffect, useRef, useState } from "react";
+import { Suspense, useEffect, useRef, useState, type ReactNode } from "react";
 import { Canvas, extend, useFrame } from "@react-three/fiber";
 import {
   useGLTF,
   useTexture,
   Environment,
   Lightformer,
+  Html,
 } from "@react-three/drei";
 import {
   BallCollider,
@@ -31,6 +32,12 @@ interface LanyardProps {
   gravity?: [number, number, number];
   fov?: number;
   transparent?: boolean;
+  /** Card turned to its back face. */
+  flipped?: boolean;
+  /** Called on a tap on the card, or a drag released while spinning. */
+  onFlip?: () => void;
+  /** Real DOM for the back face, laid out at 320x450 px (the card is 1.6 x 2.25 units). */
+  back?: ReactNode;
 }
 
 export default function Lanyard({
@@ -38,6 +45,9 @@ export default function Lanyard({
   gravity = [0, -40, 0],
   fov = 20,
   transparent = true,
+  flipped = false,
+  onFlip,
+  back,
 }: LanyardProps) {
   const [isMobile, setIsMobile] = useState<boolean>(
     () => typeof window !== "undefined" && window.innerWidth < 768
@@ -62,7 +72,7 @@ export default function Lanyard({
         <Suspense fallback={null}>
           <ambientLight intensity={Math.PI} />
           <Physics gravity={gravity} timeStep={isMobile ? 1 / 30 : 1 / 60}>
-            <Band isMobile={isMobile} />
+            <Band isMobile={isMobile} flipped={flipped} onFlip={onFlip} back={back} />
           </Physics>
           <Environment blur={0.75}>
             <Lightformer
@@ -104,9 +114,15 @@ interface BandProps {
   maxSpeed?: number;
   minSpeed?: number;
   isMobile?: boolean;
+  flipped?: boolean;
+  onFlip?: () => void;
+  back?: ReactNode;
 }
 
-function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false }: BandProps) {
+function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false, flipped = false, onFlip, back }: BandProps) {
+  const turn = useRef<THREE.Group>(null);
+  const backFace = useRef<HTMLDivElement>(null);
+  const press = useRef<{ x: number; y: number } | null>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const band = useRef<any>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -203,6 +219,10 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false }: BandProps) {
       curve.points[2].copy(j1.current.lerped);
       curve.points[3].copy(fixed.current.translation());
       band.current.geometry.setPoints(curve.getPoints(isMobile ? 16 : 32));
+      if (turn.current) {
+        turn.current.rotation.y = THREE.MathUtils.damp(turn.current.rotation.y, flipped ? Math.PI : 0, 7, delta);
+        if (backFace.current) backFace.current.style.visibility = turn.current.rotation.y > Math.PI / 2 ? "visible" : "hidden";
+      }
       ang.copy(card.current.angvel());
       rot.copy(card.current.rotation());
       card.current.setAngvel({ x: ang.x, y: ang.y - rot.y * 0.25, z: ang.z });
@@ -255,6 +275,7 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false }: BandProps) {
           }
         >
           <CuboidCollider args={[0.8, 1.125, 0.01]} />
+          <group ref={turn}>
           <group
             scale={2.25}
             position={[0, -1.2, -0.05]}
@@ -264,10 +285,16 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false }: BandProps) {
             onPointerUp={(e: any) => {
               e.target.releasePointerCapture(e.pointerId);
               drag(false);
+              // A tap (under 6px of travel) flips; so does a drag let go while the card spins.
+              const p = press.current;
+              const tap = p && Math.hypot(e.clientX - p.x, e.clientY - p.y) < 6;
+              if (tap || Math.abs(card.current?.angvel().y ?? 0) > 4) onFlip?.();
+              press.current = null;
             }}
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             onPointerDown={(e: any) => {
               e.target.setPointerCapture(e.pointerId);
+              press.current = { x: e.clientX, y: e.clientY };
               drag(
                 new THREE.Vector3()
                   .copy(e.point)
@@ -291,6 +318,20 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false }: BandProps) {
               material-roughness={0.3}
             />
             <mesh geometry={nodes.clamp.geometry} material={materials.metal} />
+          </group>
+          {back && (
+            <Html
+              ref={backFace}
+              transform
+              distanceFactor={2}
+              position={[0, 0, -0.02]}
+              rotation={[0, Math.PI, 0]}
+              zIndexRange={[1, 0]}
+              style={{ visibility: "hidden", pointerEvents: "none" }}
+            >
+              {back}
+            </Html>
+          )}
           </group>
         </RigidBody>
       </group>
