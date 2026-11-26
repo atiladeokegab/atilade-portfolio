@@ -32,7 +32,7 @@ const steps: Step[] = [
     title: "Founder",
     org: "Refinery",
     dates: "Sep 2025 – now",
-    detail: "Proving AI changes to mainframe COBOL are safe to deploy. DiSH Accelerator at Number 10 North, IBM Z ScaleUp, Claude Founder House builder cohort.",
+    detail: "Proving AI changes to mainframe COBOL are safe to deploy. Joined DiSH Accelerator at Number 10 North, IBM Z ScaleUp and the Claude Founder House builder cohort.",
     href: "/projects/refinery",
   },
   {
@@ -185,7 +185,7 @@ export default function AboutSection() {
 
       <section className="pt-24 sm:pt-32">
         <div className="rounded-[22px] bg-surface px-6 py-10 sm:px-12 sm:py-14">
-          <h2 className="text-[28px] font-semibold leading-tight tracking-[-0.02em]">Email is the fastest way to reach me.</h2>
+          <h2 className="text-[28px] font-semibold leading-tight tracking-[-0.02em]">Always happy to build something together.</h2>
           <p className="mt-2 text-[17px] text-ink-2">okeatilade@gmail.com</p>
           <a href="mailto:okeatilade@gmail.com" className="mt-6 inline-flex min-h-11 items-center rounded-full bg-ink px-5 text-[17px] font-medium text-white transition-colors hover:bg-black">
             Email me

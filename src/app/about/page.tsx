@@ -12,7 +12,7 @@ const BadgeBack = ({ live, width }: { live: boolean; width: number }) => (
       <li className="py-3">Founder, Refinery</li>
       <li className="py-3">Analyst, Data and AI, ION</li>
       <li className="py-3">12× hackathon winner</li>
-      <li className="whitespace-nowrap py-3">#1 IBM Z Ambassador 2025–26</li>
+      <li className="py-3">#1 IBM Z Ambassador <span className="whitespace-nowrap">2025–26</span></li>
       <li className="py-3">BEng, Manchester, 2:1</li>
     </ul>
     <a
@@ -125,7 +125,7 @@ export default function About() {
             type="button"
             onClick={flip}
             aria-pressed={flipped}
-            className="mx-auto inline-flex min-h-11 items-center px-3 text-[15px] text-ink-2 underline decoration-black/20 underline-offset-4 hover:text-ink lg:col-start-2 lg:row-start-2"
+            className="mx-auto inline-flex min-h-11 items-center px-3 text-[15px] text-ink-2 underline decoration-black/20 underline-offset-4 hover:text-ink mt-2 lg:col-start-2 lg:row-start-2"
           >
             {flipped ? "Tap the badge to flip it back" : "Tap the badge to flip it"}
           </button>
