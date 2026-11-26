@@ -26,6 +26,7 @@ type ProjectRecord = {
 
 const aboutExperiences = [
   { role: "Analyst, Data & AI", company: "ION", type: "Full-time", duration: "Sep 2026 - Present", description: "Technical product work on European high-yield bond coverage.", link: "https://iongroup.com" },
+  { role: "Venture Scout", company: "Venture capital", type: "Part-time", duration: "Nov 2026 - Present", description: "Scouting exceptional founders and early-stage companies for a venture fund.", link: "https://atilade.uk/about" },
   { role: "Founder", company: "Refinery", type: "Startup", duration: "Sep 2025 - Present", description: "Proving AI changes to enterprise COBOL are safe to deploy. DiSH Accelerator at Number 10 North, IBM Z ScaleUp, Claude Founder House builder cohort.", link: "https://refinery.guru" },
   { role: "Software Engineer, DevOps", company: "SAP", type: "Industrial placement", duration: "Jul 2024 - Aug 2025", description: "Bare-metal monitoring for SAP Cloud and developer APIs, Belfast.", link: "https://sap.com" },
   { role: "Founder & President", company: "IBM Z Society, UoM", type: "Society", duration: "Jun 2025 - Mar 2026", description: "0 to 50 members in a year. #1 IBM Z Ambassador 2025-26.", link: "https://atilade.uk/projects/ibm-z-society" },
@@ -87,6 +88,11 @@ function listProjects(): ProjectRecord[] {
   return projects.sort(compareProjects);
 }
 
+// gold/silver/bronze awards are placings; "special" badges are only track names.
+function isWin(project: ProjectRecord) {
+  return (project.awards ?? []).some((award) => award.variant !== "special");
+}
+
 function toAbsoluteUrl(href: string) {
   return new URL(href, BASE_URL).toString();
 }
@@ -145,7 +151,7 @@ function buildHomeMarkdown() {
     [
       "# Atilade Oke",
       "",
-      "Analyst, Data & AI at ION. Founder of Refinery. Electrical Engineering graduate, University of Manchester. 12x hackathon winner. #1 IBM Z Student Ambassador 2025-26.",
+      "Analyst, Data & AI at ION. Founder of Refinery. Venture Scout. Electrical Engineering graduate, University of Manchester. 12x hackathon winner. #1 IBM Z Student Ambassador 2025-26.",
       "",
       "## Quick Links",
       "",
@@ -161,6 +167,10 @@ function buildHomeMarkdown() {
       "- Refinery: proving AI changes to enterprise COBOL are safe to deploy.",
       "- Building with teams of AI agents, and winning hackathons with them.",
       "- Data and AI at ION.",
+      "",
+      "## Hackathon Wins",
+      "",
+      formatProjectList(projects.filter(isWin)),
       "",
       "## Featured Projects",
       "",
@@ -236,9 +246,13 @@ function buildProjectsMarkdown() {
       "",
       formatProjectList(regularProjects),
       "",
-      "## Hackathons",
+      "## Hackathon Wins",
       "",
-      formatProjectList(hackathonProjects),
+      formatProjectList(hackathonProjects.filter(isWin)),
+      "",
+      "## Other Hackathons",
+      "",
+      formatProjectList(hackathonProjects.filter((project) => !isWin(project))),
     ].join("\n")
   );
 }

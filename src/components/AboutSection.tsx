@@ -38,6 +38,14 @@ const experiences: ExperienceItem[] = [
     link: "https://iongroup.com",
   },
   {
+    role: "Venture Scout",
+    company: "Venture capital",
+    type: "Part-time",
+    duration: "Nov 2026 - Present",
+    description:
+      "Scouting exceptional founders and early-stage companies for a venture fund.",
+  },
+  {
     role: "Founder",
     company: "Refinery",
     companyLogo: "/landing/refinery-mark.jpg",

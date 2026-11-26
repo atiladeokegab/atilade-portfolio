@@ -1,7 +1,7 @@
 # Atilade Gabriel Oke
 
 ## Summary
-Atilade Gabriel Oke builds cool stuff for people and agents. Analyst, Data & AI at ION in London. Founder of Refinery, which proves AI changes to enterprise COBOL are safe to deploy. BEng Electrical & Electronic Engineering, University of Manchester (2026). 8x hackathon winner and #1 IBM Z Student Ambassador 2025-26.
+Atilade Gabriel Oke builds cool stuff for people and agents. Analyst, Data & AI at ION in London. Founder of Refinery, which proves AI changes to enterprise COBOL are safe to deploy. Venture Scout, introducing exceptional founders to a venture fund. BEng Electrical & Electronic Engineering, University of Manchester (2026). 12x hackathon winner and #1 IBM Z Student Ambassador 2025-26.
 
 ## Contact & Links
 - Website: https://atilade.uk
@@ -14,22 +14,31 @@ Atilade Gabriel Oke builds cool stuff for people and agents. Analyst, Data & AI 
 - Building with teams of AI agents (Claude Code and Codex) on a shared task board
 - Data and AI at ION, on high-yield bonds
 
-## Notable Achievements
-- 8x hackathon winner
-- 1st place, London's first World Models hackathon (Worlds London, Sep 2026): Witness
-- Most Innovative Solution, Corgi hackathon (Sep 2026): Edna
-- 2nd place side challenge and 4th main track, Night Shift: Mubit Hackathon (Oct 2026): Sapling and Touchline
-- 3rd place overall, Google BGN hackathon, and recognised by Google executives for the best design and branding of an MVP
+## Hackathon Wins
+12x hackathon winner. Each win with its own page:
+- 1st place, Murmur, AI for Accessibility Collective: AI Agents for Accessibility (Nov 2026): https://atilade.uk/projects/murmur
+- Winner, £250,000 in credits, Red String, The Agentic Web Hackathon by Parallel (Nov 2026): https://atilade.uk/projects/red-string
+- 3rd place, £1,000, Preflight, SoTA Scientific Parallelism Hackathon (Nov 2026): https://atilade.uk/projects/preflight
+- 2nd place, Rescue Listener, Biocomputing Hack by Outlier Labs (Nov 2026): https://atilade.uk/projects/biocomputing-hack
+- 2nd place side challenge and 4th main track, Night Shift: Mubit Hackathon (Oct 2026): Sapling and Touchline: https://atilade.uk/projects/night-shift
+- Most Innovative Solution, Edna, Corgi Hackathon (Sep 2026): https://atilade.uk/projects/corgi
+- 1st place, £1,000 and £2,000 credits, Witness, Worlds London, London's first World Models hackathon (Sep 2026): https://atilade.uk/projects/worlds-witness
+- 3rd place overall and Best Design & Branding, BGN Hackathon at Google: https://atilade.uk/projects/bgn-hackathon
+- Winter Challenge winner, IBM Z
+
+## Other Achievements
+- Venture Scout for a venture fund (Nov 2026 - present)
 - Refinery selected for the DiSH Accelerator at Number 10 North and the IBM Z ScaleUp programme
 - Claude Founder House builder cohort; OpenAI x Based Collective hacker house
 - 1 of 50 from 1,000+ applicants, Google UK Black talent programme
 - Palantir Winter Fellow; Thinking About Thinking student fellow (AI alignment)
 - #1 IBM Z Ambassador 2025-26, Superstar tier; invited to speak at IBM Z Day
 - Founded the IBM Z Society at the University of Manchester, 0 to 50 members in a year; 15+ workshops and 5 events; left four new IBM Z Student Ambassadors
-- Won the Winter Challenge; WAVEZ Grant; GSE UK Conference
+- WAVEZ Grant; GSE UK Conference
 
 ## Experience
 - ION, Analyst, Data & AI (Sep 2026 - present)
+- Venture Scout, venture capital (Nov 2026 - present)
 - Refinery, Founder (Sep 2025 - present)
 - SAP, Software Engineer, DevOps, Belfast (Jul 2024 - Aug 2025)
 - Palantir, Winter Fellow (Dec 2024 - Aug 2025)
