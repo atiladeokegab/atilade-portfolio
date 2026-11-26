@@ -194,7 +194,8 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false }: BandProps) {
         );
         ref.current.lerped.lerp(
           ref.current.translation(),
-          delta * (minSpeed + clampedDistance * (maxSpeed - minSpeed))
+          // Capped at 1: on a slow frame (delta over 40ms) the lerp overshot, diverged and the strap vanished.
+          Math.min(1, delta * (minSpeed + clampedDistance * (maxSpeed - minSpeed)))
         );
       });
       curve.points[0].copy(j3.current.translation());

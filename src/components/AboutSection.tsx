@@ -1,233 +1,189 @@
-import Image from "next/image";
 import React from "react";
-import { getIcon } from "@/lib/getIcon";
 
-const Tag: React.FC<{ name: string; icon?: React.ReactNode }> = ({
-  name,
-  icon,
-}) => (
-  <div className="flex items-center gap-1.5 rounded-full bg-surface px-3 py-1 text-sm text-ink">
-    {icon}
-    <span>{name}</span>
-  </div>
-);
+// The About page reads as a mainframe batch job: each part of the career is a JCL step (names of at
+// most eight characters, as JCL allows), finished steps return RC=0000 and current ones are RUNNING.
 
-// Section title in the left column, content in the right.
-const Section: React.FC<{ title: string; children: React.ReactNode }> = ({ title, children }) => (
-  <section className="grid grid-cols-1 gap-6 pt-24 sm:pt-32 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] lg:gap-12">
-    <h2 className="text-2xl sm:text-[28px] font-semibold tracking-[-0.02em] text-ink">{title}</h2>
-    <div>{children}</div>
-  </section>
-);
-
-const LogoTile: React.FC<{ src?: string; label: string }> = ({ src, label }) => (
-  <div className="flex size-11 shrink-0 items-center justify-center overflow-hidden rounded-[12px] bg-white ring-1 ring-black/[0.08]">
-    {src ? (
-      <Image src={src} alt={`${label} logo`} width={44} height={44} className="size-full object-contain" />
-    ) : (
-      <span className="text-base font-semibold text-ink-2">{label.charAt(0)}</span>
-    )}
-  </div>
-);
-
-const Row: React.FC<{ logo?: string; title: string; subtitle: string; dates: string; href?: string; children?: React.ReactNode }> = ({ logo, title, subtitle, dates, href, children }) => (
-  <div className="flex gap-4">
-    <LogoTile src={logo} label={title} />
-    <div className="min-w-0 flex-1">
-      <div className="flex items-baseline justify-between gap-4">
-        <h3 className="font-semibold text-ink">
-          {href ? <a href={href} target="_blank" rel="noopener noreferrer" className="hover:text-link">{title}</a> : title}
-        </h3>
-        <span className="shrink-0 text-sm text-ink-2 tabular-nums">{dates}</span>
-      </div>
-      <p className="text-sm text-ink-2">{subtitle}</p>
-      {children}
-    </div>
-  </div>
-);
-
-type Skill = {
-  name: string;
-  iconName?: string;
+type Step = {
+  step: string;
+  title: string;
+  org: string;
+  dates: string;
+  detail?: string;
+  href?: string;
 };
 
-type ExperienceItem = {
-  role: string;
-  company: string;
-  companyLogo?: string;
-  type: string;
-  duration: string;
-  description?: string;
-  link?: string;
-  // Shown on About: the IBM Z Society numbers live here now the home page has no community section.
-  showDescription?: boolean;
-};
-
-const experiences: ExperienceItem[] = [
+const steps: Step[] = [
   {
-    role: "Analyst, Data & AI",
-    company: "ION",
-    type: "Full-time",
-    duration: "Sep 2026 - Present",
-    description:
-      "Technical product work on European high-yield bond coverage: design papers, data sourcing and validation, weekly reporting to leadership.",
-    link: "https://iongroup.com",
+    step: "SCOUT",
+    title: "Venture Scout",
+    org: "Venture capital, part-time",
+    dates: "Nov 2026 – now",
+    detail: "Scouting exceptional founders and early-stage companies for a venture fund.",
   },
   {
-    role: "Venture Scout",
-    company: "Venture capital",
-    type: "Part-time",
-    duration: "Nov 2026 - Present",
-    description:
-      "Scouting exceptional founders and early-stage companies for a venture fund.",
+    step: "ION",
+    title: "Analyst, Data & AI",
+    org: "ION",
+    dates: "Sep 2026 – now",
+    detail: "Technical product work on European high-yield bond coverage: design papers, data sourcing and validation, weekly reporting to leadership.",
   },
   {
-    role: "Founder",
-    company: "Refinery",
-    companyLogo: "/landing/refinery-mark.jpg",
-    type: "Startup",
-    duration: "Sep 2025 - Present",
-    description:
-      "Proving AI changes to enterprise COBOL are safe to deploy. DiSH Accelerator at Number 10 North, IBM Z ScaleUp, Claude Founder House builder cohort.",
-    link: "https://refinery.guru",
+    step: "REFINERY",
+    title: "Founder",
+    org: "Refinery",
+    dates: "Sep 2025 – now",
+    detail: "Proving AI changes to enterprise COBOL are safe to deploy. DiSH Accelerator at Number 10 North, IBM Z ScaleUp, Claude Founder House builder cohort.",
+    href: "/projects/refinery",
   },
   {
-    role: "Software Engineer, DevOps",
-    company: "SAP",
-    type: "Industrial placement",
-    duration: "Jul 2024 - Aug 2025",
-    description:
-      "Built at 19: a bare-metal monitoring tool for SAP Cloud, a performance testing API in Django and Paramiko, and Redis and Celery task processing for the SAP HANA test infrastructure.",
+    step: "UOM",
+    title: "BEng (Hons) Electrical & Electronic Engineering, 2:1",
+    org: "University of Manchester, with Industrial Experience",
+    dates: "Jun 2026",
+    detail: "Final year project on deep RL for UAV path planning: 86. AI: 86. Concurrent Systems: 88. Student Representative, PASS Leader, Student Ambassador.",
+    href: "/projects/uav-fyp",
   },
   {
-    role: "Founder & President",
-    company: "IBM Z Society, UoM",
-    type: "Society",
-    duration: "Jun 2025 - Mar 2026",
-    description:
-      "Started with two friends, grew it to 50 members, 15+ workshops and 5 events. Left four new ambassadors behind. #1 IBM Z Ambassador 2025-26, Winter Challenge winner, IBM Z Day speaker.",
-    showDescription: true,
+    step: "THINKING",
+    title: "Student Fellow",
+    org: "Thinking About Thinking",
+    dates: "Apr 2026 – Jul 2026",
+    detail: "AI alignment, and making information more accessible.",
   },
   {
-    role: "Winter Fellow",
-    company: "Palantir",
-    type: "Fellowship, remote internship",
-    duration: "Dec 2024 - Aug 2025",
-    description: "Palantir Technologies Winter Fellowship, nine months.",
+    step: "IBMZSOC",
+    title: "Founder & President",
+    org: "IBM Z Society, University of Manchester",
+    dates: "Jun 2025 – Mar 2026",
+    detail: "Started with two friends and grew it to 50 members, 15+ workshops and 5 events. Left four new ambassadors behind. #1 IBM Z Ambassador 2025-26, Winter Challenge winner, IBM Z Day speaker.",
+    href: "/projects/ibm-z-society",
   },
   {
-    role: "Student Fellow",
-    company: "Thinking About Thinking",
-    type: "Fellowship",
-    duration: "Apr 2026 - Jul 2026",
-    description: "AI alignment, and making information more accessible.",
+    step: "PALANTIR",
+    title: "Winter Fellow",
+    org: "Palantir",
+    dates: "Dec 2024 – Aug 2025",
+    detail: "Palantir Technologies Winter Fellowship, nine months.",
   },
   {
-    role: "Founder's Associate",
-    company: "BeGenio",
-    type: "Internship",
-    duration: "Aug 2023 - Oct 2023",
-    description: "Edtech startup making maths stick through games. Ran pilot sessions and pitched a maths game to schools in Africa and Europe.",
+    step: "SAP",
+    title: "Software Engineer, DevOps",
+    org: "SAP, Belfast, industrial placement",
+    dates: "Jul 2024 – Aug 2025",
+    detail: "Joined at 19. Built a bare-metal monitoring tool for SAP Cloud and a performance testing API in Django and Paramiko. Added Redis and Celery task processing to the SAP HANA test infrastructure.",
+    href: "/projects/sap",
+  },
+  {
+    step: "BEGENIO",
+    title: "Founder's Associate",
+    org: "BeGenio, internship",
+    dates: "Aug 2023 – Oct 2023",
+    detail: "Edtech startup making maths stick through games. Ran pilot sessions and pitched a maths game to schools in Africa and Europe.",
   },
 ];
 
-const skills: { [key: string]: Skill[] } = {
-  "Languages": [
-    { name: "Python", iconName: "Python" },
-    { name: "C++", iconName: "C++" },
-    { name: "C", iconName: "C" },
-    { name: "TypeScript", iconName: "TypeScript" },
-    { name: "SQL", iconName: "SQL" },
-    { name: "Bash" },
-    { name: "COBOL" },
-  ],
-  "Frameworks & Libraries": [
-    { name: "FastAPI" },
-    { name: "Django" },
-    { name: "React", iconName: "React" },
-    { name: "Next.js", iconName: "Next.js" },
-    { name: "PyTorch" },
-    { name: "Stable-Baselines3" },
-    { name: "Gymnasium" },
-    { name: "Pydantic" },
-    { name: "Z3" },
-  ],
-  "Developer Tools & Platforms": [
-    { name: "Docker", iconName: "Docker" },
-    { name: "Kubernetes" },
-    { name: "Git", iconName: "Git" },
-    { name: "GitHub", iconName: "GitHub" },
-    { name: "Linux", iconName: "Linux" },
-    { name: "Google Cloud" },
-    { name: "Vercel", iconName: "Vercel" },
-    { name: "IBM Z" },
-    { name: "Claude Code" },
-  ],
-  "Data & Infrastructure": [
-    { name: "PostgreSQL", iconName: "PostgreSQL" },
-    { name: "SQLite", iconName: "SQLite" },
-    { name: "Redis", iconName: "Redis" },
-    { name: "Celery" },
-    { name: "SurrealDB" },
-  ],
-};
+const wins = [
+  { name: "Murmur", place: "1st place", event: "AI for Accessibility Collective", date: "Nov 2026", href: "/projects/murmur" },
+  { name: "Red String", place: "Winner, £250,000 in credits", event: "The Agentic Web Hackathon by Parallel", date: "Nov 2026", href: "/projects/red-string" },
+  { name: "Preflight", place: "3rd place, £1,000", event: "SoTA Scientific Parallelism Hackathon", date: "Nov 2026", href: "/projects/preflight" },
+  { name: "Rescue Listener", place: "2nd place", event: "Biocomputing Hack by Outlier Labs", date: "Nov 2026", href: "/projects/biocomputing-hack" },
+  { name: "Sapling and Touchline", place: "2nd in a side challenge, 4th in the main track", event: "Night Shift: Mubit Hackathon", date: "Oct 2026", href: "/projects/night-shift" },
+  { name: "Edna", place: "Most Innovative Solution", event: "Corgi Hackathon", date: "Sep 2026", href: "/projects/corgi" },
+  { name: "Witness", place: "1st place, £1,000 and £2,000 credits", event: "Worlds London", date: "Sep 2026", href: "/projects/worlds-witness" },
+  { name: "BGN Hackathon at Google", place: "3rd overall, Best Design & Branding", event: "BGN Hackathon", href: "/projects/bgn-hackathon" },
+  { name: "Winter Challenge", place: "Winner", event: "IBM Z" },
+];
+
+const alsoOnRecord = [
+  "1 of 50 from 1,000+ applicants, Google UK Black talent programme",
+  "OpenAI x Based Collective hacker house",
+  "WAVEZ Grant",
+  "GSE UK Conference",
+];
+
+const skills: [string, string[]][] = [
+  ["Languages", ["Python", "C++", "C", "TypeScript", "SQL", "Bash", "COBOL"]],
+  ["Frameworks & libraries", ["FastAPI", "Django", "React", "Next.js", "PyTorch", "Stable-Baselines3", "Gymnasium", "Pydantic", "Z3"]],
+  ["Tools & platforms", ["Docker", "Kubernetes", "Git", "GitHub", "Linux", "Google Cloud", "IBM Z", "Claude Code", "Vercel"]],
+  ["Data & infrastructure", ["PostgreSQL", "SQLite", "Redis", "Celery", "SurrealDB"]],
+];
+
+const mono = "font-[family-name:var(--font-plex-mono)]";
+
+const Section: React.FC<{ title: string; caption: string; id?: string; children: React.ReactNode }> = ({ title, caption, id, children }) => (
+  <section id={id} className="pt-24 sm:pt-32">
+    <h2 className="text-[26px] font-semibold tracking-[-0.02em] sm:text-[32px]">{title}</h2>
+    <p className="mt-2 max-w-[60ch] text-base text-ink-2 sm:text-[17px]">{caption}</p>
+    <div className="mt-8">{children}</div>
+  </section>
+);
 
 export default function AboutSection() {
   return (
-    <div className="bg-white pb-24 sm:pb-32">
-      <div className="container mx-auto max-w-6xl px-4 sm:px-8">
-        <Section title="Education">
-          <Row
-            logo="/landing/uom-transparent-icon.png"
-            title="University of Manchester"
-            subtitle="BEng (Hons) Electrical & Electronic Engineering with Industrial Experience · 2:1"
-            dates="June 2026"
-          >
-            <p className="mt-2 text-sm leading-relaxed text-ink-2">
-              Final year project on deep RL for UAV path planning: 86. AI: 86. Concurrent Systems: 88.
-              Activities: Founder of the IBM Z Society, Student Representative, PASS Leader, Student Ambassador.
-            </p>
-          </Row>
-        </Section>
-
-        <Section title="Experience">
-          <div className="space-y-6">
-            {experiences.map((exp) => (
-              <Row
-                key={exp.role + exp.company}
-                logo={exp.companyLogo}
-                title={exp.company}
-                subtitle={`${exp.role} · ${exp.type}`}
-                dates={exp.duration}
-                href={exp.link}
-              >
-                {exp.showDescription && (
-                  <p className="mt-1 text-sm leading-relaxed text-ink-2">{exp.description}</p>
-                )}
-              </Row>
-            ))}
-          </div>
-        </Section>
-
-        <Section title="Technologies & Skills">
-          <div className="grid grid-cols-1 gap-x-10 gap-y-8 md:grid-cols-2">
-            {Object.entries(skills).map(([category, tech]) => (
-              <div key={category}>
-                <h3 className="mb-3 text-sm font-semibold text-ink">{category}</h3>
-                <div className="flex flex-wrap gap-2">
-                  {tech.map((item) => (
-                    <Tag
-                      key={item.name}
-                      name={item.name}
-                      icon={item.iconName ? getIcon(item.iconName) : undefined}
-                    />
-                  ))}
-                </div>
+    <div className="pb-24 sm:pb-32">
+      <Section id="steps" title="Where I've worked and studied" caption="Newest first, each step named the way a mainframe job names its steps.">
+        <div role="list" className="overflow-hidden rounded-[22px] border border-black/[0.08]">
+          {steps.map((s) => (
+            <div role="listitem" key={s.step} className="grid grid-cols-1 gap-x-6 gap-y-1 p-4 odd:bg-surface sm:p-6 lg:grid-cols-[130px_minmax(0,1fr)_190px]">
+              <span className={`${mono} text-[13px] font-medium sm:text-sm lg:pt-0.5`}>//{s.step}</span>
+              <div>
+                <h3 className="text-[17px] font-semibold leading-snug">
+                  {s.href ? (
+                    <a href={s.href} className="-my-3 inline-block py-3 underline decoration-transparent underline-offset-4 hover:decoration-ink">{s.title}</a>
+                  ) : s.title}
+                </h3>
+                <p className="text-[15px] text-ink">{s.org}</p>
+                {s.detail && <p className="mt-1.5 max-w-[68ch] text-[15px] leading-relaxed text-ink-2">{s.detail}</p>}
               </div>
-            ))}
-          </div>
-        </Section>
-      </div>
+              <span className="text-[15px] tabular-nums text-ink-2 lg:pt-0.5 lg:text-right">{s.dates}</span>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section id="wins" title="12 hackathon wins" caption="Most weekends I'm at a hackathon. A selection of the wins:">
+        <ul className="grid grid-cols-1 gap-x-12 md:grid-cols-2">
+          {wins.map((w) => (
+            <li key={w.name} className="flex items-baseline justify-between gap-4 border-t border-black/[0.08] py-4">
+              <div className="min-w-0">
+                <p className="text-[17px] font-semibold">
+                  {w.href ? (
+                    <a href={w.href} className="-my-3 inline-block min-w-11 py-3 underline decoration-black/20 underline-offset-4 hover:decoration-ink">{w.name}</a>
+                  ) : w.name}
+                </p>
+                <p className="text-[15px] text-ink">{w.place}</p>
+                <p className="text-[15px] text-ink-2">{w.event}</p>
+              </div>
+              {w.date && <span className="shrink-0 text-[15px] tabular-nums text-ink-2">{w.date}</span>}
+            </li>
+          ))}
+        </ul>
+        <h3 className="mt-12 text-[17px] font-semibold">Also on record</h3>
+        <ul className="mt-3 space-y-2 text-[15px] text-ink-2">
+          {alsoOnRecord.map((a) => <li key={a}>{a}</li>)}
+        </ul>
+      </Section>
+
+      <Section id="tools" title="What I build with" caption="From COBOL on IBM Z to agents on Claude Code.">
+        <dl className="grid grid-cols-1 gap-x-12 gap-y-6 md:grid-cols-2">
+          {skills.map(([group, items]) => (
+            <div key={group} className="border-t border-black/[0.08] pt-4">
+              <dt className="text-[15px] font-semibold">{group}</dt>
+              <dd className="mt-1 text-[15px] leading-relaxed text-ink-2">{items.slice(0, -1).join(", ")} and {items.at(-1)}</dd>
+            </div>
+          ))}
+        </dl>
+      </Section>
+
+      <section className="pt-24 sm:pt-32">
+        <div className="rounded-[22px] bg-surface px-6 py-10 sm:px-12 sm:py-14">
+          <h2 className="text-[26px] font-semibold tracking-[-0.02em] sm:text-[32px]">Always happy to build something together.</h2>
+          <p className="mt-2 text-base text-ink-2 sm:text-[17px]">okeatilade@gmail.com</p>
+          <a href="mailto:okeatilade@gmail.com" className="mt-6 inline-flex min-h-11 items-center rounded-full bg-ink px-5 text-base font-medium text-white transition-colors hover:bg-black">
+            Email me
+          </a>
+        </div>
+      </section>
     </div>
   );
 }
