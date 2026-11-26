@@ -6,9 +6,9 @@ import AboutSection from "@/components/AboutSection";
 
 // The back of the badge: real text, laid out at the card's on-screen size (1.6:2.25) so it maps 1:1.
 const BadgeBack = ({ live, width }: { live: boolean; width: number }) => (
-  <div style={{ width, height: (width * 2.25) / 1.6 }} className="flex flex-col rounded-[22px] bg-white px-6 pb-6 pt-9 text-ink shadow-[inset_0_0_0_1px_rgba(0,0,0,0.06)]">
+  <div style={{ width, height: (width * 2.25) / 1.6 }} className="flex flex-col rounded-[22px] bg-[#e6e6e8] px-6 pb-6 pt-9 text-ink">
     <p className="text-[28px] font-semibold leading-[1.1] tracking-[-0.02em]">Atilade Oke</p>
-    <ul className="mt-6 divide-y divide-black/10 border-y border-black/10 text-[17px] leading-snug">
+    <ul className="mt-6 divide-y divide-black/[0.12] border-y border-black/[0.12] text-[17px] leading-snug">
       <li className="py-3">Founder, Refinery</li>
       <li className="py-3">Analyst, Data and AI, ION</li>
       <li className="py-3">12× hackathon winner</li>
@@ -20,7 +20,7 @@ const BadgeBack = ({ live, width }: { live: boolean; width: number }) => (
       tabIndex={live ? -1 : 0}
       className="pointer-events-auto mt-4 inline-flex min-h-11 items-center self-start text-[17px] font-medium text-link underline decoration-link/30 underline-offset-4 hover:decoration-link"
     >
-      Download CV
+      Download CV (PDF)
     </a>
   </div>
 );
@@ -75,9 +75,9 @@ html{caret-color:#0071e3;scrollbar-color:#c7c7cc transparent}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none !important;animation:none !important}}
 `;
 
-// Camera [x, y, z] per layout: framed so the card is 400px wide at 1280 and 300px at 390, under a short run of strap.
-const DESKTOP_CAMERA: [number, number, number] = [0, -0.33, 7.26];
-const MOBILE_CAMERA: [number, number, number] = [0, -0.41, 7.41];
+// Camera [x, y, z] per layout: framed so the whole card fits the first screen, 320px wide at 1280 and 290px at 390.
+const DESKTOP_CAMERA: [number, number, number] = [0, -0.362, 7.485];
+const MOBILE_CAMERA: [number, number, number] = [0, -0.415, 7.51];
 
 export default function About() {
   const { mode, mobile } = useBadgeMode();
@@ -87,13 +87,13 @@ export default function About() {
     <div className="bg-white text-ink">
       <style>{frame}</style>
       <div className="container mx-auto max-w-6xl px-4 sm:px-8">
-        <section className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_440px_minmax(0,1fr)] lg:items-center lg:gap-x-8">
+        <section className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_440px_minmax(0,1fr)] lg:items-center lg:gap-x-8 lg:gap-y-0">
           {/* The badge: the page's figure, centred. A tap on it, or the button beside it, turns it over. */}
-          <div className="relative -mx-4 -mt-2 sm:mx-0 lg:col-start-2 lg:row-start-1 lg:-mt-6">
+          <div className="relative -mx-4 -mt-2 sm:mx-0 lg:col-start-2 lg:row-start-1 lg:-mt-9">
             <div
               role="img"
               aria-label="Atilade Oke's lanyard badge: Electrical Engineering, University of Manchester. Drag it to swing it."
-              className="relative h-[496px] lg:h-[640px]"
+              className="relative h-[480px] lg:h-[528px]"
             >
               {mode === "live" ? (
                 <Lanyard
@@ -101,16 +101,16 @@ export default function About() {
                   gravity={[0, -40, 0]}
                   flipped={flipped}
                   onFlip={flip}
-                  back={<BadgeBack live width={mobile ? 300 : 400} />}
-                  backWidth={mobile ? 300 : 400}
+                  back={<BadgeBack live width={mobile ? 290 : 320} />}
+                  backWidth={mobile ? 290 : 320}
                 />
               ) : (
                 <>
                   <StillBadge />
                   {/* Reduced motion and no WebGL: the back swaps in at once, over the card's footprint. */}
                   {flipped && (
-                    <div className="absolute left-1/2 top-[60px] -translate-x-1/2 lg:top-[93px]">
-                      <BadgeBack live={false} width={mobile ? 300 : 400} />
+                    <div className="absolute left-1/2 top-[76px] -translate-x-1/2 lg:top-[70px]">
+                      <BadgeBack live={false} width={mobile ? 290 : 320} />
                     </div>
                   )}
                 </>
@@ -125,14 +125,13 @@ export default function About() {
             type="button"
             onClick={flip}
             aria-pressed={flipped}
-            className="mx-auto inline-flex min-h-11 items-center px-3 text-[15px] text-ink-2 underline decoration-black/20 underline-offset-4 hover:text-ink lg:col-start-3 lg:row-start-1 lg:mx-0 lg:justify-self-start lg:px-0"
+            className="mx-auto inline-flex min-h-11 items-center px-3 text-[15px] text-ink-2 underline decoration-black/20 underline-offset-4 hover:text-ink lg:col-start-2 lg:row-start-2"
           >
-            <span className="[@media(pointer:fine)]:hidden">Tap the badge to flip it{flipped ? " back" : ""}</span>
-            <span className="hidden [@media(pointer:fine)]:inline">Click the badge to flip it{flipped ? " back" : ""}</span>
+            {flipped ? "Tap the badge to flip it back" : "Tap the badge to flip it"}
           </button>
 
-          <div className="flex flex-col lg:col-start-1 lg:row-start-1">
-            <h1 className="mt-1 text-[28px] font-semibold leading-[1.1] tracking-[-0.025em] lg:mt-0">
+          <div className="flex flex-col lg:col-start-1 lg:row-span-2 lg:row-start-1">
+            <h1 className="mt-1 text-[28px] lg:text-[32px] font-semibold leading-[1.1] tracking-[-0.025em] lg:mt-0">
               Engineer, founder and hackathon winner in London.
             </h1>
             <p className="order-3 mt-4 text-[17px] leading-relaxed text-ink-2 lg:order-none">
