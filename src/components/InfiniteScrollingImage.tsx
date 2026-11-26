@@ -33,6 +33,10 @@ export function InfiniteMovingImages() {
 
 const images = [
   {
+    src: "/events/rescue-listener-demo.jpg",
+    alt: "Demoing Rescue Listener at the Biocomputing Hack, 2nd place",
+  },
+  {
     src: "/events/dish.jpg",
     alt: "DiSH Accelerator cohort 7, Manchester",
   },
@@ -53,8 +57,8 @@ const images = [
     alt: "IBM Z Society UoM launch",
   },
   {
-    src: "/events/witness-world.jpg",
-    alt: "Witness, winner at Worlds London",
+    src: "/events/thinking-ambassador.jpeg",
+    alt: "Atilade Gabriel Oke, Thinking About Thinking ambassador",
   },
   {
     src: "/events/ibm-atilade-niall-thumbs.jpeg",

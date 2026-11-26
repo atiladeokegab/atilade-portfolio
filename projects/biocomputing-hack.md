@@ -2,7 +2,7 @@
 title: "Rescue Listener: Biocomputing Hack"
 description: "2nd place. Rescue Listener asks whether a simulated spiking network can tell a trapped survivor's answering knock from the noise of rubble."
 tags: ["Hackathon", "Biocomputing", "Neuroscience", "Python", "three.js", "London"]
-images: ["/events/rescue-listener-hero-v2.jpg", "/events/rescue-listener-experiment-v2.jpg", "/events/rescue-listener-results-v2.jpg", "/events/rescue-listener-knock-v2.jpg", "/events/biocomputing-hack.jpg"]
+images: ["/events/rescue-listener-hero-v2.jpg", "/events/rescue-listener-demo.jpg", "/events/rescue-listener-experiment-v2.jpg", "/events/rescue-listener-results-v2.jpg", "/events/rescue-listener-knock-v2.jpg", "/events/biocomputing-hack.jpg"]
 layout: "imageRight"
 date: "2026-11-03"
 brandIcon:

@@ -33,8 +33,8 @@ const images = [
     alt: "IBM Z Society stand at the Freshers Fair",
   },
   {
-    src: "/events/thinking-ambassador.jpeg",
-    alt: "Atilade Gabriel Oke",
+    src: "/events/ibm-sign-solo.jpeg",
+    alt: "Atilade at IBM",
   },
   {
     src: "/events/ibm-z-banner-group.jpeg",
