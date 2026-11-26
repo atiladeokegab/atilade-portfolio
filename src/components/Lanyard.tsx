@@ -36,8 +36,9 @@ interface LanyardProps {
   flipped?: boolean;
   /** Called on a tap on the card, or a drag released while spinning. */
   onFlip?: () => void;
-  /** Real DOM for the back face, laid out at 320x450 px (the card is 1.6 x 2.25 units). */
+  /** Real DOM for the back face, laid out at backWidth px wide (the card is 1.6 x 2.25 units). */
   back?: ReactNode;
+  backWidth?: number;
 }
 
 export default function Lanyard({
@@ -48,6 +49,7 @@ export default function Lanyard({
   flipped = false,
   onFlip,
   back,
+  backWidth = 320,
 }: LanyardProps) {
   const [isMobile, setIsMobile] = useState<boolean>(
     () => typeof window !== "undefined" && window.innerWidth < 768
@@ -72,7 +74,7 @@ export default function Lanyard({
         <Suspense fallback={null}>
           <ambientLight intensity={Math.PI} />
           <Physics gravity={gravity} timeStep={isMobile ? 1 / 30 : 1 / 60}>
-            <Band isMobile={isMobile} flipped={flipped} onFlip={onFlip} back={back} />
+            <Band isMobile={isMobile} flipped={flipped} onFlip={onFlip} back={back} backWidth={backWidth} />
           </Physics>
           <Environment blur={0.75}>
             <Lightformer
@@ -117,9 +119,10 @@ interface BandProps {
   flipped?: boolean;
   onFlip?: () => void;
   back?: ReactNode;
+  backWidth?: number;
 }
 
-function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false, flipped = false, onFlip, back }: BandProps) {
+function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false, flipped = false, onFlip, back, backWidth = 320 }: BandProps) {
   const turn = useRef<THREE.Group>(null);
   const backFace = useRef<HTMLDivElement>(null);
   const press = useRef<{ x: number; y: number } | null>(null);
@@ -275,7 +278,6 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false, flipped = false, 
           }
         >
           <CuboidCollider args={[0.8, 1.125, 0.01]} />
-          <group ref={turn}>
           <group
             scale={2.25}
             position={[0, -1.2, -0.05]}
@@ -302,6 +304,8 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false, flipped = false, 
               );
             }}
           >
+            {/* Only the card turns: the clip and clamp seen from behind render as a black mass. */}
+            <group ref={turn}>
             <mesh geometry={nodes.card.geometry}>
               <meshPhysicalMaterial
                 map={cardFront}
@@ -312,26 +316,27 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false, flipped = false, 
                 metalness={0.8}
               />
             </mesh>
+            {back && (
+              // Model space: the card's centre is (0, 1.2/2.25, 0.05/2.25); 1.6/2.25 model units wide.
+              <Html
+                ref={backFace}
+                transform
+                distanceFactor={((1.6 / 2.25) * 400) / backWidth}
+                position={[0, 0.533, 0.013]}
+                rotation={[0, Math.PI, 0]}
+                zIndexRange={[1, 0]}
+                style={{ visibility: "hidden", pointerEvents: "none" }}
+              >
+                {back}
+              </Html>
+            )}
+            </group>
             <mesh
               geometry={nodes.clip.geometry}
               material={materials.metal}
               material-roughness={0.3}
             />
             <mesh geometry={nodes.clamp.geometry} material={materials.metal} />
-          </group>
-          {back && (
-            <Html
-              ref={backFace}
-              transform
-              distanceFactor={2}
-              position={[0, 0, -0.02]}
-              rotation={[0, Math.PI, 0]}
-              zIndexRange={[1, 0]}
-              style={{ visibility: "hidden", pointerEvents: "none" }}
-            >
-              {back}
-            </Html>
-          )}
           </group>
         </RigidBody>
       </group>

@@ -130,10 +130,10 @@ export default function AboutSection() {
         };
   return (
     <div className="pb-24 sm:pb-32">
-      <Section id="steps" title="SAP at 19, ION and Refinery now" caption="Newest first.">
-        <div role="list" className="divide-y divide-black/[0.08] overflow-hidden rounded-[22px] border border-black/[0.08]">
+      <Section id="steps" title="Work and study since 2023" caption="Newest first.">
+        <div role="list" className="divide-y divide-black/[0.08] border-y border-black/[0.08]">
           {steps.map((s, i) => (
-            <motion.div role="listitem" key={s.step} {...reveal(i)} className="grid grid-cols-1 gap-x-6 gap-y-1 p-4 sm:p-6 lg:grid-cols-[minmax(0,1fr)_190px]">
+            <motion.div role="listitem" key={s.step} {...reveal(i)} className="grid grid-cols-1 gap-x-6 gap-y-1 py-5 lg:grid-cols-[minmax(0,1fr)_190px]">
               <div>
                 <h3 className="text-[17px] font-semibold leading-snug">
                   {s.href ? (
@@ -185,7 +185,7 @@ export default function AboutSection() {
 
       <section className="pt-24 sm:pt-32">
         <div className="rounded-[22px] bg-surface px-6 py-10 sm:px-12 sm:py-14">
-          <h2 className="text-[28px] font-semibold leading-tight tracking-[-0.02em] sm:text-[32px]">Always happy to build something together.</h2>
+          <h2 className="text-[28px] font-semibold leading-tight tracking-[-0.02em] sm:text-[32px]">Email is the fastest way to reach me.</h2>
           <p className="mt-2 text-[17px] text-ink-2">okeatilade@gmail.com</p>
           <a href="mailto:okeatilade@gmail.com" className="mt-6 inline-flex min-h-11 items-center rounded-full bg-ink px-5 text-[17px] font-medium text-white transition-colors hover:bg-black">
             Email me
