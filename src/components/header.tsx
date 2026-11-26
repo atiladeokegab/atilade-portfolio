@@ -21,7 +21,7 @@ interface MenuItem {
 const menuItems: MenuItem[] = [
     { name: 'About', href: '#about' },
     { name: 'Projects', href: '#projects' },
-    { name: 'Resume', href: 'https://linkedin.com/in/atiladeoke' },
+    { name: 'Resume', href: '/resume' },
 ]
 
 const profileImage = '/profile-icons/profile-icon.jpeg';
@@ -59,7 +59,7 @@ export const Header = () => {
                                     </div>
                                 </Link>
                                 <Link href="/" className="active:scale-[0.97] transition-transform duration-[160ms] ease-[cubic-bezier(0.23,1,0.32,1)]">
-                                    Atilade Oke
+                                    <span lang="yo">Àtìládé Òkè</span>
                                 </Link>
                             </div>
 
