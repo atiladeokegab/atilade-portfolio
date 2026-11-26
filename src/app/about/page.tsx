@@ -9,12 +9,12 @@ import AboutSection from "@/components/AboutSection";
 const BadgeBack = ({ live, width }: { live: boolean; width: number }) => (
   <div style={{ width, height: (width * 2.25) / 1.6 }} className="flex flex-col rounded-[22px] bg-[#e6e6e8] px-6 pb-6 pt-9 text-ink">
     <p className="text-[28px] font-semibold leading-[1.1] tracking-[-0.02em]">Atilade Oke</p>
-    <ul className="mt-6 divide-y divide-black/[0.12] border-y border-black/[0.12] text-[17px] leading-snug">
-      <li className="py-3">Founder, Refinery</li>
-      <li className="py-3">Analyst, Data and AI, ION</li>
-      <li className="py-3">12× hackathon winner</li>
-      <li className="py-3">#1 IBM Z Ambassador <span className="whitespace-nowrap">2025–26</span></li>
-      <li className="py-3">BEng, Manchester, 2:1</li>
+    <ul className="mt-6 flex flex-1 flex-col divide-y divide-black/[0.12] border-y border-black/[0.12] text-[17px] leading-snug">
+      <li className="flex flex-1 items-center py-2.5">Founder, Refinery</li>
+      <li className="flex flex-1 items-center py-2.5">Analyst, Data and AI, ION</li>
+      <li className="flex flex-1 items-center py-2.5">12× hackathon winner</li>
+      <li className="flex flex-1 items-center py-2.5"><span>#1 IBM Z Ambassador <span className="whitespace-nowrap">2025–26</span></span></li>
+      <li className="flex flex-1 items-center py-2.5">BEng, Manchester, 2:1</li>
     </ul>
     <a
       href="/Atilade_Oke_CV.pdf"
@@ -75,9 +75,10 @@ html{caret-color:#0071e3;scrollbar-color:#c7c7cc transparent}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none !important;animation:none !important}}
 `;
 
-// Camera [x, y, z] per layout: framed so the whole card fits the first screen, 352px wide at 1280 and 290px at 390.
-const DESKTOP_CAMERA: [number, number, number] = [0, -0.331, 7.565];
-const MOBILE_CAMERA: [number, number, number] = [0, -0.415, 7.51];
+// Camera [x, y, z] per layout: the whole clip hangs below the header and the card ends inside the first
+// screen; 320px wide at 1280 (card top ~180px) and 290px at 390 (clip 12px+ under the header).
+const DESKTOP_CAMERA: [number, number, number] = [0, -0.142, 9.356];
+const MOBILE_CAMERA: [number, number, number] = [0, -0.377, 8.065];
 
 export default function About() {
   const { mode, mobile } = useBadgeMode();
@@ -93,24 +94,27 @@ export default function About() {
             <div
               role="img"
               aria-label="Atilade Oke's lanyard badge: Electrical Engineering, University of Manchester. Drag it to swing it."
-              className="relative h-[480px] lg:mx-auto lg:h-[587px] lg:w-[480px]"
+              // The strap fades out just under the header, so the badge hangs from above the page.
+              className="relative h-[512px] [mask-image:linear-gradient(to_bottom,transparent_4px,black_16px)] lg:mx-auto lg:h-[660px] lg:w-[480px] lg:[mask-image:linear-gradient(to_bottom,transparent_78px,black_92px)]"
             >
+              {/* Contact shadow under the card. */}
+              <div className="pointer-events-none absolute left-1/2 top-[636px] hidden h-6 w-[280px] -translate-x-1/2 rounded-[50%] bg-[radial-gradient(closest-side,rgba(0,0,0,0.16),transparent)] blur-[6px] lg:block" />
               {mode === "live" ? (
                 <Lanyard
                   position={mobile ? MOBILE_CAMERA : DESKTOP_CAMERA}
                   gravity={[0, -40, 0]}
                   flipped={flipped}
                   onFlip={flip}
-                  back={<BadgeBack live width={mobile ? 290 : 352} />}
-                  backWidth={mobile ? 290 : 352}
+                  back={<BadgeBack live width={mobile ? 290 : 320} />}
+                  backWidth={mobile ? 290 : 320}
                 />
               ) : (
                 <>
                   <StillBadge />
                   {/* Reduced motion and no WebGL: the back swaps in at once, over the card's footprint. */}
                   {flipped && (
-                    <div className="absolute left-1/2 top-[76px] -translate-x-1/2 lg:top-[87px]">
-                      <BadgeBack live={false} width={mobile ? 290 : 352} />
+                    <div className="absolute left-1/2 top-[99px] -translate-x-1/2 lg:top-[180px]">
+                      <BadgeBack live={false} width={mobile ? 290 : 320} />
                     </div>
                   )}
                 </>
