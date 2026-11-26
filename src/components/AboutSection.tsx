@@ -14,15 +14,15 @@ type Step = {
 
 const steps: Step[] = [
   {
-    step: "SCOUT",
+    step: "VENTURE",
     title: "Venture Scout",
     org: "Venture capital, part-time",
     dates: "Nov 2026 – now",
-    detail: "Scouting exceptional founders and early-stage companies for a venture fund.",
+    detail: "Scouting founders and early-stage companies for a venture fund.",
   },
   {
     step: "ION",
-    title: "Analyst, Data & AI",
+    title: "Analyst, Data and AI",
     org: "ION",
     dates: "Sep 2026 – now",
     detail: "Technical product work on European high-yield bond coverage: design papers, data sourcing and validation, weekly reporting to leadership.",
@@ -32,12 +32,12 @@ const steps: Step[] = [
     title: "Founder",
     org: "Refinery",
     dates: "Sep 2025 – now",
-    detail: "Proving AI changes to enterprise COBOL are safe to deploy. DiSH Accelerator at Number 10 North, IBM Z ScaleUp, Claude Founder House builder cohort.",
+    detail: "Proving AI changes to mainframe COBOL are safe to deploy. DiSH Accelerator at Number 10 North, IBM Z ScaleUp, Claude Founder House builder cohort.",
     href: "/projects/refinery",
   },
   {
     step: "UOM",
-    title: "BEng (Hons) Electrical & Electronic Engineering, 2:1",
+    title: "BEng (Hons) Electrical and Electronic Engineering, 2:1",
     org: "University of Manchester, with Industrial Experience",
     dates: "Jun 2026",
     detail: "Final year project on deep RL for UAV path planning: 86. AI: 86. Concurrent Systems: 88. Student Representative, PASS Leader, Student Ambassador.",
@@ -52,7 +52,7 @@ const steps: Step[] = [
   },
   {
     step: "IBMZSOC",
-    title: "Founder & President",
+    title: "Founder and President",
     org: "IBM Z Society, University of Manchester",
     dates: "Jun 2025 – Mar 2026",
     detail: "Started with two friends and grew it to 50 members, 15+ workshops and 5 events. Left four new ambassadors behind. #1 IBM Z Ambassador 2025-26, Winter Challenge winner, IBM Z Day speaker.",
@@ -90,7 +90,7 @@ const wins = [
   { name: "Sapling and Touchline", place: "2nd in a side challenge, 4th in the main track", event: "Night Shift: Mubit Hackathon", date: "Oct 2026", href: "/projects/night-shift" },
   { name: "Edna", place: "Most Innovative Solution", event: "Corgi Hackathon", date: "Sep 2026", href: "/projects/corgi" },
   { name: "Witness", place: "1st place, £1,000 and £2,000 credits", event: "Worlds London", date: "Sep 2026", href: "/projects/worlds-witness" },
-  { name: "BGN Hackathon at Google", place: "3rd overall, Best Design & Branding", event: "BGN Hackathon", href: "/projects/bgn-hackathon" },
+  { name: "BGN Hackathon", place: "3rd overall, Best Design and Branding", event: "Hosted at Google", href: "/projects/bgn-hackathon" },
   { name: "Winter Challenge", place: "Winner", event: "IBM Z" },
 ];
 
@@ -103,17 +103,17 @@ const alsoOnRecord = [
 
 const skills: [string, string[]][] = [
   ["Languages", ["Python", "C++", "C", "TypeScript", "SQL", "Bash", "COBOL"]],
-  ["Frameworks & libraries", ["FastAPI", "Django", "React", "Next.js", "PyTorch", "Stable-Baselines3", "Gymnasium", "Pydantic", "Z3"]],
-  ["Tools & platforms", ["Docker", "Kubernetes", "Git", "GitHub", "Linux", "Google Cloud", "IBM Z", "Claude Code", "Vercel"]],
-  ["Data & infrastructure", ["PostgreSQL", "SQLite", "Redis", "Celery", "SurrealDB"]],
+  ["Frameworks and libraries", ["FastAPI", "Django", "React", "Next.js", "PyTorch", "Stable-Baselines3", "Gymnasium", "Pydantic", "Z3"]],
+  ["Tools and platforms", ["Docker", "Kubernetes", "Git", "GitHub", "Linux", "Google Cloud", "IBM Z", "Claude Code", "Vercel"]],
+  ["Data and infrastructure", ["PostgreSQL", "SQLite", "Redis", "Celery", "SurrealDB"]],
 ];
 
 const mono = "font-[family-name:var(--font-plex-mono)]";
 
-const Section: React.FC<{ title: string; caption: string; id?: string; children: React.ReactNode }> = ({ title, caption, id, children }) => (
+const Section: React.FC<{ title: string; caption?: string; id?: string; children: React.ReactNode }> = ({ title, caption, id, children }) => (
   <section id={id} className="pt-24 sm:pt-32">
-    <h2 className="text-[26px] font-semibold tracking-[-0.02em] sm:text-[32px]">{title}</h2>
-    <p className="mt-2 max-w-[60ch] text-base text-ink-2 sm:text-[17px]">{caption}</p>
+    <h2 className="text-[24px] font-semibold leading-tight tracking-[-0.02em] sm:text-[32px]">{title}</h2>
+    {caption && <p className="mt-2 max-w-[60ch] text-[17px] text-ink-2">{caption}</p>}
     <div className="mt-8">{children}</div>
   </section>
 );
@@ -121,11 +121,11 @@ const Section: React.FC<{ title: string; caption: string; id?: string; children:
 export default function AboutSection() {
   return (
     <div className="pb-24 sm:pb-32">
-      <Section id="steps" title="Where I've worked and studied" caption="Newest first, each step named the way a mainframe job names its steps.">
-        <div role="list" className="overflow-hidden rounded-[22px] border border-black/[0.08]">
+      <Section id="steps" title="SAP at 19, ION and Refinery now" caption="Newest first.">
+        <div role="list" className="divide-y divide-black/[0.08] overflow-hidden rounded-[22px] border border-black/[0.08]">
           {steps.map((s) => (
-            <div role="listitem" key={s.step} className="grid grid-cols-1 gap-x-6 gap-y-1 p-4 odd:bg-surface sm:p-6 lg:grid-cols-[130px_minmax(0,1fr)_190px]">
-              <span className={`${mono} text-[13px] font-medium sm:text-sm lg:pt-0.5`}>//{s.step}</span>
+            <div role="listitem" key={s.step} className="grid grid-cols-1 gap-x-6 gap-y-1 p-4 sm:p-6 lg:grid-cols-[130px_minmax(0,1fr)_190px]">
+              <span aria-hidden="true" className={`${mono} hidden pt-1 text-[13px] font-medium lg:block`}>//{s.step}</span>
               <div>
                 <h3 className="text-[17px] font-semibold leading-snug">
                   {s.href ? (
@@ -164,7 +164,7 @@ export default function AboutSection() {
         </ul>
       </Section>
 
-      <Section id="tools" title="What I build with" caption="From COBOL on IBM Z to agents on Claude Code.">
+      <Section id="tools" title="I build in Python, TypeScript and COBOL">
         <dl className="grid grid-cols-1 gap-x-12 gap-y-6 md:grid-cols-2">
           {skills.map(([group, items]) => (
             <div key={group} className="border-t border-black/[0.08] pt-4">
@@ -177,9 +177,9 @@ export default function AboutSection() {
 
       <section className="pt-24 sm:pt-32">
         <div className="rounded-[22px] bg-surface px-6 py-10 sm:px-12 sm:py-14">
-          <h2 className="text-[26px] font-semibold tracking-[-0.02em] sm:text-[32px]">Always happy to build something together.</h2>
-          <p className="mt-2 text-base text-ink-2 sm:text-[17px]">okeatilade@gmail.com</p>
-          <a href="mailto:okeatilade@gmail.com" className="mt-6 inline-flex min-h-11 items-center rounded-full bg-ink px-5 text-base font-medium text-white transition-colors hover:bg-black">
+          <h2 className="text-[24px] font-semibold leading-tight tracking-[-0.02em] sm:text-[32px]">Always happy to build something together.</h2>
+          <p className="mt-2 text-[17px] text-ink-2">okeatilade@gmail.com</p>
+          <a href="mailto:okeatilade@gmail.com" className="mt-6 inline-flex min-h-11 items-center rounded-full bg-ink px-5 text-[17px] font-medium text-white transition-colors hover:bg-black">
             Email me
           </a>
         </div>
