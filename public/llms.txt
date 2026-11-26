@@ -48,6 +48,7 @@ Atilade Gabriel Oke builds cool stuff for people and agents. Analyst, Data & AI 
 ## Pages
 - Projects and hackathons: https://atilade.uk/projects
 - About: https://atilade.uk/about
+- Resume (PDF): https://atilade.uk/Atilade_Oke_CV.pdf
 
 ## Skills
 - Languages: Python, C++, C, TypeScript, SQL, Bash, COBOL

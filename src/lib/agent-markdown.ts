@@ -258,20 +258,19 @@ function buildProjectsMarkdown() {
 }
 
 function buildResumeMarkdown() {
-  const resumePath = "https://linkedin.com/in/atiladeoke";
+  const pdf = toAbsoluteUrl("/Atilade_Oke_CV.pdf");
 
   return (
-    buildFrontmatter("Resume | Atilade Oke", "/resume", "Latest resume and download link for Atilade Oke.") +
+    buildFrontmatter("Resume | Atilade Oke", "/resume", "Atilade Oke's latest resume, as a PDF.") +
     [
       "# Resume",
       "",
-      "Atilade's full experience lives on LinkedIn.",
+      "The latest resume of Atilade Oke, updated Nov 2026.",
       "",
-      `- LinkedIn: ${resumePath}`,
+      `- PDF: ${pdf}`,
+      "- LinkedIn: https://linkedin.com/in/atiladeoke",
       "",
-      "## Notes",
-      "",
-      "The /resume page redirects to LinkedIn.",
+      "The page shows the PDF with buttons to download it or open it in a new tab.",
     ].join("\n")
   );
 }
